@@ -1,0 +1,88 @@
+.box-msg-intro {
+	background-color:rgba($verde, .35);
+	height: 70vh;
+	position: relative;
+	border-bottom: 2px solid $verde;
+
+	.vertical-center {
+		height: 45vh;
+	}
+
+	h1 {
+		position: absolute;
+		bottom: -44px;
+
+		span {
+			max-width: 450px;
+			position: relative;
+
+			&::before {
+				content: '';
+				height: 2px;
+				background-color: #ffffff;
+				width: 68%;
+				position: absolute;
+				bottom: 42px;
+				left: 50%;
+				margin-left: -34%;
+			}
+		}
+	}
+
+	h2 {
+		margin: 0 auto;
+		color: $verde;
+		font-size: 3rem;
+		line-height: 3.5rem;
+		font-weight: $light;
+
+		strong {
+			color: $verde;
+			font-weight: $extra-bold;
+		}
+
+		&.sub-tituto {
+			font-size: 1.5rem;
+			line-height: 1.8rem;
+		}
+	}
+}
+
+.cadastre-votar {	
+	float: right;
+	margin-top: 20px;
+
+	button {
+		margin-left: 15px;
+	}
+}
+
+.intro-inscricao {
+	.cadastre-candidata {
+		margin: 35px;
+		text-align: center;
+
+		a {
+			margin-left: 30px;
+			font-size: .8rem;
+
+			i {
+				opacity: .9;
+				padding-left: 5px;
+				position: relative;
+				top: 1px;
+			}
+
+			&:hover {
+				color: $rosa;
+				i {
+					color: $rosa;
+				}
+			}
+		}
+	}
+}
+
+form#inscricao {
+
+}

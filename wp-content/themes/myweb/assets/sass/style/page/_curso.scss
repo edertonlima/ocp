@@ -1,0 +1,29 @@
+.curso {
+	&.list-curso {
+		h2 {
+			font-size: 1.875rem;
+			line-height: 1.875rem;
+		}
+	}
+
+	.cont-curso {
+		p {
+			margin-top: 15px;
+		}
+	}
+
+	.data {
+		color: $azul-celeste;
+	}
+
+	.img-curso {
+		position: relative;
+	}
+
+	.nome-area {
+		background-color: $azul-celeste;
+		position: absolute;
+		right: 0;
+		top: -23px;
+	}
+}
