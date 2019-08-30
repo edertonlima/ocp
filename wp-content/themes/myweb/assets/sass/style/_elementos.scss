@@ -4,7 +4,8 @@ strong {
 
 h1 {
 	display: inline-block;
-	width: 75px;
+	width: 270px;
+	margin: 15px 0;
 	@include animacao();
 
 	a {
@@ -12,6 +13,7 @@ h1 {
 		@include animacao();
 
 		img {
+			width: 100%;
 			@include animacao;
 		}
 

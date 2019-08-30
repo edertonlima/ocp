@@ -1,5 +1,3 @@
-<?php include get_template_directory().'/login.php'; //include ('login.php'); ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -95,12 +93,13 @@
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />
 
 <!-- JQUERY -->
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.2.1.slim.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/popper.min.js"></script>
 
 
 <script type="text/javascript">
-	jQuery.noConflict();
+	//jQuery.noConflict();
 
 	/*jQuery(document).ready(function(){
 
@@ -167,25 +166,59 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 </head>
 <body <?php body_class(); ?>>
 
+	<?php /*
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.3&appId=179359752456763&autoLogAppEvents=1"></script>
+	*/ ?>
 
-	<header class="header" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-header.jpg');">
+	<header class="header">
 		<div class="container">
+			<?php /*
 			<a href="javascript:" class="menu-mobile"></a>
+			*/ ?>
 
 			<h1>
 				<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
-					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/logo-aeago.png" alt="<?php //the_field('titulo', 'option'); ?>">
+					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/ocp.jpg" alt="<?php //the_field('titulo', 'option'); ?>">
 				</a>
 			</h1>
 
-			<nav class="nav">
+			<?php get_template_part( 'nav-topo' ); ?>
+
+		</div>
+
+		<nav class="nav nav-principal">
+			<div class="container">
 				<ul>
 					<li class="">
-						<a href="<?php echo get_home_url(); ?>" title="HOME">HOME</a>
+						<a href="<?php echo get_home_url(); ?>" title="">INICIO</a>
 					</li>
 
+					<li class="">
+						<a href="<?php echo get_home_url(); ?>" title="">QUIÉNES SOMOS</a>
+					</li>
+
+					<li class="">
+						<a href="<?php echo get_home_url(); ?>" title="">NUESTRA HISTORIA</a>
+					</li>
+
+					<li class="">
+						<a href="<?php echo get_home_url(); ?>" title="">FUNCIONAMIENTO</a>
+					</li>
+
+					<li class="">
+						<a href="<?php echo get_home_url(); ?>" title="">SERVICIOS</a>
+					</li>
+
+					<li class="">
+						<a href="<?php echo get_home_url(); ?>" title="">APORTE A LA SOCIEDAD</a>
+					</li>
+
+					<li class="">
+						<a href="<?php echo get_home_url(); ?>" title="">APORTE AL PAIS</a>
+					</li>
+
+					<?PHP /*
 					<li class="submenu">
 						<a href="<?php //echo get_permalink(get_page_by_path('sobre')); ?>" title="SOBRE">SOBRE <i class="fas fa-chevron-down"></i></a>
 
@@ -250,15 +283,16 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 					<li class="busca">
 						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" class="" title="O QUE VOCÊ QUER BUSCAR?"><i class="fas fa-search"></i></a>
 					</li>
+					*/ ?>
 				</ul>
-			</nav>
+			</div>
+		</nav>
 
-		</div>
 	</header>
 
-	<?php get_template_part( 'breadcrumbs', get_post_format() ); ?>
+	<?php //get_template_part( 'breadcrumbs', get_post_format() ); ?>
 
-	<?php get_template_part( 'nav-associado', get_post_format() ); ?>
+	<?php //get_template_part( 'nav-associado', get_post_format() ); ?>
 
 	<?php if(!is_home()){ ?>
 

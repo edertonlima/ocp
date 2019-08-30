@@ -1,10 +1,10 @@
-$width: 1440px;
+$width: 1280px;
 $padding-container: 40px;
 $padding-col: 30px;
 
 $font-size: .87rem;
 
-$cor-txt: #333333;
+$cor-txt: #4a4a4a;
 
 /* CORES */
 $primaria: #007f3d;
@@ -32,8 +32,9 @@ $verde-limao: #b5bd00;
 $pink: #f4364c;
 
 $light: 300;
-$regular: 400;
+//$regular: 400;
 $medium: 500;
+$regular: $medium;
 $bold: 700;
 $extra-bold: 900;
 
