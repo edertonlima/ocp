@@ -92,12 +92,6 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />
 
-<!-- JQUERY -->
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.2.1.slim.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/popper.min.js"></script>
-
-
 <script type="text/javascript">
 	//jQuery.noConflict();
 
@@ -179,7 +173,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 
 			<h1>
 				<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
-					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/ocp.jpg" alt="<?php //the_field('titulo', 'option'); ?>">
+					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/ocp.png" alt="<?php //the_field('titulo', 'option'); ?>">
 				</a>
 			</h1>
 

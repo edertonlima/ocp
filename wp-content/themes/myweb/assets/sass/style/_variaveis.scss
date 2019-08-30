@@ -2,13 +2,16 @@ $width: 1280px;
 $padding-container: 40px;
 $padding-col: 30px;
 
-$font-size: .87rem;
+$font-size: .875rem;
 
 $cor-txt: #4a4a4a;
 
 /* CORES */
-$primaria: #007f3d;
-$secundaria: #f9a61a;
+$cor1: #007F3D;
+$cor2: #F9A61A;
+$verde-limao: #8CC63F;
+
+$bgescuro: #383838;
 
 $verde: #007f3d;
 $amarelo: #f5db00;
@@ -38,4 +41,4 @@ $regular: $medium;
 $bold: 700;
 $extra-bold: 900;
 
-$hSlide: 85vh;
+$hSlide: 400px;

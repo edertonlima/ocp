@@ -19,7 +19,6 @@
 		color: #ffffff;
 		font-weight: $regular;
 		padding: 0px 5px;
-		text-transform: uppercase;
 		@include animacao();
 
 		i {
@@ -29,10 +28,10 @@
 		}
 
 		&:hover, &.ativo {
-			color: $secundaria;
+			color: $cor2;
 
 			i {
-				color: $secundaria;
+				color: $cor2;
 			}
 		}
 	}
@@ -40,7 +39,7 @@
 	&.nav-principal {
 		width: 100%;
 		height: 30px;
-		background-color: $primaria;
+		background-color: $cor1;
 
 		ul {
 			width: 100%;
@@ -57,22 +56,22 @@
 		}
 
 		li {
-			border-left: 2px solid $primaria;
+			border-left: 2px solid $cor1;
 			padding: 0 15px;
 
 			a {
 				padding: 0 15px;
-				color: $primaria;
+				color: $cor1;
 
 				i {
-					color: $primaria;
+					color: $cor1;
 				}
 
 				&:hover, &.ativo {
-					color: $secundaria;
+					color: $cor2;
 
 					i {
-						color: $secundaria;
+						color: $cor2;
 					}
 				}
 			}
@@ -108,7 +107,7 @@
 
 				&:hover, &.ativo {
 					span {
-						color: $secundaria;
+						color: $cor2;
 					}
 				}
 			}
@@ -119,11 +118,50 @@
 			}
 
 			span {
+				font-weight: $regular;
 				vertical-align: middle;
 			}
 		}
 	}
+
+	&.nav-footer {
+		margin-top: 60px;
+
+		&.rede-social {
+			margin-top: 30px;
+		}
+
+		li {
+			display: block;
+			text-align: left;
+			margin: 0;
+			padding: 0;
+			line-height: normal;
+
+			a {
+				padding: 0;
+				font-size: $font-size;
+				line-height: $font-size+.25;
+				font-weight: $light;
+
+				i {
+					width: 22px;
+					//text-align: center;
+					color: $verde-limao;
+					padding-right: 5px;
+				}
+
+				&:hover, &.ativo {
+					color: $verde-limao;
+				}
+			}
+		}
+	}
 }
+
+
+// NAV FOOTER
+
 
 
 // MENU MOBILE

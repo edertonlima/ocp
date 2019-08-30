@@ -1,47 +1,80 @@
 <?php get_header(); ?>
 
-<section class="box-content padding-top-40">
-	<div class="container">
-		
-		<div class="row">
-			<div class="col-12">
-			
-							
-			</div>	
-		</div>
-
-	</div>
-</section>
-
-<?php /*
-<script type="text/javascript">
-	jQuery(document).ready(function(){	  
-		jQuery('.cadastro-candidata').click(function(){
-			jQuery('#cadastro-candidata').removeClass('off');
-		});
-
-		jQuery('.leia-regulamento').click(function(){
-			jQuery('#leia-regulamento').removeClass('off');
-		});
-
-		jQuery('.close-modal').click(function(){
-			jQuery('.modal').addClass('off');
-		});
-	});
-</script>
-
-*/ ?>
-<?php get_footer(); ?>
-
-<?php /*
-<!-- slide -->
-<section class="box-content box-slide">
+<!-- slide --> 
+<section class="box-content box-slide"> 
 	<div class="slide">
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	</ol>
+
+	<div class="carousel-inner">
+		<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
+		<img class="d-block w-100" src="..." alt="First slide">
+		</div>
+		<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
+		<img class="d-block w-100" src="..." alt="Second slide">
+		</div>
+		<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
+		<img class="d-block w-100" src="..." alt="Third slide">
+		</div>
+	</div>
+
+	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+
+<?php /*
+
 		<div class="carousel slide" data-ride="carousel" data-interval="6000" id="slide">
 
 			<div class="carousel-inner" role="listbox">
+<?php //for($i=0; $i < 3; $i++){ ?>
 
-				<?php if( have_rows('slide') ):
+
+				<div class="item <?php //if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
+
+					<div class="box-height">
+						<div class="box-texto">
+							
+							<p class="texto"><?php //the_sub_field('texto'); ?></p>
+							<?php //if(get_sub_field('sub_texto')){ ?>
+								<p class="sub-texto"><?php //the_sub_field('sub_texto'); ?></p>
+							<?php //} ?>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="item <?php //if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
+
+					<div class="box-height">
+						<div class="box-texto">
+							
+							<p class="texto"><?php //the_sub_field('texto'); ?></p>
+							<?php //if(get_sub_field('sub_texto')){ ?>
+								<p class="sub-texto"><?php //the_sub_field('sub_texto'); ?></p>
+							<?php //} ?>
+
+						</div>
+					</div>
+					
+				</div>
+
+<?php //} ?>
+
+				<?php /*if( have_rows('slide') ):
 					$slide = 0;
 					while ( have_rows('slide') ) : the_row();
 
@@ -66,26 +99,50 @@
 						<?php }
 
 					endwhile;
-				endif; ?>
+				endif;* ?>
 
 			</div>
 
 			<ol class="carousel-indicators">
 				
-				<?php for($i=0; $i<$slide; $i++){ ?>
-					<li data-target="#slide" data-slide-to="<?php echo $i; ?>" class="<?php if($i == 0){ echo 'active'; } ?>"></li>
-				<?php } ?>
+				<?php //for($i=0; $i<3; $i++){ ?>
+					<li data-target="#slide" data-slide-to="1<?php //echo $i; ?>" class="<?php //if($i == 0){ echo 'active'; } ?>"></li>
+				<?php //} ?>
 				
 			</ol>
 
-		</div>
-	</div>
+		</div> */?>
 
-	<a href="#continue_sonhando" class="link_ancora" title="Continue sonhando">
-		<i class="fa fa-angle-down" aria-hidden="true"></i>
-		<span>CONTINUE SONHANDO</span>
-	</a>
+	</div>
 </section>
+
+
+<section class="box-content">
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-12">
+			
+							
+			</div>	
+		</div>
+
+	</div>
+</section>
+
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){	  
+		
+		$('#myCarousel').on('slide.bs.carousel', function () {
+		  // do something…
+		})
+	});
+</script>
+
+<?php get_footer(); ?>
+
+<?php /*
 
 <section class="box-content box-content-blog">
 	<span id="continue_sonhando" class="link_page_ancora"></span>
