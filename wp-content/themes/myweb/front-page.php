@@ -4,75 +4,54 @@
 <section class="box-content box-slide"> 
 	<div class="slide">
 
+		<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="80000">
+			<ol class="carousel-indicators">
+				<li data-target="#slide-home" data-slide-to="0" class="active"></li>
+				<li data-target="#slide-home" data-slide-to="1"></li>
+				<li data-target="#slide-home" data-slide-to="2"></li>
+			</ol>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-	<ol class="carousel-indicators">
-		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-	</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
+				</div>
+				<div class="carousel-item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide-1.jpg');">
+					<span class="titulo-slide">sdjajdkajdlalkda</span>
+				</div>
+				<div class="carousel-item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide-2.jpg');">
+					<span class="titulo-slide">546556465465456</span>
+				</div>
+			</div>
 
-	<div class="carousel-inner">
-		<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-		<img class="d-block w-100" src="..." alt="First slide">
-		</div>
-		<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-		<img class="d-block w-100" src="..." alt="Second slide">
-		</div>
-		<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-		<img class="d-block w-100" src="..." alt="Third slide">
-		</div>
-	</div>
+			<div class="mask-slide"></div>
 
-	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	</a>
-	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	</a>
-</div>
+			<div class="text-item">
+					
+				<span id="txt-0" class="titulo-slide active">
+					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
+					<a href="#" class="link inline">Lea más</a>
+				</span>
+				<span id="txt-1" class="titulo-slide">
+					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
+					<a href="#" class="link inline">Lea más</a>
+				</span>		
+				<span id="txt-2" class="titulo-slide">
+					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
+					<a href="#" class="link inline">Lea más</a>
+				</span>
+
+			</div>
+
+			<a class="carousel-control-prev" href="#slide-home" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#slide-home" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
 
 <?php /*
-
-		<div class="carousel slide" data-ride="carousel" data-interval="6000" id="slide">
-
-			<div class="carousel-inner" role="listbox">
-<?php //for($i=0; $i < 3; $i++){ ?>
-
-
-				<div class="item <?php //if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-
-					<div class="box-height">
-						<div class="box-texto">
-							
-							<p class="texto"><?php //the_sub_field('texto'); ?></p>
-							<?php //if(get_sub_field('sub_texto')){ ?>
-								<p class="sub-texto"><?php //the_sub_field('sub_texto'); ?></p>
-							<?php //} ?>
-
-						</div>
-					</div>
-					
-				</div>
-
-				<div class="item <?php //if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-
-					<div class="box-height">
-						<div class="box-texto">
-							
-							<p class="texto"><?php //the_sub_field('texto'); ?></p>
-							<?php //if(get_sub_field('sub_texto')){ ?>
-								<p class="sub-texto"><?php //the_sub_field('sub_texto'); ?></p>
-							<?php //} ?>
-
-						</div>
-					</div>
-					
-				</div>
-
-<?php //} ?>
 
 				<?php /*if( have_rows('slide') ):
 					$slide = 0;
@@ -130,17 +109,41 @@
 	</div>
 </section>
 
+<?php get_footer(); ?>
 
 <script type="text/javascript">
-	jQuery(document).ready(function(){	  
-		
-		$('#myCarousel').on('slide.bs.carousel', function () {
-		  // do something…
-		})
+	$('#slide-home').on('slide.bs.carousel', function (e) {
+		$('.titulo-slide').removeClass('active');
+	});
+
+	$('#slide-home').on('slid.bs.carousel', function (e) {
+		$('#txt-'+e.to).addClass('active');
 	});
 </script>
 
-<?php get_footer(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php /*
 
