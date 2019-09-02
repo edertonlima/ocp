@@ -1,0 +1,58 @@
+.icon-page {
+	width: 100%;
+	//padding: 0 35px;
+	margin: 20px 0;
+	display: table;
+	@include box-sizing;
+
+	li {
+		display: table-cell;
+		padding: 0 35px;
+		@include box-sizing;
+
+		img {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.titulo {
+			border-bottom: 1px solid $cor-txt;
+			padding-bottom: 5px;
+			margin-bottom: 5px;
+			font-size: 1.625rem;
+			line-height: 1.625rem;
+			font-weight: $bold;
+			width: 100%;
+			display: block;
+
+			.num {
+				font-size: 2.375rem;
+				line-height: 2.375rem;
+				font-weight: $bold;
+			}
+		}
+	}
+
+	&.count-item-5 {
+		li {
+			width: 20%;
+		}
+	}
+}
+
+.link-mais {
+	a, i {
+		font-size: 1rem;
+		line-height: 1rem;
+	}
+
+	a {
+		&:hover, &:hover i {
+			color: $cor2;
+		}
+	}
+
+	i {
+		margin-right: 5px;
+	}
+}

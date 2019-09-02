@@ -1,0 +1,82 @@
+.prensa {
+
+	h3 {
+		margin-bottom: 10px;
+	}
+
+	&.prensa-list {
+		img {
+			display: block;
+			width: 100%;
+		}
+
+		.titulo-prensa {
+			display: block;
+			font-size: 1rem;
+			line-height: 1rem;
+			margin-top: 5px;
+			line-height: normal;
+		}
+
+		.data-prensa {
+			display: block;
+			padding: 0 10px;
+			line-height: 20px;
+			color: #ffffff;
+		}
+
+		.categoria-prensa {
+			display: block;
+			background: url('../images/ico-label.png') no-repeat 10px 2px;
+			text-transform: uppercase;
+			padding-left: 23px;
+			margin-top: 10px;
+		}
+	}	
+}
+
+
+.owl-carousel {
+	button {
+		height: auto;
+		line-height: normal!important;
+		background-color: transparent!important;
+	}
+
+	.owl-nav {
+		position: absolute;
+		top: -30px;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		button {
+			i {
+				font-size: 1.125rem;
+				color: $cor1;
+			}
+		}
+	}
+
+	.owl-dots {
+		position: absolute;
+		top: -20px;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		.owl-dot {
+			span{
+				width: 12px;
+				height: 12px;
+				margin: 0 5px;
+				border: 1px solid $cor-txt;
+				background-color: transparent;
+			}
+
+			&.active {
+				span {
+					background-color: rgba($cor-txt, .25);
+				}
+			}
+		}
+	}
+}

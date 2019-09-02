@@ -1,5 +1,8 @@
 form {
-	width: 100%;
+	width: 90%;
+	max-width: 480px;
+	margin: 0 auto;
+	@include box-sizing;
 	@include clear();
 
 	.obs {
@@ -14,6 +17,18 @@ form {
 	input, textarea {
 		max-width: 100%;
 		width: 100%;
+		border: 2px solid $cor1;
+		border-radius: 7px;
+
+		font-size: 1rem; 
+		color: $cor-txt;
+		font-weight: $light;
+		line-height: 36px;
+		background-color: #ffffff;
+		padding: 0 10px;
+		font-style: normal;
+		@include animacao;
+		@include box-sizing;
 
 		@include placeholder{
 			opacity: 1;
@@ -22,96 +37,69 @@ form {
 	}
 
 	input[type='text'], input[type='email'], input[type='password'] {
-		background-color: #ffffff;
-		font-size: 1rem; 
-		color: $cor-txt;
-		font-weight: $light;
-		line-height: 43px;
-		height: 43px;
-		border-bottom: 1px solid $cor-txt;
-		padding: 0 10px;
-		font-style: normal;
-		@include box-sizing;
+		height: 36px;		
 	}
 
 	textarea {
-		background-color: #ffffff;
-		font-size: 1rem; 
-		color: $cor-txt;
-		font-weight: $light;
-		border-bottom: 1px solid $cor-txt;
-		padding: 10px;
-		font-style: normal;
-		height: 95px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		height: 60px;
 		resize: vertical;
-		@include box-sizing;
 	}
 
 	fieldset {
-		margin-top: 30px;
+		margin-top: 15px;
 		width: 100%;
 		float: left;
-		clear: both;
+		//clear: both;
 
 		&:first-chid {
 			margin-top: 0;
 		}
-
-		&.col2 {
-			width: 48%;
-
-			&.right {
-				float: right;
-				clear: none;
-			}
-		}
 	}
 
+	&.form-busca {
+		fieldset {
+			padding-right: 50px!important;
+			position: relative;
+			margin: 0;
+			@include box-sizing;
 
-	&.news {
-		position: relative;
-		max-width: 450px;
-		margin: 0 auto;
+			input {
+				height: 40px;
+				line-height: 40px;
+				color: #ffffff;
+				background-color: $cor1;
+				border: none;
 
-		input {
-			background-color: transparent;
-			height: 63px;
-			border-color: $verde;
-			font-style: italic;
-			padding-right: 40px;
-		}
-
-		button.news {
-			background: transparent;
-			position: absolute;
-			top: 16px;
-			right: 12px;
-			width: 18px;
-			height: 29px;
-			@include animacao;
-
-			img {
-				width: 100%;
+				@include placeholder{
+					opacity: 0.75;
+					color: #ffffff;
+				}
 			}
 
-			&:hover {
-				opacity: .5;
+			button {
+				width: 40px;
+				height: 40px;
+				line-height: 46px;
+				text-align: center;
+				position: absolute;
+				right: 0;
+				top: 0;
+				padding: 0;
+				background-color: transparent;
+
+				i {
+					font-size: 2rem;
+					color: $cor1;
+				}
+
+				&:hover {
+					i {
+						color: $cor2;
+					}
+				}
 			}
-		}
-	}
-
-	&.form-contato {
-		clear: both;
-		margin: 30px 0 60px;
-
-		input, textarea {
-			padding-right: 20px;
-			padding-left: 20px;
-			background-color: $cinza;
-			font-size: 1rem;
-			font-style: italic;
-			margin-bottom: 20px;
-			color: #595A5C;
 		}
 	}
 }
@@ -137,6 +125,10 @@ button, input[type='submit'], .button {
 	cursor: pointer;
 	@include animacao;
 	@include box-sizing();
+
+	i {
+		@include animacao;
+	}
 
 	&:hover {
 		background-color: #ffffff;
@@ -165,43 +157,8 @@ button, input[type='submit'], .button {
 		text-transform: none;
 	}
 
-	&.associar-se {
-		&:hover {
-			background-color: $azul;
-			border-color: $azul;
-			color: #ffffff;
-		}
-	}
-
 	&.btn-full {
 		width: 100%;
-	}
-
-	&.enviar {
-		margin-right: auto;
-		margin-left: auto;
-		width: 220px;
-		display: block;
-	}
-
-	&.azul-celeste {
-		background-color: $azul-celeste;
-		color: #ffffff;
-		border-color: $azul-celeste;
-
-		&:hover {
-			background-color: darken($azul-celeste, 10%);
-		}
-
-		&.transparent {
-			color: $azul-celeste;
-			background: transparent;
-
-			&:hover {
-				background-color: $azul-celeste;
-				color: #ffffff;
-			}
-		}
 	}
 }
 

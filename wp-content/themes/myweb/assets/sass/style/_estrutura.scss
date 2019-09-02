@@ -95,7 +95,7 @@ body * {
 	@include box-sizing();
 	width: 100%;
 	position: relative;
-	padding: 100px 0;
+	padding: 20px 0;
 
 	&.box-slide {
 		position: relative;
@@ -103,62 +103,8 @@ body * {
 		padding: 0;
 	}
 
-	&.sombra {
-		background: url('../images/bg_sombra.png') repeat-x top left;
-	}
-
-	&.box-page-sobre {
-		padding: 50px 0;
-	}
-
-	&.box-sonhos {
-		padding-bottom: 60px;
-	}
-
-	&.box-content-blog {
-		.container {
-			max-width: 1200px;
-		}
-	}
-
-	.link_page_ancora {
-		position: relative;
-		top: -80px;
-	}
-
-	.link_ancora {
-		position: absolute;
-		bottom: 20px;
-		left: 50%;
-		margin-left: -85px;
-		display: block;
-		text-align: center;
-		width: 170px;
-		z-index: 999;
-		@include animacao;
-
-		span {
-			margin: 0 auto;
-			display: block;
-			font-size: 1rem;
-			line-height: 2rem;
-			color: #ffffff;
-		}
-
-		.fa {
-			color: #ffffff;
-			font-size: 2rem;
-			display: inline-block;
-			border: 1px solid #ffffff;
-			border-radius: 50%;
-			width: 35px;
-			height: 35px;
-			line-height: 35px;
-		}
-
-		&:hover {
-			opacity: .5;
-		}
+	&.bg-claro {
+		background-color: $bgclaro;
 	}
 
 	.content {

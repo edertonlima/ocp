@@ -92,6 +92,14 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />
 
+
+<?php if(!is_home()){ ?>
+	
+	<!-- CAROUSEL -->
+	<!--<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />-->
+
+<?php } ?>
+
 <script type="text/javascript">
 	//jQuery.noConflict();
 

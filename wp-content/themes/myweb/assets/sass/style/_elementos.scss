@@ -24,30 +24,26 @@ h1 {
 }
 
 h2 {
-	font-size: 3rem;
-	line-height: 50px;
-	position: relative;
-	text-transform: uppercase;
-	font-weight: $extra-bold;
+	display: block;
+	margin-bottom: 5px;
+	@include clear;
 
-	&.sub-tituto {
-		font-size: 1.25rem;
-		line-height: 2rem;
-		font-weight: $light;
-		text-transform: none;
-
-		a {
-			font-size: 1.25rem;
-			line-height: 2rem;
-			font-weight: $light;
-		}
+	span {
+		font-size: 1.5625rem;
+		line-height: 1.5625rem;
+		text-transform: uppercase;
+		font-weight: $bold;
+		border-bottom: 1px solid $cor-txt;
+		display: inline-block;
+		padding-bottom: 5px;
 	}
 }
 
 h3 {
-	font-weight: $regular;
-	font-size: $font-size;
-	line-height: $font-size+.25;
+	font-weight: $light;
+	font-size: 1.375rem;
+	line-height: 1.375rem+.25;
+	color: $cor1;
 }
 
 h4 {
@@ -83,58 +79,12 @@ p {
 	}
 
 	&.sub-tituto {
-		font-weight: $light;
-		font-size: 2.2rem;
-		line-height: 2.2rem;
+		font-size: 1rem;
+		line-height: 1rem;
 		width: 100%;
-		max-width: 490px;
+		max-width: 600px;
 		display: block;
 		margin: 0 auto;
-		text-align: center;
-
-		&.borda-efeito {
-			&::after {
-				content: '/ / / / / / / / / / / / / / / /';
-				display: block;
-				line-height: 40px;
-				color: $verde;
-				font-size: .5625rem;
-				text-align: center;
-				font-weight: $bold;
-				font-style: italic;
-			}
-		}
-
-		&.sub-titulo-icone {
-			text-transform: uppercase;
-
-			img {
-				display: inline;
-				height: 70px;
-				margin-right: 10px;
-				position: relative;
-				top: 15px;
-			}
-		}
-
-		&.text-content {
-			text-transform: none;
-			font-size: 1.225rem;
-			line-height: 1.5rem;
-			text-align: left;
-			max-width: 100%;
-			padding: 0 30px;
-			@include box-sizing;
-		}
-
-		&.text-content-medium {
-			font-size: 1.8rem;
-			line-height: 2rem;
-			max-width: 650px;
-			max-width: 650px;
-			padding: 0 30px;
-			@include box-sizing;
-		}
 	}
 
 	&.mini {

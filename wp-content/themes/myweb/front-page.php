@@ -95,17 +95,154 @@
 	</div>
 </section>
 
+<section class="box-content">
+	<div class="container">
+		<form action="<?php echo home_url(); ?>" class="form-busca" method="post">
+			<fieldset>
+				<input type="text" name="s" id="search" placeholder="Buscar en el sitio…">
+				<button type="submit" class="button"><i class="fas fa-search"></i></button>
+			</fieldset>
+
+			<?php /*if(is_search()){ ?>
+				<div class="col-6">
+					<span class="result">
+						<span><?php _e( 'Resultados da pesquisa encontrados para', 'locale' ); ?>: "<?php the_search_query(); ?></span>
+					</span>
+				</div>
+			<?php } */?>
+		</form>
+	</div>
+</section>
+
+<section class="box-content bg-claro prensa prensa-list">
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-12">
+
+				<h3>Notas de Prensa</h3>
+			
+				<div class="carousel-itens owl-carousel owl-theme owl-loaded">
+					<div class="owl-stage-outer">
+						<div class="owl-stage">
+
+<?php for ($i=0; $i < 3; $i++) { ?>
+
+							<div class="owl-item">
+								<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
+									<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/thumbs-prensa-1.jpg" alt="<?php //the_field('titulo', 'option'); ?>">
+								</a>
+								<span class="data-prensa" style="background-color: #0B7ABF">6 Mayo 2019</span>
+								<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
+									Emprendedores que evidencian que Ecuardo es un país de oportunidades
+								</a>
+								<span class="categoria-prensa" style="color: #0B7ABF">
+									PRODUCTIVIDAD
+								</span>
+							</div>
+
+							<div class="owl-item">
+								<a href="<?php echo get_home_url(); ?>" title="">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/thumbs-prensa-2.jpg" alt="">
+								</a>
+								<span class="data-prensa" style="background-color: #0B7ABF">28 Mayo 2019</span>
+								<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
+									250 estudiantes de Baeza recibieron atención odontológica
+								</a>
+								<span class="categoria-prensa" style="color: #0B7ABF">
+									PRODUCTIVIDAD
+								</span>
+							</div>
+
+							<div class="owl-item">
+								<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
+									<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/thumbs-prensa-3.jpg" alt="<?php //the_field('titulo', 'option'); ?>">
+								</a>
+								<span class="data-prensa" style="background-color: #0B7ABF">8 Abril 2019</span>
+								<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
+									Cooperación institucional sigue beneficiando a estudiantes en atención odontológica
+								</a>
+								<span class="categoria-prensa" style="color: #0B7ABF">
+									PRODUCTIVIDAD
+								</span>
+							</div>
+
+							<div class="owl-item">
+								<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
+									<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/thumbs-prensa-4.jpg" alt="<?php //the_field('titulo', 'option'); ?>">
+								</a>
+								<span class="data-prensa" style="background-color: #F9A61A">29 Abril 2019</span>
+								<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
+									OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional]
+								</a>
+								<span class="categoria-prensa" style="color: #F9A61A">
+									SALUD
+								</span>
+							</div>
+
+<?php } ?>
+
+						</div>
+					</div>
+				</div>
+							
+			</div>	
+		</div>
+
+	</div>
+</section>
+
 
 <section class="box-content">
 	<div class="container">
 		
 		<div class="row">
 			<div class="col-12">
-			
-							
-			</div>	
-		</div>
 
+				<h2 class="center"><span>OCP EN NÚMEROS</span></h2>
+				<p class="sub-tituto center">Transportamos el crudo de Ecuador y Colombia de manera responsable</p>
+
+				<ul class="icon-page count-item-5">
+					<li>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-01.png" align="">
+						<span class="titulo center cor3"><span class="num cor3">+1.500</span></span>
+						<p>buques cargados con crudo para exportación</p>
+					</li>
+
+					<li>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-02.png" align="">
+						<span class="titulo center cor2"><span class="num cor2">+16</span>mil</span>
+						<p>fuentes de empleo de tubería tiene el OCP creadas</p>
+					</li>
+
+					<li>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-03.png" align="">
+						<span class="titulo center cor4"><span class="num cor4">+16</span>mil</span>
+						<p>fuentes de empleo de tubería tiene el OCP creadas</p>
+					</li>
+
+					<li>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-04.png" align="">
+						<span class="titulo center"><span class="num">+16</span>mil</span>
+						<p>fuentes de empleo de tubería tiene el OCP creadas</p>
+					</li>
+
+					<li>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-05.png" align="">
+						<span class="titulo center verde-limao"><span class="num verde-limao">+16</span>mil</span>
+						<p>fuentes de empleo de tubería tiene el OCP creadas</p>
+					</li>
+				</ul>
+
+				<div class="link-mais center">
+					<a href="#" title="Conoce más de nuestros logros" class="link cor1">
+						<i class="fas fa-plus-circle cinza"></i> Conoce más de nuestros logros
+					</a>
+				</div>
+
+			</div>
+		</div>
+	
 	</div>
 </section>
 
@@ -121,7 +258,39 @@
 	});
 </script>
 
+<!-- CAROUSEL -->
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 
+<script type="text/javascript">
+	$('.carousel-itens').owlCarousel({
+		loop:false,
+		margin:30,
+		responsiveClass:true,
+		nav:true,
+		navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+		//rtl:true,
+		responsive:{
+			0:{
+				items:1,
+				nav:true
+			},
+			600:{
+				items:3,
+				nav:false
+			},
+			1000:{
+				items:4,
+				nav:true,
+				loop:false
+			}
+		}
+	})
+
+	var qtddot = $('.owl-dots').children().length;
+	qtddot = (((qtddot*22)/2)+10)+'px';
+	$('.owl-prev').css('margin-right',qtddot);
+	$('.owl-next').css('margin-left',qtddot);
+</script>
 
 
 

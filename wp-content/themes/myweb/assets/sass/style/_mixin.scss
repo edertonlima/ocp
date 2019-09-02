@@ -1,3 +1,11 @@
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 @mixin gradiente3($angulo,$opacity,$grad1, $grad2, $grad3) {
 	$angulo: $angulo+deg;
 	background: $grad1; /* For browsers that do not support gradients */
