@@ -47,7 +47,7 @@ function register_menu() {
 
 /* ADICIONA CLASSE */
 add_filter( 'body_class', function( $classes ) {
-    //return array_merge( $classes, array( 'page' ) );
+    return array_merge( $classes, array( 'page' ) );
 } );
 
 
@@ -178,25 +178,24 @@ function paginacao() {
 
 // NOVOS POST TYPES 
 
-// ASSOCIADOS
-/*
-add_action( 'init', 'create_post_type_associado' );
-function create_post_type_associado() {
+// SERVICIOS
+add_action( 'init', 'post_type_servicios' );
+function post_type_servicios() {
 
 	$labels = array(
-	    'name' => _x('Associados', 'post type general name'),
-	    'singular_name' => _x('Associado', 'post type singular name'),
-	    'add_new' => _x('Adicionar novo', 'Associado'),
-	    'add_new_item' => __('Addicionar novo Associado'),
-	    'edit_item' => __('Editar Associado'),
-	    'new_item' => __('Novo Associado'),
-	    'all_items' => __('Todos as Associados'),
-	    'view_item' => __('Visualizar Associado'),
-	    'search_items' => __('Procurar Associado'),
-	    'not_found' =>  __('Nenhum associado encontrado.'),
-	    'not_found_in_trash' => __('Nenhum associados encontrado na lixeira.'),
+	    'name' => _x('Servicios', 'post type general name'),
+	    'singular_name' => _x('Servicio', 'post type singular name'),
+	    'add_new' => _x('Adicionar novo', 'Post'),
+	    'add_new_item' => __('Addicionar novo Post'),
+	    'edit_item' => __('Editar Post'),
+	    'new_item' => __('Novo Post'),
+	    'all_items' => __('Todos as Posts'),
+	    'view_item' => __('Visualizar Post'),
+	    'search_items' => __('Procurar Post'),
+	    'not_found' =>  __('Nenhum post encontrado.'),
+	    'not_found_in_trash' => __('Nenhum post encontrado na lixeira.'),
 	    'parent_item_colon' => '',
-	    'menu_name' => 'Associados'
+	    'menu_name' => 'Servicios'
 	);
 	$args = array(
 	    'labels' => $labels,
@@ -213,8 +212,8 @@ function create_post_type_associado() {
 	    'supports' => array('title','thumbnail','excerpt')
 	  );
 
-    register_post_type( 'associado', $args );
-}*/
+    register_post_type( 'servicios', $args );
+}
 
 // FORUM
 /*add_action( 'init', 'create_post_type_forum' );

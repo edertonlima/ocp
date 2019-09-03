@@ -4,7 +4,7 @@
 <section class="box-content box-slide"> 
 	<div class="slide">
 
-		<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="80000">
+		<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="8000">
 			<ol class="carousel-indicators">
 				<li data-target="#slide-home" data-slide-to="0" class="active"></li>
 				<li data-target="#slide-home" data-slide-to="1"></li>
@@ -15,26 +15,24 @@
 				<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
 				</div>
 				<div class="carousel-item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide-1.jpg');">
-					<span class="titulo-slide">sdjajdkajdlalkda</span>
 				</div>
 				<div class="carousel-item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide-2.jpg');">
-					<span class="titulo-slide">546556465465456</span>
 				</div>
 			</div>
 
-			<div class="mask-slide"></div>
+			<div class="mask-slide cor2"></div>
 
 			<div class="text-item">
 					
-				<span id="txt-0" class="titulo-slide active">
+				<span id="txt-0" class="titulo-slide bottom active">
 					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
 					<a href="#" class="link inline">Lea más</a>
 				</span>
-				<span id="txt-1" class="titulo-slide">
+				<span id="txt-1" class="titulo-slide bottom">
 					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
 					<a href="#" class="link inline">Lea más</a>
 				</span>		
-				<span id="txt-2" class="titulo-slide">
+				<span id="txt-2" class="titulo-slide bottom">
 					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
 					<a href="#" class="link inline">Lea más</a>
 				</span>

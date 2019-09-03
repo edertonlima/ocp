@@ -24,6 +24,10 @@ h1 {
 }
 
 h2 {
+	font-size: 2rem;
+	line-height: 1.5625rem;
+	text-transform: uppercase;
+	font-weight: $bold;
 	display: block;
 	margin-bottom: 5px;
 	@include clear;
@@ -47,7 +51,10 @@ h3 {
 }
 
 h4 {
-
+	font-weight: $regular;
+	font-size: $font-size;
+	line-height: $font-size+.25;
+	color: $cor-txt;
 }
 
 h5 {
@@ -82,7 +89,16 @@ p {
 		font-size: 1rem;
 		line-height: 1rem;
 		width: 100%;
-		max-width: 600px;
+		max-width: 450px;
+		display: block;
+		margin: 0 auto;
+	}
+
+	&.text-destaque {
+		font-size: 1.125rem;
+		line-height: 1.125rem;
+		width: 100%;
+		max-width: 650px;
 		display: block;
 		margin: 0 auto;
 	}
@@ -122,6 +138,10 @@ p {
 
 .no-margim {
 	margin: 0!important;
+}
+
+.margin-top-10 {
+	margin-top: 10px;
 }
 
 .margin-top-15 {

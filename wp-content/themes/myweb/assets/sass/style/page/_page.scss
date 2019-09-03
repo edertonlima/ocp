@@ -46,13 +46,58 @@
 		line-height: 1rem;
 	}
 
-	a {
+	.cor1 {
 		&:hover, &:hover i {
 			color: $cor2;
 		}
 	}
 
+	.cor3 {
+		&:hover, &:hover i {
+			color: $cor1;
+		}
+	}
+
 	i {
 		margin-right: 5px;
+	}
+}
+
+.block-center {
+	width: 100%;
+	max-width: 650px;
+	display: table;
+	margin: 20px auto 0;
+
+	.item-block {
+		display: table-cell;
+		padding: 40px;
+		@include box-sizing;
+	}
+
+	.item-margin {
+		width: 90px;
+	}
+
+	.titulo {
+		font-size: 1.25rem;
+		line-height: 1.25rem;
+		font-weight: $bold;
+		color: $cor-txt;
+	}
+
+	.link-mais {
+		i {
+			display: block;
+		}
+	}
+}
+
+
+.iframe-video {
+	width: 100%;
+	
+	img {
+		width: 100%;
 	}
 }

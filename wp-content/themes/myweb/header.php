@@ -192,32 +192,32 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 		<nav class="nav nav-principal">
 			<div class="container">
 				<ul>
-					<li class="">
-						<a href="<?php echo get_home_url(); ?>" title="">INICIO</a>
+					<li>
+						<a href="<?php echo get_home_url(); ?>" title="" class="<?php if ( is_front_page() ) : echo 'ativo'; endif ?>">INICIO</a>
 					</li>
 
 					<li class="">
-						<a href="<?php echo get_home_url(); ?>" title="">QUIÉNES SOMOS</a>
+						<a href="<?php echo get_permalink(get_page_by_path('quienes-somos')); ?>" title="" class="<?php if ( is_page('quienes-somos') ) : echo 'ativo'; endif ?>">QUIÉNES SOMOS</a>
 					</li>
 
 					<li class="">
-						<a href="<?php echo get_home_url(); ?>" title="">NUESTRA HISTORIA</a>
+						<a href="<?php echo get_permalink(get_page_by_path('nuestra-historia')); ?>" title="" class="<?php if ( is_page('nuestra-historia') ) : echo 'ativo'; endif ?>">NUESTRA HISTORIA</a>
 					</li>
 
 					<li class="">
-						<a href="<?php echo get_home_url(); ?>" title="">FUNCIONAMIENTO</a>
+						<a href="<?php echo get_permalink(get_page_by_path('funcionamiento')); ?>" title="" class="<?php if ( is_page('funcionamiento') ) : echo 'ativo'; endif ?>">FUNCIONAMIENTO</a>
 					</li>
 
 					<li class="">
-						<a href="<?php echo get_home_url(); ?>" title="">SERVICIOS</a>
+						<a href="<?php echo get_home_url(); ?>/servicios" title="" class="<?php if ( is_archive('servicios') ) : echo 'ativo'; endif ?>">SERVICIOS</a>
 					</li>
 
 					<li class="">
-						<a href="<?php echo get_home_url(); ?>" title="">APORTE A LA SOCIEDAD</a>
+						<a href="<?php echo get_home_url(); ?>" title="" class="<?php if ( is_front_page() ) : echo 'ativo'; endif ?>">APORTE A LA SOCIEDAD</a>
 					</li>
 
 					<li class="">
-						<a href="<?php echo get_home_url(); ?>" title="">APORTE AL PAIS</a>
+						<a href="<?php echo get_home_url(); ?>" title="" class="<?php if ( is_front_page() ) : echo 'ativo'; endif ?>">APORTE AL PAIS</a>
 					</li>
 
 					<?PHP /*

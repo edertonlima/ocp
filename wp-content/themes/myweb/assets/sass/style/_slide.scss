@@ -16,7 +16,7 @@
 		li {
 			width: 17px;
 			height: 17px;
-			border: 1px solid #ffffff;
+			border: 2px solid #ffffff;
 			border-radius: 50%;
 			box-shadow: 1px;
 			cursor: pointer;
@@ -36,13 +36,36 @@
 		&:before, &:after {
 			content: '';
 			height: 100%;
-			background-color: $cor2;
 			display: inline-block;
+		}
+
+		&.cor1 {
+			&:before, &:after {
+				background-color: $cor1;
+			}
+		}
+
+		&.cor2 {
+			&:before, &:after {
+				background-color: $cor2;
+			}
+		}
+
+		&.bgescuro {
+			&:before, &:after {
+				background-color: $bgescuro;
+			}
 		}
 
 		&:before {
 			width: 35%;
 			padding-left: 10%;
+		}
+
+		&.lg {
+			&:before {
+				width: 40%;
+			}
 		}
 
 		&:after {
@@ -60,7 +83,13 @@
 		left: 0;
 		top: 0;
 
+		&.lg {
+			width: 40%;
+			padding: 0 5%;
+		}
+
 		.titulo-slide {
+			display: block;
 			font-size: 1.75rem;
 			line-height: 2.5rem;
 			font-weight: $regular;
@@ -72,9 +101,16 @@
 			-o-transition: opacity 1s ease-in-out;
 			transition: opacity 1s ease-in-out;
 
-			position: absolute;
-			bottom: 50px;
-			z-index: 1;
+			&.bottom {
+				position: absolute;
+				bottom: 50px;
+				z-index: 1;
+			}
+
+			h2 {
+				color: #ffffff;
+				margin-bottom: 25px;
+			}
 
 			a {
 				display: block;
@@ -91,6 +127,41 @@
 			&.active {
 				opacity: 1;
 				z-index: 2;
+			}
+		}
+
+		&.text-fixo {
+			.titulo-slide {
+				font-size: 1.5rem;
+				line-height: 1.5rem;
+
+				p {
+					font-size: 1.25rem;
+					line-height: 1.25rem;
+					font-weight: $regular;
+					color: #ffffff;
+					padding-bottom: 10px;
+
+					&:last-child {
+						padding-bottom: 0;
+					}
+				}
+			}
+		}
+
+		&.mini {
+			.titulo-slide {
+				h2 {
+					font-size: 1.25rem;
+					line-height: 1.25rem;
+					font-weight: $regular;
+				}
+
+				p {
+					font-size: 1rem;
+					line-height: 1rem+.25;
+					font-weight: $light;
+				}
 			}
 		}
 	}
