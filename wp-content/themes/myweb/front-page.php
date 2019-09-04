@@ -24,15 +24,15 @@
 
 			<div class="text-item">
 					
-				<span id="txt-0" class="titulo-slide bottom active">
+				<span id="txt-0" class="titulo-slide grande light bottom active">
 					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
 					<a href="#" class="link inline">Lea más</a>
 				</span>
-				<span id="txt-1" class="titulo-slide bottom">
+				<span id="txt-1" class="titulo-slide grande light bottom">
 					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
 					<a href="#" class="link inline">Lea más</a>
 				</span>		
-				<span id="txt-2" class="titulo-slide bottom">
+				<span id="txt-2" class="titulo-slide grande light bottom">
 					OCP Ecuador promueve prácticas a favor de la seguridad y salud ocupacional
 					<a href="#" class="link inline">Lea más</a>
 				</span>
@@ -215,25 +215,25 @@
 
 					<li>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-03.png" align="">
-						<span class="titulo center cor4"><span class="num cor4">+16</span>mil</span>
-						<p>fuentes de empleo de tubería tiene el OCP creadas</p>
+						<span class="titulo center cor4"><span class="num cor4">485</span>km</span>
+						<p>de tubería tiene el OCP</p>
 					</li>
 
 					<li>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-04.png" align="">
-						<span class="titulo center"><span class="num">+16</span>mil</span>
-						<p>fuentes de empleo de tubería tiene el OCP creadas</p>
+						<span class="titulo center"><span class="num">815</span>millones</span>
+						<p>barriles de crudo transportados desde el 2003</p>
 					</li>
 
 					<li>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-05.png" align="">
-						<span class="titulo center verde-limao"><span class="num verde-limao">+16</span>mil</span>
-						<p>fuentes de empleo de tubería tiene el OCP creadas</p>
+						<span class="titulo center verde-limao"><span class="num verde-limao">42</span>millones</span>
+						<p>de dólares invertidos en 750 proyectos de Responsabilidas Social</p>
 					</li>
 				</ul>
 
 				<div class="link-mais center">
-					<a href="#" title="Conoce más de nuestros logros" class="link cor1">
+					<a href="<?php echo get_home_url(); ?>/proyectos" title="Conoce más de nuestros logros" class="link cor1">
 						<i class="fas fa-plus-circle cinza"></i> Conoce más de nuestros logros
 					</a>
 				</div>

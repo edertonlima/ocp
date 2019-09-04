@@ -107,6 +107,15 @@
 				z-index: 1;
 			}
 
+			&.grande {
+				font-size: 2.5rem;
+				line-height: 2.75rem;
+			}
+
+			&.light {
+				font-weight: $light;
+			}
+
 			h2 {
 				color: #ffffff;
 				margin-bottom: 25px;
@@ -115,7 +124,7 @@
 			a {
 				display: block;
 				margin-top: 10px;
-				font-size: 1.5rem;
+				font-size: 1.75rem;
 				line-height: 2.25rem;
 				color: #ffffff;
 

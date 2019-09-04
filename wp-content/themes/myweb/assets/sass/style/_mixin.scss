@@ -105,3 +105,9 @@
 	&::-moz-placeholder          {@content}
 	&:-ms-input-placeholder      {@content}
 }
+
+@mixin grayscale($value) {
+    -webkit-filter: #{"grayscale(#{$value})"};
+    -moz-filter: #{"grayscale(#{$value})"};
+    filter:#{"grayscale(#{$value})"};
+}

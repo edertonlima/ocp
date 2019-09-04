@@ -215,24 +215,25 @@ function post_type_servicios() {
     register_post_type( 'servicios', $args );
 }
 
-// FORUM
-/*add_action( 'init', 'create_post_type_forum' );
-function create_post_type_forum() {
+
+// PROYECTOS
+add_action( 'init', 'create_post_type_proyectos' );
+function create_post_type_proyectos() {
 
 	$labels = array(
-	    'name' => _x('Forum', 'post type general name'),
-	    'singular_name' => _x('Forum', 'post type singular name'),
-	    'add_new' => _x('Adicionar novo', 'Post'),
-	    'add_new_item' => __('Addicionar novo Post'),
-	    'edit_item' => __('Editar Post'),
-	    'new_item' => __('Novo Post'),
-	    'all_items' => __('Todos as Posts'),
-	    'view_item' => __('Visualizar Post'),
-	    'search_items' => __('Procurar Post'),
-	    'not_found' =>  __('Nenhum post encontrado.'),
-	    'not_found_in_trash' => __('Nenhum post encontrado na lixeira.'),
+	    'name' => _x('Proyectos', 'post type general name'),
+	    'singular_name' => _x('Proyectos', 'post type singular name'),
+	    'add_new' => _x('Adicionar novo', 'Proyecto'),
+	    'add_new_item' => __('Adicionar novo'),
+	    'edit_item' => __('Editar'),
+	    'new_item' => __('Novo Proyecto'),
+	    'all_items' => __('Todos as Proyectos'),
+	    'view_item' => __('Visualizar proyecto'),
+	    'search_items' => __('Procurar Proyecto'),
+	    'not_found' =>  __('Nenhum proyecto encontrado.'),
+	    'not_found_in_trash' => __('Nenhum proyecto encontrado na lixeira.'),
 	    'parent_item_colon' => '',
-	    'menu_name' => 'Forum'
+	    'menu_name' => 'Proyectos'
 	);
 	$args = array(
 	    'labels' => $labels,
@@ -240,21 +241,27 @@ function create_post_type_forum() {
 	    'publicly_queryable' => true,
 	    'show_ui' => true,
 	    'show_in_menu' => true,
-	    'rewrite' => true,
+
+		'rewrite'=> [
+			'slug' => 'proyectos',
+			"with_front" => true,
+		],
+
+		"cptp_permalink_structure" => "/%categoria_proyectos%/%postname%/",
+
 	    'capability_type' => 'post',
 	    'has_archive' => true,
-	    'hierarchical' => false,
+	    'hierarchical' => true,
 	    'menu_position' => null,
-	    'menu_icon' => 'dashicons-format-chat',
-	    'supports' => array('title','excerpt','editor')
+	    'menu_icon' => 'dashicons-tag',
+	    'supports' => array('title','excerpt','editor','thumbnail')
 	  );
 
-    register_post_type( 'forum', $args );
+    register_post_type( 'proyectos', $args );
 }
 
-// CATEGORIA FORUM
-add_action( 'init', 'create_taxonomy_categoria_forum' );
-function create_taxonomy_categoria_forum() {
+add_action( 'init', 'create_taxonomy_categoria_proyectos' );
+function create_taxonomy_categoria_proyectos() {
 
 	$labels = array(
 	    'name' => _x( 'Categoria', 'taxonomy general name' ),
@@ -270,21 +277,20 @@ function create_taxonomy_categoria_forum() {
 	    'menu_name' => __( 'Categoria' ),
 	);
 
-    register_taxonomy( 'categoria_forum', array( 'forum' ), array(
+    register_taxonomy( 'categoria_proyectos', array( 'proyectos' ), array(
         'hierarchical' => true,
         'labels' => $labels,
         'show_ui' => true,
         'show_admin_column' => true,
         'show_in_tag_cloud' => true,
         'query_var' => true,
-		'has_archive' => 'forum',
 		'rewrite' => array(
-		    'slug' => 'forum',
-		    'with_front' => false,
-			),
+		    'slug' => 'proyectos',
+		    'with_front' => true,
+			)
         )
     );
-}*/
+}
 
 
 

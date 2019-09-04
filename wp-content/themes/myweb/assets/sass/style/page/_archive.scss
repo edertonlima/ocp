@@ -1,0 +1,51 @@
+.list-category {
+	display: block;
+	margin: 20px 0;
+	text-align: center;
+
+	li {
+		padding: 0 10px;
+		display: inline-block;
+
+		a {
+			padding: 5px;
+			display: table;
+
+			img, span {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			img {
+				width: 40px;
+				margin-right: 2px;
+			}
+
+			span {
+				font-size: 1.125rem;
+			}
+		}
+
+		&.off {
+			a {
+				@include grayscale(100%);
+				transition: all 200ms ease-in-out;
+
+				&:hover {
+					@include grayscale(0);
+				}
+			}
+		}
+	}
+
+	&.sala-prensa {
+		li {
+			a {
+				img {
+					width: 26px;
+				}
+			}
+		}
+
+	}
+}

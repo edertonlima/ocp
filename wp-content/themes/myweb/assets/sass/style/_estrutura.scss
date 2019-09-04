@@ -6,11 +6,13 @@ body {
 	position: relative;
 	min-height: 100vh;
 	//min-width: $width;
+	background: #ffffff;
 }
 
 body * {
 	font-family: $font-family;
 	color: $cor-txt;
+	line-height: $font-size+.25;
 	font-weight: $light;
 	font-size: $font-size; 
 }
@@ -104,7 +106,30 @@ body * {
 	}
 
 	.content {
-		padding: 60px 0;
+		width: 100%;
+		max-width: 650px;
+		display: block;
+		margin: 0 auto;
+
+		ul {
+			margin-top: 15px;
+			li {
+				font-size: 1.125rem;
+				line-height: 1.125rem;
+				font-style: italic;
+				color: darken($cor-txt, 20%);
+			}
+		}
+
+		p {
+			font-size: 1.125rem;
+			line-height: 1.125rem;
+			margin-top: 15px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
 	}
 }
 

@@ -1,10 +1,10 @@
 <nav class="nav nav-topo">
 	<ul>
 		<li class="rede-social">
-			<a href="<?php echo get_home_url(); ?>" title=""><i class="fab fa-facebook-f"></i></a>
+			<a href="https://www.facebook.com/ocpecuadorsa " title=""><i class="fab fa-facebook-f"></i></a>
 		</li>
 		<li class="rede-social">
-			<a href="<?php echo get_home_url(); ?>" title=""><i class="fab fa-youtube"></i></a>
+			<a href="https://www.youtube.com/user/ocpecuador" title=""><i class="fab fa-youtube"></i></a>
 		</li>
 		<li class="rede-social last-rede-social">
 			<a href="<?php echo get_home_url(); ?>" title=""><i class="fab fa-twitter"></i></a>
@@ -14,10 +14,10 @@
 			<a href="<?php echo get_home_url(); ?>" title="">SALA DE CLIENTES</a>
 		</li>
 		<li class="">
-			<a href="<?php echo get_home_url(); ?>" title="">SALA DE PRENSA</a>
+			<a href="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" title="" class="<?php if ( is_page('sala-de-prensa') ) : echo 'ativo'; endif ?>">SALA DE PRENSA</a>
 		</li>
 		<li class="">
-			<a href="<?php echo get_home_url(); ?>" title="">CONTÁCTENOS</a>
+			<a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" title="" class="<?php if ( is_page('contactenos') ) : echo 'ativo'; endif ?>">CONTÁCTENOS</a>
 		</li>
 	</ul>
 
