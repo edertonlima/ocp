@@ -24,7 +24,7 @@
 	li {
 		position: relative;
 		padding: 5px 0 5px 18px;
-		line-height: $font-size+.1;
+		line-height: 0.4rem;
 
 		&:before {
 			top: 14px;
@@ -57,6 +57,7 @@
 		span {
 			font-weight: $light;
 			font-size: .75rem;
+			line-height: .75rem;
 			//line-height: .75rem;
 			//line-height: $font-size+.25;
 			color: $cor-txt;
@@ -84,6 +85,28 @@
 
 				&.far {
 					display: none;
+				}
+			}
+		}
+	}
+}
+
+
+.slide {
+	.text-item {
+		&.item-nuestra-historia {
+			padding: 0 30px;
+
+			.titulo-slide {
+				h2 {
+					color: $cor1;
+					font-weight: $bold;
+					line-height: 1.5rem;
+					text-transform: none;
+				}
+
+				p {
+					font-size: .85rem;
 				}
 			}
 		}

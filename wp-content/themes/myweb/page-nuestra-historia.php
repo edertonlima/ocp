@@ -38,19 +38,70 @@
 		<div class="nav-linha-tempo">
 			<h4>LINHA DE TEMPO</h4>
 			<ul>
-				<?php for($i = 0; $i <= 10; $i++){ ?>
-					<li id="btn-item-<?php echo $i; ?>">
+							
+				<?php if( have_rows('nuestra-historia') ):
+					while ( have_rows('nuestra-historia') ) : the_row(); ?>
+
+					<li id="btn-item-<?php the_sub_field('ano-nuestra-historia'); ?>">
 						<i class="fas fa-circle"></i>
 						<i class="far fa-circle"></i>
-						<span>200<?php echo $i; ?></span>
-						<span class="titulo"> - Construcción del OCP</span>
+						<span><?php the_sub_field('ano-nuestra-historia'); ?></span>
+						<span class="titulo"> - <?php the_sub_field('titulo-nuestra-historia'); ?></span>
 					</li>
-				<?php } ?>
+
+					<?php endwhile;
+				endif; ?>
+
 			</ul>
 		</div>
 
 
-<?php for($i = 0; $i <= 10; $i++){ ?>
+<?php if( have_rows('nuestra-historia') ):
+	while ( have_rows('nuestra-historia') ) : the_row(); ?>
+
+		<section class="box-content no-padding-top" id="item-<?php the_sub_field('ano-nuestra-historia'); ?>"> 
+			<div class="container">
+				<div class="row">
+					<div class="col-m-1 col-11">
+
+						<div class="slide">
+							<div id="slide-<?php the_sub_field('ano-nuestra-historia'); ?>" class="carousel slide" data-ride="carousel" data-interval="4000">
+								<div class="carousel-inner">
+
+									<?php $images = get_sub_field('imagens-nuestra-historia');
+									if( $images ): 
+										$i = 0;
+										foreach( $images as $image ): $i = $i+1; ?>
+
+											<div class="carousel-item <?php if($i == 1){ echo 'active'; } ?>" style="background-image: url('<?php echo $image['url']; ?>');">
+											</div>
+
+										<?php endforeach;
+									endif; ?>
+								</div>
+								<div class="mask-slide bgescuro lg"></div>
+								<div class="text-item text-fixo lg mini item-nuestra-historia">		
+									<div class="vertical-center">
+										<div class="content-vertical">
+											<span class="titulo-slide justify active">
+												<h2 class="center"><?php the_sub_field('ano-nuestra-historia'); ?><br><?php the_sub_field('titulo-nuestra-historia'); ?></h2>
+												<?php the_sub_field('texto-nuestra-historia'); ?>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<?php endwhile;
+endif; ?>
+
+<?php /*for($i = 0; $i <= 10; $i++){ /* ?>
 
 		<section class="box-content no-padding-top" id="item-<?php echo $i; ?>"> 
 			<div class="container">
@@ -85,7 +136,7 @@
 				</div>
 			</div>
 		</section>
-<?php } ?>
+<?php }*/ ?>
 
 <?php /*
 					<div class="spacer s1" id="item-<?php echo $i; ?>">
@@ -116,12 +167,15 @@
 <script>
 	var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 400}});
 
-	<?php for($i = 0; $i <= 10; $i++){ ?>
-		new ScrollMagic.Scene({triggerElement: "#item-<?php echo $i; ?>"})
-			.setClassToggle("#btn-item-<?php echo $i; ?>", "active") // add class toggle
-			//.addIndicators() // add indicators (requires plugin)
-			.addTo(controller);
-	<?php } ?>
+	<?php if( have_rows('nuestra-historia') ):
+		while ( have_rows('nuestra-historia') ) : the_row(); ?>
+
+			new ScrollMagic.Scene({triggerElement: "#item-<?php the_sub_field('ano-nuestra-historia'); ?>"})
+				.setClassToggle("#btn-item-<?php the_sub_field('ano-nuestra-historia'); ?>", "active") // add class toggle
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		<?php endwhile;
+	endif; ?>
 
 	top_footer = jQuery('.footer').position();
 	height_linha = jQuery('.nav-linha-tempo').height();
