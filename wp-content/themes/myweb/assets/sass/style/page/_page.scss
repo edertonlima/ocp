@@ -1,14 +1,14 @@
 .icon-page {
 	width: 100%;
 	//padding: 0 35px;
-	margin: 20px 0;
+	margin: 50px 0 0;
 	display: table;
 	@include box-sizing;
 
 	li {
 		display: table-cell;
 		text-align: center;
-		padding: 0 35px;
+		padding: 0 30px;
 		@include box-sizing;
 
 		img {
@@ -19,24 +19,27 @@
 		}
 
 		.titulo {
-			border-bottom: 1px solid $cor-txt;
-			padding-bottom: 5px;
-			margin-bottom: 5px;
 			font-size: 1.625rem;
 			line-height: 1.625rem;
 			font-weight: $bold;
 			width: 100%;
 			display: block;
+			margin: 40px 0 15px;
 
 			.num {
-				font-size: 2.375rem;
-				line-height: 2.375rem;
-				font-weight: $bold;
+				font-size: 2.75rem;
+				line-height: 2.75rem;
+				font-weight: $regular;
 			}
 		}
 
 		p {
 			text-align: left;
+
+			&.destaque {
+				text-transform: uppercase;
+				padding: 0 20px;
+			}
 		}
 
 		&.info-dados {
@@ -70,6 +73,26 @@
 			width: 25%;
 		}
 	}
+
+	&.itens-style-2 {
+		padding: 0 80px;
+
+		li {
+			padding: 0 50px;
+
+			.vertical-center {
+				height: 50px;
+				overflow: hidden;
+				margin: 40px 0 15px;
+			}
+			.titulo {
+				margin: 0;
+				font-size: 1.125rem;
+				line-height: 1.5rem;
+				padding: 0;
+			}
+		}
+	}
 }
 
 .link-mais {
@@ -93,11 +116,25 @@
 	i {
 		margin-right: 5px;
 	}
+
+	.link-bloco {
+		border: 1px solid $cor3;
+		line-height: 36px;
+		border-radius: 20px;
+		padding: 0 15px;
+		font-weight: $bold;
+		color: $cor3;
+
+		&:hover {
+			background-color: $cor3;
+			color: #ffffff;
+		}
+	}
 }
 
 .block-center {
 	width: 100%;
-	max-width: 650px;
+	//max-width: 650px;
 	display: table;
 	margin: 20px auto 0;
 
@@ -116,10 +153,24 @@
 		line-height: 1.25rem;
 		font-weight: $bold;
 		color: $cor-txt;
+		max-width: 260px;
+		display: block;
+		width: 100%;
+		margin: 0 auto;
 	}
 
 	.link-mais {
+		a {
+			max-width: 260px;
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+			line-height: 1.5rem;
+		}
+
 		i {
+			font-size: 1.125rem;
+			margin: 20px 0;
 			display: block;
 		}
 	}

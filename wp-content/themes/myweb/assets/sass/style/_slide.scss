@@ -78,7 +78,7 @@
 	.text-item {
 		width: 35%;
 		height: $hSlide;
-		padding-left: 10%;
+		padding-left: 5%;
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -103,13 +103,13 @@
 
 			&.bottom {
 				position: absolute;
-				bottom: 50px;
+				bottom: 60px;
 				z-index: 1;
 			}
 
 			&.grande {
-				font-size: 2.5rem;
-				line-height: 2.75rem;
+				font-size: 2.25rem;
+				line-height: 2.5rem;
 			}
 
 			&.light {
@@ -124,9 +124,10 @@
 			a {
 				display: block;
 				margin-top: 10px;
-				font-size: 1.75rem;
+				font-size: 1.5rem;
 				line-height: 2.25rem;
 				color: #ffffff;
+				font-weight: $regular;
 
 				&:hover {
 					color: $cor1;
@@ -172,6 +173,14 @@
 					font-weight: $light;
 				}
 			}
+		}
+	}
+}
+
+.slide {
+	&.slide-quienes-somos {
+		.mask-slide {
+			opacity: .75;
 		}
 	}
 }

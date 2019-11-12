@@ -1,9 +1,21 @@
 .nav-linha-tempo {
 	position: fixed;
-	top: 150px;
-	left: 30px;
+	top: 200px;
+	left: 0px;
 	z-index: 9999;
-	width: 130px;
+	width: 180px;
+	padding: 30px 25px;
+	background-color: #ffffff;
+	@include animacao-slow;
+
+	&.linha-tempo-bottom {
+		position: absolute;
+		margin: 0;
+	}
+
+	h4 {
+		font-weight: $light;
+	}
 
 	ul {
 		margin-top: 5px;
@@ -34,11 +46,17 @@
 			position: absolute;
 			left: 0px;
 			top: 6px;
+			color: $cor1;
+			background-color: #ffffff;
+
+			&.fas {
+				display: none;
+			}
 		}
 
 		span {
 			font-weight: $light;
-			font-size: $font-size;
+			font-size: .75rem;
 			//line-height: .75rem;
 			//line-height: $font-size+.25;
 			color: $cor-txt;
@@ -54,6 +72,18 @@
 
 				&.titulo {
 					display: inline;
+				}
+			}
+
+			i {
+				color: $cor1;
+
+				&.fas {
+					display: inline-block;
+				}
+
+				&.far {
+					display: none;
 				}
 			}
 		}

@@ -3,7 +3,7 @@
 
 	ul {
 		display: table-cell;
-		@include box-sizing;
+		@include box-sizing; 
 
 		li {
 			display: table-cell;
@@ -14,8 +14,9 @@
 	}
 
 	a {
-		font-size: 1rem;
-		display: inline-block;
+		font-size: 0.85rem;
+		display: block;
+		line-height: 30px;
 		color: #ffffff;
 		font-weight: $regular;
 		padding: 0px 5px;
@@ -60,7 +61,8 @@
 			padding: 0 15px;
 
 			a {
-				padding: 0 15px;
+				font-size: 0.75rem;
+				padding: 0px;
 				color: $cor1;
 
 				i {
@@ -81,7 +83,11 @@
 				padding: 0px;
 
 				a {
-					padding: 0px 10px;
+					padding: 0px 10px 0;
+
+					i {
+						font-size: 1rem;
+					}
 				}
 
 				&.last-rede-social {
@@ -99,17 +105,24 @@
 				border: none;
 				line-height: 15px;
 				padding: 0;
+				margin-left: 10px;
 			}
 
 			a {
 				color: $cor-txt;
-				padding: 2px;
+				line-height: 0;
+				padding: 0px;
+				display: block;
 
 				&:hover, &.ativo {
 					span {
 						color: $cor2;
 					}
 				}
+			}
+
+			img, span {
+				padding-top: 5px;
 			}
 
 			img {
@@ -120,12 +133,14 @@
 			span {
 				font-weight: $regular;
 				vertical-align: middle;
+				position: relative;
+				top: 1px;
 			}
 		}
 	}
 
 	&.nav-footer {
-		margin-top: 60px;
+		margin-top: 10px;
 
 		&.rede-social {
 			margin-top: 30px;
@@ -134,7 +149,7 @@
 		li {
 			display: block;
 			text-align: left;
-			margin: 0;
+			margin: 10px 0 0;
 			padding: 0;
 			line-height: normal;
 
@@ -142,13 +157,16 @@
 				padding: 0;
 				font-size: $font-size;
 				line-height: $font-size+.25;
-				font-weight: $light;
+				font-weight: $regular;
 
 				i {
-					width: 22px;
-					//text-align: center;
+					width: 30px;
 					color: $verde-limao;
 					padding-right: 5px;
+					text-align: center;
+					font-size: 1.225rem;
+					position: relative;
+					top: 3px;
 				}
 
 				&:hover, &.ativo {

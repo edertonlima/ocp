@@ -60,17 +60,19 @@ form {
 
 	&.form-busca {
 		fieldset {
-			padding-right: 50px!important;
 			position: relative;
 			margin: 0;
 			@include box-sizing;
 
 			input {
-				height: 40px;
-				line-height: 40px;
-				color: #ffffff;
-				background-color: $cor1;
-				border: none;
+				font-size: 1.25rem;
+				height: 70px;
+				line-height: 70px;
+				color: $cor1;
+				border-width: 0 0 5px;
+				border-color: $cor1;
+				border-radius: 0;
+				padding-left: 60px!important;
 
 				@include placeholder{
 					opacity: 0.75;
@@ -79,18 +81,16 @@ form {
 			}
 
 			button {
-				width: 40px;
-				height: 40px;
 				line-height: 46px;
 				text-align: center;
 				position: absolute;
-				right: 0;
-				top: 0;
+				left: 0;
+				top: 10px;
 				padding: 0;
 				background-color: transparent;
 
 				i {
-					font-size: 2rem;
+					font-size: 3rem;
 					color: $cor1;
 				}
 

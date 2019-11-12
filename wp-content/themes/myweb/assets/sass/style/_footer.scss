@@ -1,13 +1,18 @@
 .footer {
 	width: 100%;
-	padding: 15px 0 40px;
-	background-color: $bgescuro;
+	padding: 260px 0 40px;
 	z-index: 0;
 	position: relative;
+	background: url('../images/bg-footer.jpg') repeat-x center top $bgescuro;
 	@include clear;
+
+	.container {
+		
+	}
 
 	p, span {
 		color: #ffffff;
+		font-weight: $regular;
 	}
 
 	h3 {
@@ -18,7 +23,7 @@
 	}
 
 	.list-txt {
-		margin-top: 10px;
+		margin-top: 25px;
 
 		h3, span {
 			vertical-align: top;
@@ -34,6 +39,14 @@
 		span {
 			font-size: $font-size;
 			line-height: $font-size+.25;
+
+			color: $verde-limao;
+			font-weight: $regular;
+
+			&.copy {
+				text-align: center;
+				display: block;
+			}
 		}
 	}
 
