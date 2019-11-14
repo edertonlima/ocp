@@ -122,9 +122,40 @@
 			
 				<div class="carousel-itens owl-carousel owl-theme owl-loaded">
 					<div class="owl-stage-outer">
-						<div class="owl-stage">
+						<div class="owl-stage"> 
 
-<?php for ($i=0; $i < 3; $i++) { ?>
+							<?php
+								$prensa_list = array(
+										'posts_per_page' => 16,
+										'post_type' => 'post'
+									);
+								query_posts( $prensa_list );
+
+								while ( have_posts() ) : the_post(); ?>
+
+									<div class="owl-item">
+										<a href="<?php echo get_home_url(); ?>" class="capa" title="">
+											<?php 
+												$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'list-post' ); 
+												if($imagem[0]){ ?>
+													<img src="<?php echo $imagem[0]; ?>">
+												<?php }
+											?>
+										</a>
+										<span class="data-prensa">5 Septiembre 2019</span>
+										<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
+											<?php the_title(); ?>
+										</a>
+										<span class="categoria-prensa">
+											<i class="fas fa-circle"></i> PRODUCTIVIDAD
+										</span>
+									</div>
+
+								<?php endwhile;
+								wp_reset_query();
+							?>
+
+<?php /* for ($i=0; $i < 3; $i++) { ?>
 
 							<div class="owl-item">
 								<a href="<?php echo get_home_url(); ?>" class="capa" title="<?php //the_field('titulo', 'option'); ?>">
@@ -192,7 +223,7 @@ proveedores en Quijos
 								</span>
 							</div>
 
-<?php } ?>
+<?php } */ ?>
 
 						</div>
 					</div>
@@ -276,7 +307,7 @@ proveedores en Quijos
 					<?php
 						$video_id = explode("?v=", 'https://www.youtube.com/watch?v=lgY_2m1sPk4');
 						$video_id = $video_id[1];
-						$thumbnail="http://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
+						$thumbnail="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
 					?>
 					<img src="<?php echo $thumbnail; ?>">
 				</a>
@@ -295,7 +326,7 @@ proveedores en Quijos
 					<?php
 						$video_id = explode("?v=", 'https://www.youtube.com/watch?v=ff-CSEQNL-4');
 						$video_id = $video_id[1];
-						$thumbnail="http://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
+						$thumbnail="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
 					?>
 					<img src="<?php echo $thumbnail; ?>">
 				</a>

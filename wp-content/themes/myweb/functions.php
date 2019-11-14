@@ -10,7 +10,7 @@
 
 /* HABILITAR / DESABILITAR */
 // -- * adicionar 
-//add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails' );
 add_filter('show_admin_bar', '__return_false');
 add_post_type_support( 'post', 'excerpt' );
 
@@ -68,9 +68,13 @@ function gera_url_encurtada($url){
 // SIZE IMAGES MIDIA
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
-    add_image_size( 'detalhe-post', 1170, 508, true ); // (cropped)
-    add_image_size( 'mini-vertical-post', 320, 568, true ); // (cropped)
-    add_image_size( 'mini-post', 415, 245, true ); // (cropped)
+    add_image_size( 'detalhe-page', 1440, 600, true ); // (cropped)
+    add_image_size( 'detalhe-post', 1200, 600, true ); // (cropped)
+    add_image_size( 'wide-post', 1200, 460, true ); // (cropped)
+   // add_image_size( 'mini-post', 415, 245, true ); // (cropped)
+    add_image_size( 'list-post', 365, 250, true ); // (cropped)
+
+    //280x205
 }
 
 
