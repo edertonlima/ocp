@@ -1,5 +1,4 @@
 .prensa {
-
 	h3 {
 		margin-bottom: 25px;
 		padding-left: 50px;
@@ -78,7 +77,14 @@
 
 			height: auto;
 		}
-	}	
+	}
+
+	&.det-prensa {
+		h2 {
+			max-width: 800px;
+			margin: auto;
+		}
+	}
 }
 
 

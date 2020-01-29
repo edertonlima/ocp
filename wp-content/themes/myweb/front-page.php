@@ -1,103 +1,73 @@
 <?php get_header(); ?>
 
 <!-- slide --> 
-<section class="box-content box-slide"> 
-	<div class="slide">
+<?php if( have_rows('itens_slide') ): ?>
 
-		<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="8000">
-			<ol class="carousel-indicators">
-				<li data-target="#slide-home" data-slide-to="0" class="active"></li>
-				<li data-target="#slide-home" data-slide-to="1"></li>
-				<li data-target="#slide-home" data-slide-to="2"></li>
-			</ol>
+		<section class="box-content box-slide"> 
+			<div class="slide">
 
-			<div class="carousel-inner">
-				<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
+				<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="8000">
+					<ol class="carousel-indicators">
+
+						<?php $slide = 0;
+						while ( have_rows('itens_slide') ) : the_row(); ?>
+
+							<li data-target="#slide-home" data-slide-to="<?php echo $slide; ?>" class="<?php if($slide == 0){ echo 'active'; } ?>"></li>
+
+							<?php $slide = $slide+1;
+						endwhile; ?>
+
+					</ol>
+
+					<div class="carousel-inner">
+
+						<?php $slide = 0;
+						while ( have_rows('itens_slide') ) : the_row(); 
+
+							//$img_slide = wp_get_attachment_image_src( get_sub_field('imagem'), 'slide' ); ?>
+							<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo get_sub_field('imagem'); ?>');"></div>
+
+							<?php $slide = $slide+1;
+						endwhile; ?>
+
+					</div>
+
+					<div class="mask-slide cor2"></div>
+
+					<div class="text-item">
+						<?php $slide = 0;
+						while ( have_rows('itens_slide') ) : the_row(); ?>
+
+							<span id="txt-<?php echo $slide; ?>" class="titulo-slide grande bottom <?php if($slide == 0){ echo 'active'; } ?>">
+								<?php the_sub_field('titulo'); ?>
+								<a href="<?php echo get_permalink(get_page_by_path('funcionamiento')); ?>" class="link inline">Lea más</a>
+							</span>
+
+							<?php $slide = $slide+1;
+						endwhile; ?>
+					</div>
+
+					<a class="carousel-control-prev" href="#slide-home" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#slide-home" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
 				</div>
-				<div class="carousel-item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-				</div>
-				<div class="carousel-item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-				</div>
-			</div>
-
-			<div class="mask-slide cor2"></div>
-
-			<div class="text-item">
-				<span id="txt-0" class="titulo-slide grande bottom active">
-					Más de 825 millones de barriles transportados de manera responsable por más de 15 años.
-					<a href="<?php echo get_permalink(get_page_by_path('funcionamiento')); ?>" class="link inline">Lea más</a>
-				</span>
-
-				<span id="txt-1" class="titulo-slide grande bottom">
-					Desde el 2013, más de 20 millones de barriles desde crudo colombiano han sido transportados por el OCP.
-					<a href="<?php echo get_home_url(); ?>/servicios" class="link inline">Lea más</a>
-				</span>
-
-				<span id="txt-2" class="titulo-slide grande bottom">
-					Desarrollamos proyectos sociales que impulsan la mejor versión de la comunidad.
-					<a href="<?php echo get_permalink(get_page_by_path('aporte-a-la-sociedad')); ?>" class="link inline">Lea más</a>
-				</span>
-			</div>
-
-			<a class="carousel-control-prev" href="#slide-home" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#slide-home" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-
-<?php /*
-
-				<?php /*if( have_rows('slide') ):
-					$slide = 0;
-					while ( have_rows('slide') ) : the_row();
-
-						if(get_sub_field('imagem')){
-							$slide = $slide+1; ?>
-
-							<div class="item <?php if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php the_sub_field('imagem'); ?>');">
-
-								<div class="box-height">
-									<div class="box-texto">
-										
-										<p class="texto"><?php the_sub_field('texto'); ?></p>
-										<?php if(get_sub_field('sub_texto')){ ?>
-											<p class="sub-texto"><?php the_sub_field('sub_texto'); ?></p>
-										<?php } ?>
-
-									</div>
-								</div>
-								
-							</div>
-
-						<?php }
-
-					endwhile;
-				endif;* ?>
 
 			</div>
+		</section>
 
-			<ol class="carousel-indicators">
-				
-				<?php //for($i=0; $i<3; $i++){ ?>
-					<li data-target="#slide" data-slide-to="1<?php //echo $i; ?>" class="<?php //if($i == 0){ echo 'active'; } ?>"></li>
-				<?php //} ?>
-				
-			</ol>
+<?php endif; ?>
 
-		</div> */?>
-
-	</div>
-</section>
 
 <section class="box-content">
 	<div class="container">
-		<form action="<?php echo home_url(); ?>" class="form-busca" method="post">
+		<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
 			<fieldset>
-				<input type="text" name="s" id="search" placeholder="Buscar en el sitio…">
+				<input type="text" name="s" id="search" placeholder="Buscar en el sitio…" value="<?php echo $_GET['s']; ?>">
 				<button type="submit" class="button"><i class="fas fa-search"></i></button>
 			</fieldset>
 
@@ -118,7 +88,7 @@
 		<div class="row">
 			<div class="col-12">
 
-				<h3>Nuestras Historias <a href="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" class="link all-post">Todos</a></h3>
+				<h3>Notas de Prensa <a href="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" class="link all-post">Todos</a></h3>
 			
 				<div class="carousel-itens owl-carousel owl-theme owl-loaded">
 					<div class="owl-stage-outer">
@@ -134,7 +104,7 @@
 								while ( have_posts() ) : the_post(); ?>
 
 									<div class="owl-item">
-										<a href="<?php echo get_home_url(); ?>" class="capa" title="">
+										<a href="<?php the_permalink(); ?>" class="capa" title="">
 											<?php 
 												$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'list-post' ); 
 												if($imagem[0]){ ?>
@@ -142,88 +112,24 @@
 												<?php }
 											?>
 										</a>
-										<span class="data-prensa">5 Septiembre 2019</span>
-										<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
+										<span class="data-prensa"><?php echo get_the_date(); ?></span>
+										<a href="<?php the_permalink(); ?>;" title="" class="titulo-prensa">
 											<?php the_title(); ?>
 										</a>
 										<span class="categoria-prensa">
-											<i class="fas fa-circle"></i> PRODUCTIVIDAD
+											<?php 
+												$categorias = wp_get_post_terms( $post->ID, 'category' );
+												foreach ( $categorias as $categoria ) { ?>
+													<i class="fas fa-circle"></i>
+													<?php echo $categoria->name;
+												}	
+											?>
 										</span>
 									</div>
 
 								<?php endwhile;
 								wp_reset_query();
 							?>
-
-<?php /* for ($i=0; $i < 3; $i++) { ?>
-
-							<div class="owl-item">
-								<a href="<?php echo get_home_url(); ?>" class="capa" title="<?php //the_field('titulo', 'option'); ?>">
-									<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/thumbs-prensa-1.jpg" alt="<?php //the_field('titulo', 'option'); ?>">
-								</a>
-								<span class="data-prensa">5 Septiembre 2019</span>
-								<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
-									Agricultores de
-Guayllabamba se
-capacitaron en abonos
-orgánicos
-								</a>
-								<span class="categoria-prensa">
-									<i class="fas fa-circle"></i> PRODUCTIVIDAD
-								</span>
-							</div>
-
-							<div class="owl-item">
-								<a href="<?php echo get_home_url(); ?>" class="capa" title="">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/thumbs-prensa-2.jpg" alt="">
-								</a>
-								<span class="data-prensa">4 Septiembre 2019</span>
-								<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
-									OCP Ecuador y
-Ministerio de
-Agricultura capacitan
-en parasitología en El
-Chaco
-								</a>
-								<span class="categoria-prensa">
-									<i class="fas fa-circle"></i> PRODUCTIVIDAD
-								</span>
-							</div>
-
-							<div class="owl-item">
-								<a href="<?php echo get_home_url(); ?>" class="capa" title="<?php //the_field('titulo', 'option'); ?>">
-									<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/thumbs-prensa-3.jpg" alt="<?php //the_field('titulo', 'option'); ?>">
-								</a>
-								<span class="data-prensa">19 Agosto 2019</span>
-								<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
-									Jóvenes
-emprendedores de
-Sucumbíos podrán
-mejorar su producción
-de muebles
-								</a>
-								<span class="categoria-prensa">
-									<i class="fas fa-circle"></i> PRODUCTIVIDAD
-								</span>
-							</div>
-
-							<div class="owl-item">
-								<a href="<?php echo get_home_url(); ?>" class="capa" title="<?php //the_field('titulo', 'option'); ?>">
-									<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/thumbs-prensa-4.jpg" alt="<?php //the_field('titulo', 'option'); ?>">
-								</a>
-								<span class="data-prensa">5 Agosto 2019</span>
-								<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
-									Obra, financiada por
-OCP Ecuador, beneficia
-a estudiantes y
-proveedores en Quijos
-								</a>
-								<span class="categoria-prensa">
-									<i class="fas fa-circle"></i> SALUD
-								</span>
-							</div>
-
-<?php } */ ?>
 
 						</div>
 					</div>
@@ -236,114 +142,108 @@ proveedores en Quijos
 </section>
 
 
-<section class="box-content no-padding-bottom">
-	<div class="container">		
-		<h2 class="center"><span>OCP EN CIFRAS</span></h2>
-	</div>
-</section>
+<?php if( have_rows('itens_dados') ): ?>
 
-<section class="box-content bg-claro no-padding-top">
-	<div class="container">
+	<section class="box-content no-padding-bottom">
+		<div class="container">		
+			<h2 class="center"><span><?php the_field('titulo_dados'); ?></span></h2>
+		</div>
+	</section>
+
+	<section class="box-content bg-claro no-padding-top">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col-12">
+
+					<p class="sub-tituto margin-top-30"><?php the_field('descricao_dados'); ?></p>
+
+					<ul class="icon-page count-item-5">
+
+						<?php while ( have_rows('itens_dados') ) : the_row(); ?>
+
+							<li>
+								<img src="<?php the_sub_field('icone'); ?>" align="">
+								<span class="titulo center"><span class="num" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('dados'); ?></span></span>
+								<p class="destaque" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('titulo'); ?></p>
+							</li>
+
+ 						<?php endwhile; ?>
+
+					</ul>
+
+					<?php /*
+					<div class="link-mais center">
+						<a href="<?php echo get_home_url(); ?>/proyectos" title="Conoce más de nuestros logros" class="link cor1">
+							<i class="fas fa-plus-circle cinza"></i> Conoce más de nuestros logros
+						</a>
+					</div>
+					*/ ?>
+
+				</div>
+			</div>
 		
-		<div class="row">
-			<div class="col-12">
+		</div>
+	</section>
 
-				<p class="sub-tituto margin-top-30">Transportamos el crudo de Ecuador y Colombia de manera responsable</p>
+<?php endif; ?>
 
-				<ul class="icon-page count-item-5">
-					<li>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-06.png" align="">
-						<span class="titulo center cor3"><span class="num cor3">825 M</span></span>
-						<p class="destaque cor3">BARRILES TRANSPORTADOS</p>
-					</li>
 
-					<li>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-07.png" align="">
-						<span class="titulo center cor2"><span class="num cor2">+ 855 M</span></span>
-						<p class="cor2">BARRILES EXPORTADOS</p>
-					</li>
+<?php $conocenos = get_field('itens_conocenos');
+if( $conocenos ): ?>
 
-					<li>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-08.png" align="">
-						<span class="titulo center cor4"><span class="num cor4">20 M</span></span>
-						<p class="cor4">BARRILES COLOMBIANOS TRANSPORTADOS</p>
-					</li>
+	<section class="box-content prensa prensa-list">
+		<div class="container">
 
-					<li>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-09.png" align="">
-						<span class="titulo center"><span class="num">42 M$</span></span>
-						<p>EN INVERSIÓN SOCIAL</p>
-					</li>
+			<h2 class="center"><span>CONÓCENOS</span></h2>
+					
+			<div class="row">
 
-					<li>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-10.png" align="">
-						<span class="titulo center verde-limao"><span class="num verde-limao">1400 M$</span></span>
-						<p class="verde-limao">INVERTIDOS EN LA CONSTRUCCIÓN DEL OCP</p>
-					</li>
-				</ul>
+				<?php foreach( $conocenos as $item_conocenos): ?>
+					<?php setup_postdata($item_conocenos); 
 
-				<?php /*
-				<div class="link-mais center">
-					<a href="<?php echo get_home_url(); ?>/proyectos" title="Conoce más de nuestros logros" class="link cor1">
-						<i class="fas fa-plus-circle cinza"></i> Conoce más de nuestros logros
-					</a>
-				</div>
-				*/ ?>
+					//var_dump($item_conocenos); ?>
+
+					<div class="col-6 item-list-prensa video">
+						<?php 
+							$video_array = get_field('video', $item_conocenos->ID);
+							preg_match('/src="(.+?)"/', $video_array, $matches);
+							$video_url = $matches[1];
+
+								$video_id = explode("embed/", $video_url);
+								$video_id = $video_id[1];
+								$video_id = explode("?feature=oembed", $video_id);
+								$video_id = $video_id[0];
+								$thumbnail="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
+						?>				
+						<a data-fancybox href="<?php echo $video_url; ?>" class="capa">
+							<img src="<?php echo $thumbnail; ?>">
+						</a>
+						<div class="content-list-prensa">
+							<span class="categoria-prensa">
+								<?php 
+									$categorias = wp_get_post_terms( $item_conocenos->ID, 'category' );
+									foreach ( $categorias as $categoria ) { ?>
+										<i class="fas fa-circle"></i>
+										<?php echo $categoria->name;
+									}	
+								?>
+							</span>
+							<a href="<?php echo get_permalink( $item_conocenos->ID ); ?>" title="" class="titulo-prensa">
+								<?php echo get_the_title($item_conocenos->ID); ?>
+							</a>
+						</div>
+					</div>
+
+				<?php endforeach; ?>
+				<?php wp_reset_postdata(); ?>
 
 			</div>
 		</div>
-	
-	</div>
-</section>
+	</section>
 
-<section class="box-content prensa prensa-list">
-	<div class="container">
+<?php endif; ?>
 
-		<h2 class="center"><span>CONÓCENOS</span></h2>
-				
-		<div class="row">
-			<div class="col-6 item-list-prensa video">					
-				<a data-fancybox href="https://www.youtube.com/watch?v=lgY_2m1sPk4" class="capa">
-					<?php
-						$video_id = explode("?v=", 'https://www.youtube.com/watch?v=lgY_2m1sPk4');
-						$video_id = $video_id[1];
-						$thumbnail="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
-					?>
-					<img src="<?php echo $thumbnail; ?>">
-				</a>
-				<div class="content-list-prensa">
-					<span class="categoria-prensa">
-						<i class="fas fa-circle"></i> VIDEOS
-					</span>
-					<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
-						¿Sabes cómo funciona un oleoducto?
-					</a>
-				</div>
-			</div>
-
-			<div class="col-6 item-list-prensa video">					
-				<a data-fancybox href="https://www.youtube.com/watch?reload=9&v=ff-CSEQNL-4" class="capa">
-					<?php
-						$video_id = explode("?v=", 'https://www.youtube.com/watch?v=ff-CSEQNL-4');
-						$video_id = $video_id[1];
-						$thumbnail="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
-					?>
-					<img src="<?php echo $thumbnail; ?>">
-				</a>
-				<div class="content-list-prensa">
-					<span class="categoria-prensa">
-						<i class="fas fa-circle"></i> VIDEOS
-					</span>
-					<a href="<?php echo get_home_url(); ?>" title="" class="titulo-prensa">
-						OCP Ecuador 15 años impulsando la mejor versión de los ecuatorianos
-					</a>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
-</section>
 
 <?php get_footer(); ?>
 

@@ -14,10 +14,13 @@ add_theme_support( 'post-thumbnails' );
 add_filter('show_admin_bar', '__return_false');
 add_post_type_support( 'post', 'excerpt' );
 
+add_post_type_support( 'page', 'excerpt' );
+
 
 // remove itens padrões
 remove_post_type_support('page', 'editor');
 remove_post_type_support( 'page', 'thumbnail' );
+
 
 add_action( 'init', 'my_custom_init' );
 function my_custom_init() {
@@ -68,6 +71,8 @@ function gera_url_encurtada($url){
 // SIZE IMAGES MIDIA
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
+    add_image_size( 'slide', 1440, 450, true ); // (cropped)
+    add_image_size( 'slide-funcionamiento', 580, 440, true ); // (cropped)
     add_image_size( 'detalhe-page', 1440, 600, true ); // (cropped)
     add_image_size( 'detalhe-post', 1200, 600, true ); // (cropped)
     add_image_size( 'wide-post', 1200, 460, true ); // (cropped)
@@ -296,6 +301,84 @@ function create_taxonomy_categoria_proyectos() {
     );
 }
 
+
+
+
+// FUNCIONAMIENTO
+add_action( 'init', 'create_post_type_funcionamiento' );
+function create_post_type_funcionamiento() {
+
+	$labels = array(
+	    'name' => _x('Funcionamiento', 'post type general name'),
+	    'singular_name' => _x('Funcionamiento', 'post type singular name'),
+	    'add_new' => _x('Adicionar novo', 'Funcionamiento'),
+	    'add_new_item' => __('Adicionar novo'),
+	    'edit_item' => __('Editar'),
+	    'new_item' => __('Novo'),
+	    'all_items' => __('Todos as Post'),
+	    'view_item' => __('Visualizar'),
+	    'search_items' => __('Procurar'),
+	    'not_found' =>  __('Nenhum post encontrado.'),
+	    'not_found_in_trash' => __('Nenhum post encontrado na lixeira.'),
+	    'parent_item_colon' => '',
+	    'menu_name' => 'Funcionamiento'
+	);
+	$args = array(
+	    'labels' => $labels,
+	    'public' => true,
+	    'publicly_queryable' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+
+		'rewrite'=> [
+			'slug' => 'funcionamiento',
+			"with_front" => true,
+		],
+
+		"cptp_permalink_structure" => "/%categoria_funcionamiento%/%postname%/",
+
+	    'capability_type' => 'post',
+	    'has_archive' => true,
+	    'hierarchical' => true,
+	    'menu_position' => null,
+	    'menu_icon' => 'dashicons-tag',
+	    'supports' => array('title','excerpt','thumbnail')
+	  );
+
+    register_post_type( 'funcionamiento', $args );
+}
+
+add_action( 'init', 'create_taxonomy_categoria_funcionamiento' );
+function create_taxonomy_categoria_funcionamiento() {
+
+	$labels = array(
+	    'name' => _x( 'Categoria', 'taxonomy general name' ),
+	    'singular_name' => _x( 'Categoria', 'taxonomy singular name' ),
+	    'search_items' =>  __( 'Procurar categoria' ),
+	    'all_items' => __( 'Todas as categorias' ),
+	    'parent_item' => __( 'Categoria pai' ),
+	    'parent_item_colon' => __( 'Categoria pai:' ),
+	    'edit_item' => __( 'Editar categoria' ),
+	    'update_item' => __( 'Atualizar categoria' ),
+	    'add_new_item' => __( 'Adicionar nova categoria' ),
+	    'new_item_name' => __( 'Nova categoria' ),
+	    'menu_name' => __( 'Categoria' ),
+	);
+
+    register_taxonomy( 'categoria_funcionamiento', array( 'funcionamiento' ), array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'show_in_tag_cloud' => true,
+        'query_var' => true,
+		'rewrite' => array(
+		    'slug' => 'funcionamiento',
+		    'with_front' => true,
+			)
+        )
+    );
+}
 
 
 $producao = false;

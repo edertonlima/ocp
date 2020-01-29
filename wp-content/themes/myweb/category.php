@@ -17,9 +17,9 @@
 
 						<h2 class="center"><span><?php echo $category->name; ?></span></h2>
 
-				<form action="<?php echo home_url(); ?>" class="form-busca margin-top-20" method="post">
+				<form action="<?php echo home_url(); ?>" class="form-busca margin-top-20" method="get">
 					<fieldset>
-						<input type="text" name="s" id="search" placeholder="Buscar en el sitio…">
+						<input type="text" name="s" id="search" placeholder="Buscar en el sitio…" value="<?php echo $_GET['s']; ?>">
 						<button type="submit" class="button"><i class="fas fa-search"></i></button>
 					</fieldset>
 
@@ -64,7 +64,7 @@
 									<span class="verde-claro">Documentación</span>
 								</a>
 							</li>
-							<li class="">
+							<li class="off">
 								<a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" class="<?php if ( is_page('contactenos') ) : echo 'ativo'; endif ?>">
 									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-prensa-6.png" align="">
 									<span class="">Contacto</span>
@@ -72,17 +72,60 @@
 							</li>
 						</ul>
 
-						<p class="text-destaque center"><br><br>No se encontraron entradas</p>
-
 					</div>
 				</div>
 
 			</div>
 		</section>
 
-		<section class="box-content">
+		<section class="box-content prensa prensa-list">
 			<div class="container">
 
+				<div class="row">
+
+					<?php
+						if(have_posts()){
+							while ( have_posts() ) : the_post(); ?>
+								
+								<div class="col-4 margin-bottom-60">
+
+									<a href="<?php the_permalink(); ?>" class="capa" title="">
+										<?php 
+											$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'list-post' ); 
+											if($imagem[0]){ ?>
+												<img src="<?php echo $imagem[0]; ?>">
+											<?php }
+										?>
+									</a>
+									<span class="data-prensa"><?php echo get_the_date(); ?></span>
+									<a href="<?php the_permalink(); ?>->name;" title="" class="titulo-prensa">
+										<?php the_title(); ?>
+									</a>
+									<span class="categoria-prensa">
+										<i class="fas fa-circle"></i>
+										<?php 
+											$categorias = wp_get_post_terms( $post->ID, 'category' );
+											foreach ( $categorias as $categoria ) { ?>										
+												<?php echo $categoria->name . '; ';
+											}	
+										?>
+									</span>
+
+								</div>
+
+							<?php endwhile;
+						}else{ ?>
+
+							<div class="col-12">
+								<p class="text-destaque center"><br><br>No se encontraron entradas</p>
+							</div>
+
+						<?php }
+					?>
+
+					<?php paginacao(); ?>
+
+				</div>
 			</div>
 		</section>
 

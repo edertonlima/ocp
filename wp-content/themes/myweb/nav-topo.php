@@ -1,13 +1,13 @@
 <nav class="nav nav-topo">
 	<ul>
 		<li class="rede-social">
-			<a href="https://www.facebook.com/ocpecuadorsa " title=""><i class="fab fa-facebook-f"></i></a>
+			<a href="https://www.facebook.com/ocpecuadorsa " title="" target="_blank"><i class="fab fa-facebook-f"></i></a>
 		</li>
 		<li class="rede-social">
-			<a href="https://www.youtube.com/user/ocpecuador" title=""><i class="fab fa-youtube"></i></a>
+			<a href="https://www.youtube.com/user/ocpecuador" title="" target="_blank"><i class="fab fa-youtube"></i></a>
 		</li>
 		<li class="rede-social last-rede-social">
-			<a href="<?php echo get_home_url(); ?>" title=""><i class="fab fa-twitter"></i></a>
+			<a href="https://twitter.com/ocpecuador" title="" target="_blank"><i class="fab fa-twitter"></i></a>
 		</li>
 
 		<li class="">
@@ -22,7 +22,7 @@
 	</ul>
 
 	<ul class="idiomas">
-		<li>
+		<li style="display: none;">
 			<a href="<?php echo get_home_url(); ?>" title=""><img src="<?php echo get_template_directory_uri(); ?>/assets/images/idiomas-en.jpg" alt="EN"><span>EN</span></a>
 		</li>
 

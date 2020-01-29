@@ -87,7 +87,8 @@
 
 	<?php wp_footer(); ?>
 
-	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.2.1.slim.min.js"></script>
+	<!--<script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.2.1.slim.min.js"></script>-->
+	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.3.1.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/popper.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
 
@@ -97,6 +98,13 @@
 		$(document).ready(function(){	
 
 	
+		});
+
+		$('.go-item').click(function(){
+			item = $(this).attr('rel');
+			$('html,body').animate({
+				scrollTop: $(item).offset().top-20
+			}, 1000);
 		});
 	</script>
 

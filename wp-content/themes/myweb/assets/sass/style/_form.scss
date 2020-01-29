@@ -1,6 +1,4 @@
 form {
-	width: 90%;
-	max-width: 480px;
 	margin: 0 auto;
 	@include box-sizing;
 	@include clear();
@@ -18,14 +16,14 @@ form {
 		max-width: 100%;
 		width: 100%;
 		border: 2px solid $cor1;
-		border-radius: 7px;
+		border-radius: 16px;
 
-		font-size: 1rem; 
+		font-size: .85rem; 
 		color: $cor-txt;
 		font-weight: $light;
 		line-height: 36px;
 		background-color: #ffffff;
-		padding: 0 10px;
+		padding: 0 20px;
 		font-style: normal;
 		@include animacao;
 		@include box-sizing;
@@ -43,12 +41,21 @@ form {
 	textarea {
 		padding-top: 10px;
 		padding-bottom: 10px;
-		height: 60px;
+		height: 110px;
 		resize: vertical;
 	}
 
+	label {
+		padding-left: 17px;
+		font-size: 1rem;
+		line-height: 1.25rem;
+		margin-bottom: 3px;
+		display: inline-block;
+		cursor: pointer;
+	}
+
 	fieldset {
-		margin-top: 15px;
+		margin-top: 30px;
 		width: 100%;
 		float: left;
 		//clear: both;
@@ -56,9 +63,22 @@ form {
 		&:first-chid {
 			margin-top: 0;
 		}
+
+		&.erro {
+			input, textarea {
+				border-color: $vermelho;
+			}
+
+			label {
+				color: $vermelho;
+			}
+		}
 	}
 
 	&.form-busca {
+		width: 90%;
+		max-width: 480px;
+
 		fieldset {
 			position: relative;
 			margin: 0;
@@ -87,6 +107,7 @@ form {
 				left: 0;
 				top: 10px;
 				padding: 0;
+				border-color: transparent;
 				background-color: transparent;
 
 				i {
@@ -95,12 +116,19 @@ form {
 				}
 
 				&:hover {
+					background-color: transparent;
 					i {
 						color: $cor2;
 					}
 				}
 			}
 		}
+	}
+
+	&.contacto {
+		max-width: 650px;
+		padding: 0 60px;
+		margin: 0px auto;
 	}
 }
 
@@ -112,17 +140,18 @@ label:hover:before {
 button, input[type='submit'], .button { 
 	display: inline-block;
 	width: auto;
-	height: 46px;
-	line-height: 46px;
-	color: #ffffff;
-	font-weight: $bold;
-	font-size: 1.06rem; 
+	height: 35px;
+	line-height: 32px;
+	color: $cor1;
+	font-weight: $extra-bold;
+	font-size: 1.125rem; 
 	text-align: center;
 	text-transform: uppercase;
-	padding: 0 30px;
-	border-radius: 5px;
-	border: 1px solid #ffffff;
+	padding: 0 15px;
+	border-radius: 16px;
+	border: 2px solid $cor1;
 	cursor: pointer;
+	background-color: transparent;
 	@include animacao;
 	@include box-sizing();
 
@@ -131,7 +160,7 @@ button, input[type='submit'], .button {
 	}
 
 	&:hover {
-		background-color: #ffffff;
+		background-color: $cor1;
 		color: #ffffff;
 	}
 
@@ -221,24 +250,27 @@ input::-webkit-input-placeholder {
 }
 */
 .msg-form {
-	margin-top: 20px;
+	display: block;
 	font-size: 1rem;
+	margin-bottom: 20px;
+	font-weight: $regular;
+	color: $cor1;
 
 	strong {
 		display: block;
 		font-size: 1rem;
 	}
 
-	&.erro {
-		color: $vermelho;
+	&.off {
+		display: none;
+	}
 
-		strong, i {
-			color: $vermelho;
-		}
+	&.erro {
+		//color: $vermelho;
 	}
 
 	&.ok {
-		color: $verde;
+		//color: $verde;
 	}
 }
 

@@ -42,9 +42,10 @@
 				<?php if( have_rows('nuestra-historia') ):
 					while ( have_rows('nuestra-historia') ) : the_row(); ?>
 
-					<li id="btn-item-<?php the_sub_field('ano-nuestra-historia'); ?>">
+					<li id="btn-item-<?php the_sub_field('ano-nuestra-historia'); ?>" class="go-item" rel="#slide-<?php the_sub_field('ano-nuestra-historia'); ?>">
 						<i class="fas fa-circle"></i>
 						<i class="far fa-circle"></i>
+						
 						<span><?php the_sub_field('ano-nuestra-historia'); ?></span>
 						<span class="titulo"> - <?php the_sub_field('titulo-nuestra-historia'); ?></span>
 					</li>
@@ -187,6 +188,11 @@ endif; ?>
 		jQuery('.nav-linha-tempo').css('top', '50%');
 	}
 
+
+	var height_footer = jQuery('.footer').height();
+	console.log(height_footer);
+	console.log(top_footer.bottom);
+
 	jQuery(window).scroll(function(){		
 		scroll_body = jQuery(window).scrollTop();
 		/*if(scroll_body > 400){
@@ -201,7 +207,7 @@ endif; ?>
 		if(scroll_body >= top_footer.bottom){
 			jQuery('.nav-linha-tempo').addClass('linha-tempo-bottom');
 		}else{
-			jQuery('.nav-linha-tempo').removeClass('linha-tempo-bottom');
+			//jQuery('.nav-linha-tempo').removeClass('linha-tempo-bottom');
 		}
 	});
 </script>

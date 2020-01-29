@@ -1,55 +1,55 @@
 <?php get_header(); ?>
 <?php $category = get_queried_object(); //var_dump($category); ?>
 		
-		<div class="breadcrumbs">
-			<ul>
-				<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
-				<li><?php echo $category->label; ?></li>
-			</ul>
-		</div>
+	<div class="breadcrumbs">
+		<ul>
+			<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
+			<li><?php echo $category->label; ?></li>
+		</ul>
+	</div>
 
-		<section class="box-content"> 
-			<div class="container">
+	<section class="box-content"> 
+		<div class="container">
 
-				<div class="row">
-					<div class="col-12">
+			<div class="row">
+				<div class="col-12">
 
-						<h2 class="center"><span>PROYECTOS DE GRAN IMPACTO</span></h2>
+					<h2 class="center"><span>PROYECTOS DE GRAN IMPACTO</span></h2>
 
-						<ul class="list-category">
-							<li class="<?php //if($category->term_id != 2): echo 'off'; endif; ?>">
-								<a href="<?php echo get_term_link(2); ?>">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-aporte-1.png" align="">
-									<span class="cor3">Educación</span>
-								</a>
-							</li>
-							<li class="<?php //if($category->term_id != 3): echo 'off'; endif; ?>">
-								<a href="<?php echo get_term_link(3); ?>">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-aporte-2.png" align="">
-									<span class="laranja">Salud</span>
-								</a>
-							</li>
-							<li class="<?php //if($category->term_id != 4): echo 'off'; endif; ?>">
-								<a href="<?php echo get_term_link(4); ?>">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-aporte-3.png" align="">
-									<span class="verde-limao">Productividad</span>
-								</a>
-							</li>
-							<li class="<?php //if($category->term_id != 5): echo 'off'; endif; ?>">
-								<a href="<?php echo get_term_link(5); ?>">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-aporte-4.png" align="">
-									<span class="lilas">Otros</span>
-								</a>
-							</li>
-						</ul>
+					<ul class="list-category">
+						<li class="<?php //if($category->term_id != 2): echo 'off'; endif; ?>">
+							<a href="<?php echo get_term_link(2); ?>">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-aporte-1.png" align="">
+								<span class="cor3">Educación</span>
+							</a>
+						</li>
+						<li class="<?php //if($category->term_id != 3): echo 'off'; endif; ?>">
+							<a href="<?php echo get_term_link(3); ?>">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-aporte-2.png" align="">
+								<span class="laranja">Salud</span>
+							</a>
+						</li>
+						<li class="<?php //if($category->term_id != 4): echo 'off'; endif; ?>">
+							<a href="<?php echo get_term_link(4); ?>">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-aporte-3.png" align="">
+								<span class="verde-limao">Productividad</span>
+							</a>
+						</li>
+						<li class="<?php //if($category->term_id != 5): echo 'off'; endif; ?>">
+							<a href="<?php echo get_term_link(5); ?>">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-aporte-4.png" align="">
+								<span class="lilas">Otros</span>
+							</a>
+						</li>
+					</ul>
 
-						<p class="text-destaque center"><br><br>No se encontraron proyectos</p>
+					<p class="text-destaque center"><br><br>No se encontraron proyectos</p>
 
-					</div>
 				</div>
-
 			</div>
-		</section>
+
+		</div>
+	</section>
 
 
 

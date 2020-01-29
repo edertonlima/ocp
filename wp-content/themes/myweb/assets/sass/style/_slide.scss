@@ -7,6 +7,20 @@
 		height: $hSlide;
 	}
 
+	&.slide-grande {
+		height: $hSlide+($hSlide/2);
+
+		.carousel, .carousel-inner, .carousel-item {
+			height: $hSlide+($hSlide/2);
+		}
+	}
+
+	.carousel-item {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+
 	// CONTROLES
 	.carousel-control-next, .carousel-control-prev {
 		display: none;

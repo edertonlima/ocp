@@ -1,6 +1,5 @@
 @import 'bootstrap4.0/bootstrap';
 
-// 
 @import 'style/_mixin';
 @import 'style/_reset';
 @import 'style/_variaveis';
@@ -28,8 +27,8 @@
 @import 'style/page/_home'; 
 @import 'style/page/_prensa';  
 @import 'style/page/_nuestra-historia';  
-
-//@import 'style/page/_contato';
+@import 'style/page/_contato';
+@import 'style/page/_funcionamiento';
 //@import 'style/page/_curso';
 //@import 'style/page/_noticias';
 //@import 'style/page/_forum';

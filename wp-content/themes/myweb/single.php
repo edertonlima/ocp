@@ -2,78 +2,37 @@
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<section class="box-content no-padding-bottom noticias det-noticia">
-
-			<?php get_template_part( 'content', get_post_format() ); ?>
-
+		<section class="box-content">
+			<div class="breadcrumbs">
+				<ul>
+					<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
+					<li><a href="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" title="Sala de Prensa">Sala de Prensa</a></li>
+					
+					<?php $categorias = wp_get_post_terms( $post->ID, 'category' ); ?>
+					<li><a href="<?php echo get_term_link($categorias[0]->term_id); ?>" title=""><?php echo $categorias[0]->name; ?></a></li>
+					<li><?php the_title(); ?></li>
+				</ul>
+			</div>
 		</section>
 
-		<!-- NOTÍCIAS SECUNDÁRIA -->
-		<section class="box-content no-padding-top">
+		<section class="box-content no-padding-top prensa det-prensa"> 
 			<div class="container">
-				
+
 				<div class="row">
-					<div class="col-m-1 col-10">
+					<div class="col-12">
 
-						<div class="noticias list-noticias noticias-recentes">
+						<h2 class="center"><span class="cor3"><?php the_title(); ?></span></h2>
+						<p class="sub-tituto mini center cor3"><?php echo get_the_date(); ?></p>
 
-							<h3 class="border mid">
-								<span>NOTÍCIAS RECENTES</span>
-								<a href="#" class="button pequeno transparent">mais notícias <i class="fas fa-chevron-right"></i></a>
-							</h3>
-
-							<div class="row row-mini">
-
-								<?php
-									$args_noticias = array(
-										'posts_per_page' => 4,
-										'post_type' => 'post'
-									);
-
-									$current_prod = $post->ID;
-									query_posts( $args_noticias );
-									$i = 0;
-									while ( have_posts() ) : the_post();
-										if($current_prod != $post->ID){
-
-											$i++;
-											if($i <= 3){
-											
-												$categorias = wp_get_post_terms( $post->ID, 'category' ); 
-												$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'mini-post' ); ?>
-
-												<div class="col-4 item-noticias">
-													<div class="img-noticias">
-														<?php foreach ( $categorias as $categoria ) { ?>
-															<span class="label laranja"><?php echo $categoria->name; ?></span>
-														<?php } ?>	
-														<img src="<?php if($imagem[0]){ echo $imagem[0]; } ?>">
-													</div>
-
-													<div class="cont-noticias">
-														<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-															<h2><?php the_title(); ?></h2>
-														</a>
-														<span class="data"><?php echo get_the_date(); ?></span>
-													</div>
-												</div>
-											
-											<?php }
-
-										}
-									endwhile;
-									wp_reset_query();
-								?>
-
-							</div>
+						<div class="content">
+							<?php the_content(); ?>
 						</div>
 
 					</div>
 				</div>
 
 			</div>
-		</section>
-		<!-- NOTÍCIAS SECUNDÁRIA -->
+		</section>		
 
 	<?php endwhile; ?>
 

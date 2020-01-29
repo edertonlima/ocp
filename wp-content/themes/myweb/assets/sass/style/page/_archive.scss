@@ -28,11 +28,13 @@
 
 		&.off {
 			a {
-				@include grayscale(100%);
+				//@include grayscale(100%);
+				opacity: .2;
 				transition: all 200ms ease-in-out;
 
 				&:hover {
-					@include grayscale(0);
+					opacity: 1;
+					//@include grayscale(0);
 				}
 			}
 		}
@@ -47,5 +49,39 @@
 			}
 		}
 
+	}
+}
+
+
+
+.servicios {
+
+	&.list-servicios {
+		.container {
+			max-width: 900px;
+		}
+	}
+	
+	.item-servicios {
+		padding: 0 20px;
+
+		h4 {
+			display: block;
+			font-size: 1.25rem;
+			line-height: 1.65rem;
+			margin-top: 15px;
+			padding-bottom: 15px;
+			font-weight: $bold
+		}
+	}
+
+	&.det-servicios {
+		.img-topo {
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+		}
 	}
 }

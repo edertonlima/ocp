@@ -23,8 +23,9 @@
 
 	li {
 		position: relative;
-		padding: 5px 0 5px 18px;
+		padding: 5px 0 10px 18px;
 		line-height: 0.4rem;
+		cursor: pointer;
 
 		&:before {
 			top: 14px;
@@ -45,7 +46,7 @@
 		i {
 			position: absolute;
 			left: 0px;
-			top: 6px;
+			top: 4px;
 			color: $cor1;
 			background-color: #ffffff;
 

@@ -13,12 +13,49 @@
 				<a href="<?php echo get_permalink(get_page_by_path('nuestra-historia')); ?>" title="" class="<?php if ( is_page('nuestra-historia') ) : echo 'ativo'; endif ?>">NUESTRA HISTORIA</a>
 			</li>
 
-			<li class="">
-				<a href="<?php echo get_permalink(get_page_by_path('funcionamiento')); ?>" title="" class="<?php if ( is_page('funcionamiento') ) : echo 'ativo'; endif ?>">FUNCIONAMIENTO</a>
+			<li class="submenu">
+				<a href="<?php echo get_home_url(); ?>/funcionamiento" title="" class="<?php if ( is_post_type_archive('funcionamiento') ) : echo 'ativo'; endif ?>">FUNCIONAMIENTO</a>
+
+				<div class="container-menu">
+					<div class="bg-submenu">
+						<span class="tit-menu">Funcionamiento</span>
+						<div class="col-menu col-principal">
+							
+						</div>
+
+						<div class="col-menu col-links">
+							<ul class="">
+
+								<?php
+									$args = array(
+									    'taxonomy'      	=> 'categoria_funcionamiento',
+									    'parent'        	=> 0, // get top level categories
+									    'orderby'       	=> 'name',
+									    'order'         	=> 'ASC',
+									    'hide_empty'      	=> false
+									);
+									$categories = get_categories( $args );
+
+									foreach ( $categories as $category ){ ?>
+
+										<li>
+											<a href="<?php echo get_term_link( $category->term_id); ?>" title="<?php echo $category->name; ?>" class="">
+												<?php echo $category->name; ?>										
+											</a>
+										</li>
+
+									<?php }
+								?>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
 			</li>
 
 			<li class="">
-				<a href="<?php echo get_home_url(); ?>/servicios" title="" class="<?php if ( is_post_type_archive('servicios') ) : echo 'ativo'; endif ?>">SERVICIOS</a>
+				<a href="<?php echo get_permalink(get_page_by_path('operación-segura')); ?>" title="" class="<?php if ( is_page('operación-segura') ) : echo 'ativo'; endif ?>">OPERACIÓN SEGURA</a>
 			</li>
 
 			<li class="">
