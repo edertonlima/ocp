@@ -20,9 +20,9 @@
 			<div class="container">
 
 				<h2 class="center no-uppercase"><span><?php the_title(); ?></span></h2>
-				<?php if(get_field('content')){ ?>
+				<?php /*if(get_field('content')){ ?>
 					<p class="sub-tituto mini center"><?php the_field('content'); ?></p>
-				<?php } ?>
+				<?php } */ ?>
 
 			</div>
 		</section>
@@ -31,7 +31,7 @@
 			<div class="container">
 
 
-				<?php get_template_part( 'content-funcionamiento-slide', get_post_format() ); ?>
+				<?php get_template_part( 'content-funcionamiento-slide-interno', get_post_format() ); ?>
 
 
 			</div>

@@ -3,7 +3,7 @@
 	
 		<div class="col-6">
 			<div class="conteudo-texto cont-left">
-				<?php if(!get_field('ocultar-titulo')){ ?>
+				<?php if(!get_field('ocultar-titulo') and (!is_singular('funcionamiento'))){ ?>
 					<h3 class="center"><?php the_title(); ?></h3>
 				<?php } ?>
 																	

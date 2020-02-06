@@ -335,8 +335,8 @@ function create_post_type_funcionamiento() {
 			"with_front" => true,
 		],
 
-		"cptp_permalink_structure" => "/%postname%/",
-		//"cptp_permalink_structure" => "/%categoria_funcionamiento%/%postname%/",
+		//"cptp_permalink_structure" => "/%postname%/",
+		"cptp_permalink_structure" => "/%categoria_funcionamiento%/%postname%/",
 
 	    'capability_type' => 'post',
 	    'has_archive' => true,

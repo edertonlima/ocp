@@ -40,6 +40,15 @@
 			}
 		}
 	}
+
+	&.funcionamiento-navegacao {
+		&.owl-carousel {
+			.owl-nav {
+				right: -75px;
+				left: auto;
+			}
+		}
+	}
 }
 
 .term-transporte-crudo-pesado {

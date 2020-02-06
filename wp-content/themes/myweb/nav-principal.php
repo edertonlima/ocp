@@ -14,7 +14,7 @@
 			</li>
 
 			<li class="submenu">
-				<a href="<?php echo get_home_url(); ?>/funcionamiento" title="" class="<?php if ( is_post_type_archive('funcionamiento') ) : echo 'ativo'; endif ?>">FUNCIONAMIENTO</a>
+				<a href="<?php echo get_home_url(); ?>/funcionamiento" title="" class="<?php if ( (is_post_type_archive('funcionamiento')) ) : echo 'ativo'; endif ?>">FUNCIONAMIENTO</a>
 
 				<div class="container-menu">
 					<div class="bg-submenu">

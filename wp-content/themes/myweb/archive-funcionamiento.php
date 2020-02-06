@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php $category = get_queried_object(); //var_dump($category); ?>
+<?php $category = get_queried_object(); //var_dump($category); ?> 
 
 	<div class="breadcrumbs">
 		<ul class="container">
