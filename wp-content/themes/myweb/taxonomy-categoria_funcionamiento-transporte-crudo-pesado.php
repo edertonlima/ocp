@@ -64,7 +64,7 @@
 
 				<div class="container">
 					<div class="link-nav">
-						<a href="javascript:" class="link-timeline prev-timeline" style="display: none;">
+						<a href="javascript:" class="link-timeline prev-timeline" style="">
 							<i class="fas fa-chevron-left"></i>
 						</a>
 						<a href="javascript:" class="link-timeline next-timeline">
@@ -126,16 +126,17 @@
 		</div>
 	</section>
 
-	
-
 <?php get_footer(); ?>
+
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/horizontal-timeline/util.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/horizontal-timeline/swipe-content.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/horizontal-timeline/main.js"></script>
 
+
 <script type="text/javascript">
 
+	// nav timeline
 	$('.prev-timeline').click(function(){
 		ele = $('.cd-h-timeline__date--selected').parent().prev();
 		$('button',ele).trigger( 'click' );
@@ -162,27 +163,8 @@
 		}
 	});
 
-	$(document).ready(function(){
-
-		/*
-		setTimeout(function(){
-			height_img_timeline = 0;
-			$('.img-timeline img').each(function() {
-				item_height = $(this).height(); //alert(item_height);
-				
-				if(item_height > height_img_timeline){
-					height_img_timeline = item_height;
-				}
-			});
-
-			height_img_timeline = height_img_timeline+20;
-			$('.link-nav').css('top', height_img_timeline);
-		}, 1000);
-		*/
-
-	});
-
 </script>
+
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 

@@ -14,7 +14,7 @@
 			</li>
 
 			<li class="submenu">
-				<a href="<?php echo get_home_url(); ?>/funcionamiento" title="" class="<?php if ( (is_post_type_archive('funcionamiento')) ) : echo 'ativo'; endif ?>">FUNCIONAMIENTO</a>
+				<a href="<?php echo get_home_url(); ?>/funcionamiento" title="" class="<?php if ( is_post_type_archive('funcionamiento') or is_tax('categoria_funcionamiento') or is_singular('funcionamiento') ) : echo 'ativo'; endif ?>">FUNCIONAMIENTO</a>
 
 				<div class="container-menu">
 					<div class="bg-submenu">
@@ -55,7 +55,7 @@
 			</li>
 
 			<li class="">
-				<a href="<?php echo get_permalink(get_page_by_path('operación-segura')); ?>" title="" class="<?php if ( is_page('operación-segura') ) : echo 'ativo'; endif ?>">OPERACIÓN SEGURA</a>
+				<a href="<?php echo get_permalink(get_page_by_path('operacion-segura')); ?>" title="" class="<?php if ( is_page('operacion-segura') ) : echo 'ativo'; endif ?>">OPERACIÓN SEGURA</a>
 			</li>
 
 			<li class="">

@@ -3,26 +3,26 @@
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<div class="breadcrumbs">
-			<ul>
+			<ul class="container">
 				<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
 				<li>Quiénes Somos</li>
 			</ul>
 		</div>
 
-<section class="box-content"> 
-	<div class="container">
+		<section class="box-content"> 
+			<div class="container">
 
-		<div class="row">
-			<div class="col-12">
+				<div class="row">
+					<div class="col-12">
 
-				<h2 class="center"><span><?php the_title(); ?></span></h2>
-				<p class="sub-tituto mini"><?php the_field('content'); ?></p>
+						<h2 class="center"><span><?php the_title(); ?></span></h2>
+						<p class="sub-tituto mini"><?php the_field('content'); ?></p>
+
+					</div>
+				</div>
 
 			</div>
-		</div>
-
-	</div>
-</section>
+		</section>
 
 
 

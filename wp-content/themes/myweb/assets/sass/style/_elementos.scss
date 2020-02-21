@@ -159,15 +159,19 @@ p {
 }
 
 .left {
-	text-align: left;
+	text-align: left!important;
 }
 
 .right {
 	float: right;
 }
 
-.no-margim {
+.no-margim, .no-margin {
 	margin: 0!important;
+}
+
+.no-margin-top {
+	margin-top: 0px!important;
 }
 
 .margin-top-10 {

@@ -183,7 +183,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 
 			<h1>
 				<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
-					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/ocp.png" alt="<?php //the_field('titulo', 'option'); ?>">
+					<img src="<?php the_field('logo', 'option'); ?>" alt="<?php //the_field('titulo', 'option'); ?>">
 				</a>
 			</h1>
 

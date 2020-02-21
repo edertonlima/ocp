@@ -1,16 +1,16 @@
 <?php get_header(); ?>
-<?php $category = get_queried_object(); //var_dump($category); ?> 
+<?php while ( have_posts() ) : the_post(); ?>
 
 	<div class="breadcrumbs">
 		<ul class="container">
 			<li><a href="<?php echo get_home_url(); ?>" title="Home">Início</a></li> 
-			<li><?php the_field('titulo_menu', 11); ?></li>
+			<li><?php the_field('titulo_menu'); ?></li>
 		</ul>
 	</div>
 
 
-	<?php if( have_rows('conteudo_flexivel', 11) ):
-		while( have_rows('conteudo_flexivel', 11) ): the_row();
+	<?php if( have_rows('conteudo_flexivel') ):
+		while( have_rows('conteudo_flexivel') ): the_row();
 
 			switch (get_row_layout()) {
 				case 'conteudo': ?>
@@ -151,47 +151,104 @@
 			}
 		
 		endwhile;
-	endif; ?>
+	endif;
 
+	if( get_field('titulo_info') ): ?>
+	<section class="box-content no-padding"> 
+		<div class="container">
 
-	<section class="box-content no-padding-top servicios list-servicios"> 
+			<h2 class="center"><span><?php the_field('titulo_info'); ?></span></h2>
+
+			<?php if(get_field('descricao_info')){ ?>
+				<p class="sub-tituto"><?php the_field('descricao_info'); ?></p>
+			<?php } ?>
+
+		</div>
+	</section>	
+
+	<section class="box-content">
+		<div class="container">
+			<ul class="icon-page count-item-4">
+
+				<?php while ( have_rows('itens_info') ) : the_row(); ?>
+					<li class="left">
+						<img src="<?php the_sub_field('icone'); ?>" align="" class="">
+						<div class="vertical-center">
+							<div class="content-vertical">
+								<span class="titulo left no-margin-top" style="color: <?php the_sub_field('cor'); ?>">
+									<?php the_sub_field('titulo'); ?>
+								</span>
+							</div>
+						</div>
+						<p><?php the_sub_field('descricao'); ?></p>
+					</li>
+				<?php endwhile; ?>
+
+			</ul>
+		</div>
+	</section>
+	<?php endif; ?>
+
+	<section class="box-content"> 
 		<div class="container">
 
 			<div class="row">
+				<div class="col-12">
 
-				<?php
-					$args = array(
-					    'taxonomy'      	=> 'categoria_funcionamiento',
-					    'parent'        	=> 0, // get top level categories
-					    'orderby'       	=> 'name',
-					    'order'         	=> 'ASC',
-					    'hide_empty'      	=> false
-					);
-					$categories = get_categories( $args );
+					<h2 class="center"><span><?php the_field('titulo_etica'); ?></span></h2>
+					<p class="margin-bottom-20"><?php the_field('descricao_etica'); ?></p>
 
-					foreach ( $categories as $category ){ ?>
+					<?php if(get_field('link_etica')){ ?>
+					<div class="link-mais margin-bottom-40 center">
+						<a href="<?php the_field('link_etica'); ?>" target="_blank" title="<?php the_field('titulo_link_etica'); ?>" class="link link-bloco">
+							<?php the_field('titulo_link_etica'); ?>
+						</a>
+					</div>
+					<?php } ?>
 
-						<div class="col-4">
-							<div class="item-servicios center">
-								<img src="<?php the_field('icone', $category->taxonomy . '_' . $category->term_id ); ?>">
-								<h4 class="uppercase"><?php echo $category->name; ?></h4>
+					<div class="block-center">
+						<?php 
+							$count_arquivo = 1;
+							$count = count(get_field('arquivos_etica'));
+						 ?>
+						
+						<?php while ( have_rows('arquivos_etica') ) : the_row();
+							$arquivo = get_sub_field('arquivo');
+							$filesize = filesize( get_attached_file( $arquivo['ID'] ) );
+							$filesize = size_format($filesize, 2); ?>
+
+							<div class="item-block bg-claro">
+								<span class="titulo center"><?php the_sub_field('titulo'); ?></span>
+								<div class="link-mais margin-top-30">
+									<a href="<?php echo $arquivo['url']; ?>" title="Código de Ética y política antifraude (PDF, 657 kB)" target="_blank" class="link cor3 center">
+										<i class="fas fa-arrow-circle-down cor3"></i> 
+										<?php the_sub_field('nome'); ?>
+										<br>(<?php echo strtoupper($arquivo['subtype']) . ', ' . $filesize; ?>,)
+									</a>
+								</div>
 							</div>
-							<div class="link-mais margin-top-20 margin-bottom-40 center">
-								<a href="<?php echo get_term_link( $category->term_id); ?>" title="Conoce" class="link link-bloco cor1">
-									Conoce más
-								</a>
-							</div>
-						</div>
 
-					<?php }
-				?>
+							<?php if($count_arquivo != $count){ ?>
+								<div class="item-margin"></div>
+							<?php } 
+							$count_arquivo = $count_arquivo+1;
+ 						endwhile; ?>
+					</div>
 
+				</div>
 			</div>
 
 		</div>
 	</section>
 
+<?php endwhile; ?>
 
+
+	<?php /*else:
+
+		get_template_part( 'content-none', get_post_format() );
+
+		*/ ?>
 <?php /*
 				<?php while ( have_posts() ) : the_post(); ?>
 

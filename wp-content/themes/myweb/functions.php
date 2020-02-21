@@ -75,14 +75,62 @@ function wpdocs_theme_setup() {
     add_image_size( 'slide-funcionamiento', 580, 440, true ); // (cropped)
     add_image_size( 'detalhe-page', 1440, 600, true ); // (cropped)
     add_image_size( 'detalhe-post', 1200, 600, true ); // (cropped)
-    add_image_size( 'wide-post', 1200, 460, true ); // (cropped)
-   // add_image_size( 'mini-post', 415, 245, true ); // (cropped)
-    add_image_size( 'list-post', 365, 250, true ); // (cropped)
-
-    //280x205
+    
+    add_image_size( 'wide-post', 560, 244, true ); // (cropped)
+    add_image_size( 'galeria-post', 560, 317, true ); // (cropped)
+    add_image_size( 'list-post', 360, 246, true ); // (cropped)
 }
 
 
+function custom_short_excerpt($excerpt){
+	$limit = 260;
+
+	if (strlen($excerpt) > $limit) {
+		$excerpt = substr($excerpt, 0, strpos($excerpt, ' ', $limit));
+		return $excerpt.' […]';
+	}
+
+	return $excerpt;
+}
+
+add_filter('the_excerpt', 'custom_short_excerpt');
+
+
+
+/* BLOQUERAR TAMANHO MINIMO DA IMAGEM EM DESTAQUE */
+/*
+add_action('transition_post_status', 'check_featured_image_size_after_save', 10, 3);
+
+function check_featured_image_size_after_save($new_status, $old_status, $post){
+  $run_on_statuses = array('publish', 'pending', 'future');
+  if(!in_array($new_status, $run_on_statuses))
+    return;
+
+  $post_id = $post->ID;
+  if ( wp_is_post_revision( $post_id ) )
+    return; //not sure about this.. but apparently save is called twice when this happens
+
+  $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), "Full" );
+  if(!$image_data)
+    return; //separate message if no image at all. (I use a plugin for this)
+
+  $image_width = $image_data[1];
+  $image_height = $image_data[2];
+
+  // replace with your requirements.
+  $min_width = 1200;
+  $min_height = 460;
+  if($image_width < $min_width || $image_height < $min_height){
+    // Being safe, honestly $old_status shouldn't be in $run_on_statuses... it wouldn't save the first time!
+    $reverted_status = in_array($old_status, $run_on_statuses) ? 'draft' : $old_status;
+    wp_update_post(array(
+      'ID' => $post_id,
+      'post_status' => $reverted_status,
+    ));
+    $back_link = admin_url("post.php?post=$post_id&action=edit");
+    wp_die("Featured Image not large enough, must be at least ${min_width}x$min_height. Reverting status to '$reverted_status'.<br><br><a href='$back_link'>Go Back</a>");
+  }
+}*/
 
 
  /*
@@ -119,7 +167,7 @@ add_action( 'init', 'change_post_object' );
 */
 
 /* PAGINAS CONFIGURAÇÕES */ 
-//if( function_exists('acf_add_options_page') ) {
+if( function_exists('acf_add_options_page') ) {
 
 	/*acf_add_options_page(array(
 		'page_title' 	=> 'Slide Home',
@@ -139,26 +187,32 @@ add_action( 'init', 'change_post_object' );
 		'icon_url' 		=> 'dashicons-admin-comments'
 	));*/
 	
-	/*acf_add_options_page(array(
+	acf_add_options_page(array(
 		'page_title' 	=> 'Configurações',
 		'menu_title'	=> 'Configurações',
-		'menu_slug' 	=> 'configuracoes-geral',
+		'menu_slug' 	=> 'configuracoes',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> true
 	));
 
 	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Configurações Gerais',
+		'page_title' 	=> 'Geral',
 		'menu_title'	=> 'Geral',
-		'parent_slug'	=> 'configuracoes-geral',
+		'parent_slug'	=> 'configuracoes',
 	));
 
 	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Redes Sociais',
+		'menu_title'	=> 'Redes Sociais',
+		'parent_slug'	=> 'configuracoes',
+	));
+
+	/*acf_add_options_sub_page(array(
 		'page_title' 	=> 'Projetos',
 		'menu_title'	=> 'Projetos',
 		'parent_slug'	=> 'configuracoes-geral',
-	));
-}*/
+	));*/
+}
 
 /* PAGINAÇÃO */
 function paginacao() {
@@ -451,5 +505,12 @@ if($producao){
 	}
 }
 
+/*
+function query_order( $query ) {
+    //if ( is_page(10) ) {
+        $query->set( 'order', 'ASC' );
+    //}
+}
+add_action( 'pre_get_posts', 'query_order' );*/
 
 ?>

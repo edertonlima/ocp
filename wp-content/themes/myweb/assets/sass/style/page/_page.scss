@@ -15,7 +15,7 @@
 			width: auto;
 			display: inline-block;
 			max-width: 100%;
-			margin: 0 auto 10px;
+			margin: 0 auto 0px;
 		}
 
 		.titulo {
@@ -169,11 +169,11 @@
 	}
 
 	.link-bloco {
-		border: 1px solid $cor3;
-		line-height: 36px;
+		border: 2px solid $cor3;
+		line-height: 39px;
 		border-radius: 20px;
 		padding: 0 15px;
-		font-weight: $bold;
+		font-weight: $extra-bold;
 		color: $cor3;
 
 		&.cor1 {
@@ -219,6 +219,10 @@
 
 	.item-margin {
 		width: 90px;
+
+		&.item-count-3 {
+			width: 40px;
+		} 
 	}
 
 	.titulo {
@@ -245,6 +249,10 @@
 			font-size: 1.125rem;
 			margin: 20px 0;
 			display: block;
+
+			&.fa-arrow-circle-down {
+				font-size: 1.5rem; 
+			}
 		}
 	}
 

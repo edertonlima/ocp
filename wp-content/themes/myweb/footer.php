@@ -3,8 +3,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-4">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ocp-br.png" alt="">
-					<p class="">Somos una empresa privada que lleva 15 años transportando responsablemente petróleo en bene!cio del país. OCP Ecuador contribuye con el desarrollo del país a través de una operación de transporte de crudo con!able, segura, e!ciente y comprometida con el ambiente desde el inicio de sus operaciones en el 2003.</p>
+					<img src="<?php the_field('logo_footer', 'option'); ?>" alt="<?php //the_field('titulo', 'option'); ?>">
+					<p class=""><?php echo get_the_excerpt(get_page_by_path('quienes-somos')); ?></p>
 
 					<div class="list-txt">
 						<?php /*<h3>Oficinas:</h3>*/ ?>
@@ -22,7 +22,7 @@
 						<span>
 							Quito - Ecuador:
 							Teléfonos:<br>
-							PBX (593) 2 297 3200<br>
+							PBX (593) 2 297 3200<br> 
 							Fax: (593) 2 246 9746
 						</span>
 					</div>
@@ -32,10 +32,10 @@
 					<nav class="nav nav-footer">
 						<h3>Menús Principales</h3>
 						<ul>
-							<li><a href="#" title="Home">Home</a></li>
-							<li><a href="#" title="Quiénes Somos">Quiénes Somos</a></li>
-							<li><a href="#" title="Nuestra Historia">Nuestra Historia</a></li>
-							<li><a href="#" title="Funcionamento">Funcionamento</a></li>
+							<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('quienes-somos')); ?>" title="Quiénes Somos">Quiénes Somos</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('nuestra-historia')); ?>" title="Nuestra Historia">Nuestra Historia</a></li>
+							<li><a href="<?php echo get_home_url(); ?>/funcionamient" title="Funcionamento">Funcionamento</a></li>
 							<li><a href="#" title="Servicios">Servicios</a></li>
 							<li><a href="#" title="Aporte a la Sociedad">Aporte a la Sociedad</a></li>
 							<li><a href="#" title="Aporte al Pais">Aporte al Pais</a></li>
@@ -67,9 +67,23 @@
 					<nav class="nav nav-footer rede-social">
 						<h3>Síguenos</h3>
 						<ul>
-							<li><a href="#" title="@ocpecuadorsa"><i class="fab fa-facebook-f"></i>@ocpecuadorsa</a></li>
-							<li><a href="#" title="OCP Ecuador"><i class="fab fa-youtube"></i>OCP Ecuador</a></li>
-							<li><a href="#" title="@OCPEcuador"><i class="fab fa-twitter"></i>@OCPEcuador</a></li>
+							<?php if(get_field('url_facebook','option')){ ?>
+								<li><a href="<?php the_field('url_facebook','option'); ?>" title="<?php the_field('tit_facebook','option'); ?>" target="_blank">
+									<i class="fab fa-facebook-f"></i><?php the_field('tit_facebook','option'); ?>
+								</a></li>
+							<?php } ?>
+
+							<?php if(get_field('url_youtube','option')){ ?>
+								<li><a href="<?php the_field('url_youtube','option'); ?>" title="<?php the_field('tit_youtube','option'); ?>" target="_blank">
+									<i class="fab fa-youtube"></i><?php the_field('tit_youtube','option'); ?>
+								</a></li>
+							<?php } ?>
+
+							<?php if(get_field('url_twitter','option')){ ?>
+								<li><a href="<?php the_field('url_twitter','option'); ?>" title="<?php the_field('tit_twitter','option'); ?>" target="_blank">
+									<i class="fab fa-twitter"></i><?php the_field('tit_twitter','option'); ?>
+								</a></li>
+							<?php } ?>
 						</ul>
 					</nav>
 				</div>
