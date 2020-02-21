@@ -196,8 +196,26 @@ body * {
 		}
 	}
 
-	img {
+	img, figure {
 		max-width: 100%;
+		height: auto;
+		width: auto;
+
+		&.size-full {
+			margin-left: -10%;
+			width: 120%;
+			max-width: none;
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&.aligncenter:not(.size-full) {
+			margin: 0 auto;
+			display: block;
+		}
 	}
 
 	&.full {

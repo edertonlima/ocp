@@ -1,5 +1,4 @@
 <?php
-	global $row_proj;
 	$category = wp_get_post_terms( $post->ID, 'categoria_proyectos' )[0];
 ?>
 	

@@ -355,6 +355,82 @@ function create_taxonomy_categoria_proyectos() {
     );
 }
 
+/*
+// Aporte a la Sociedad
+add_action( 'init', 'create_post_type_aporte' );
+function create_post_type_aporte() {
+
+	$labels = array(
+	    'name' => _x('Aporte a la Sociedad'),
+	    'singular_name' => _x('Aporte a la Sociedad'),
+	    'add_new' => _x('Adicionar novo'),
+	    'add_new_item' => __('Adicionar novo'),
+	    'edit_item' => __('Editar'),
+	    'new_item' => __('Novo'),
+	    'all_items' => __('Visualizar Todos'),
+	    'view_item' => __('Visualizar'),
+	    'search_items' => __('Procurar'),
+	    'not_found' =>  __('Nenhum post encontrado.'),
+	    'not_found_in_trash' => __('Nenhum post encontrado na lixeira.'),
+	    'parent_item_colon' => '',
+	    'menu_name' => 'Aporte a la Sociedad'
+	);
+	$args = array(
+	    'labels' => $labels,
+	    'public' => true,
+	    'publicly_queryable' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+
+		'rewrite'=> [
+			'slug' => 'aporte-a-la-sociedad',
+			"with_front" => true,
+		],
+
+		"cptp_permalink_structure" => "/%categoria_aporte%/%postname%/",
+
+	    'capability_type' => 'post',
+	    'has_archive' => true,
+	    'hierarchical' => true,
+	    'menu_position' => null,
+	    'menu_icon' => 'dashicons-tag',
+	    'supports' => array('title','excerpt','editor','thumbnail')
+	  );
+
+    register_post_type( 'aporte-a-la-sociedad', $args );
+}
+
+add_action( 'init', 'create_taxonomy_categoria_aporte' );
+function create_taxonomy_categoria_aporte() {
+
+	$labels = array(
+	    'name' => _x( 'Categoria', 'taxonomy general name' ),
+	    'singular_name' => _x( 'Categoria', 'taxonomy singular name' ),
+	    'search_items' =>  __( 'Procurar categoria' ),
+	    'all_items' => __( 'Todas as categorias' ),
+	    'parent_item' => __( 'Categoria pai' ),
+	    'parent_item_colon' => __( 'Categoria pai:' ),
+	    'edit_item' => __( 'Editar categoria' ),
+	    'update_item' => __( 'Atualizar categoria' ),
+	    'add_new_item' => __( 'Adicionar nova categoria' ),
+	    'new_item_name' => __( 'Nova categoria' ),
+	    'menu_name' => __( 'Categoria' ),
+	);
+
+    register_taxonomy( 'categoria_aporte', array( 'aporte-a-la-sociedad' ), array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'show_in_tag_cloud' => true,
+        'query_var' => true,
+		'rewrite' => array(
+		    'slug' => 'aporte-a-la-sociedad',
+		    'with_front' => true,
+			)
+        )
+    );
+}*/
 
 
 

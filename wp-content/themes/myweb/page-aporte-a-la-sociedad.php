@@ -9,7 +9,7 @@
 			</ul>
 		</div>
 
-		<section class="box-content">
+		<section class="box-content no-padding">
 			<div class="container">
 				<h2 class="center"><span><?php the_title(); ?></span></h2>
 
@@ -172,7 +172,7 @@
 										<a href="<?php echo $arquivo['url']; ?>" title="Código de Ética y política antifraude (PDF, 657 kB)" target="_blank" class="link cor3 center">
 											<i class="fas fa-arrow-circle-down cor3"></i> 
 											<?php the_sub_field('nome'); ?>
-											<br>(<?php echo strtoupper($arquivo['subtype']) . ', ' . $filesize; ?>,)
+											<br>(<?php echo strtoupper($arquivo['subtype']) . ', ' . $filesize; ?>)
 										</a>
 									</div>
 								</div>
@@ -197,7 +197,7 @@
 				<div class="row">
 					<div class="col-12">
 
-						<h2 class="center"><span><?php the_field('tit_proyectos'); ?></span></h2>
+						<h2 class="center uppercase"><span><?php the_field('tit_proyectos'); ?></span></h2>
 
 						<ul class="list-category">
 

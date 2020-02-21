@@ -2,6 +2,14 @@ strong {
 	font-weight: $bold;
 }
 
+.bold {
+	font-weight: $bold;
+}
+
+.medium {
+	font-weight: $medium;
+}
+
 h1 {
 	display: inline-block;
 	width: 270px;
@@ -29,12 +37,14 @@ h2 {
 	text-transform: uppercase;
 	font-weight: $medium;
 	display: block;
-	margin-bottom: 15px;
+	margin: 10px auto 15px;
+	width: 100%;
+	max-width: 650px;
 	@include clear;
 
 	span {
 		font-size: 1.75rem;
-		line-height: 1.5625rem;
+		line-height: 2.25rem;
 		text-transform: uppercase;
 		font-weight: $medium;
 		//border-bottom: 1px solid $cor-txt;
