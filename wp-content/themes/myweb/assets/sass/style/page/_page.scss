@@ -278,6 +278,46 @@
 			}
 		}
 	}
+
+	&.block-foto {
+		padding-top: 50px;
+
+		.cont-block {
+			padding: 15px 25px 50px;
+		}
+
+		.nome {
+			font-size: 1.25rem;
+			line-height: 1.25rem;
+			display: block;
+		}
+
+		.titulo {
+			font-size: 1.5rem;
+			margin: 0px;
+			width: auto;
+			display: inline-block;
+		}
+
+		.link-mais {
+			a {
+				margin: 20px 0 0;
+				max-width: none;
+
+				i {
+					float: right;
+					margin: 5px 0 0;
+					font-size: 2.5rem;
+				}
+
+				&:hover {
+					.titulo {
+						color: $cor1;
+					}
+				}
+			}
+		}
+	}
 }
 
 

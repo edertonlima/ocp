@@ -1,6 +1,12 @@
 <?php
 	global $row_proj;
-	$category = wp_get_post_terms( $post->ID, ( is_archive('proyectos') ? 'categoria_proyectos' : 'category' ) )[0];
+	if(is_archive('proyectos')){ 
+		$category = wp_get_post_terms( $post->ID, 'categoria_proyectos' )[0];
+	}
+
+	if(is_post_type_archive('post')){ 
+		$category = wp_get_post_terms( $post->ID, 'category' )[0];
+	}
 ?>
 	
 <div class="item-prensa">
@@ -24,7 +30,7 @@
 	</a>
 
 	<div class="box-bg-content bg-claro">
-		<span class="data-prensa" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
+		<span class="data-prensa <?php if(is_front_page()){ echo 'cor3'; } ?>" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
 			<?php echo get_the_date(); ?>
 		</span>
 		
@@ -41,19 +47,35 @@
 			</span>
 		<?php }else{ ?>
 
-			<span class="categoria-prensa">
-				<i class="fas fa-circle"></i>
-				<?php 
-					$tags = get_the_tags();
-					//var_dump($tags);
+			<?php if(is_front_page()){/* ?>
+				<span class="categoria-prensa">
+					<i class="fas fa-circle"></i>
+					<?php 
+						$tags = get_the_tags();
+						//var_dump($tags);
 
-					foreach ( $tags as $tag ) { ?>
-						<a href="<?php echo get_tag_link($tag->term_id); ?>" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
-							<?php echo $tag->name; ?>
-						</a>
-					<?php }
-				?>
-			</span>
+						foreach ( $tags as $tag ) { ?>
+							<a href="<?php echo get_tag_link($tag->term_id); ?>" class="cor3">
+								<?php echo $tag->name; ?>
+							</a>
+						<?php }
+					?>
+				</span>
+			<?php */}else{ ?>
+				<span class="categoria-prensa">
+					<i class="fas fa-circle"></i>
+					<?php 
+						$tags = get_the_tags();
+						//var_dump($tags);
+
+						foreach ( $tags as $tag ) { ?>
+							<a href="<?php echo get_tag_link($tag->term_id); ?>" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
+								<?php echo $tag->name; ?>
+							</a>
+						<?php }
+					?>
+				</span>
+			<?php } ?>
 
 		<?php } ?>
 	</div>

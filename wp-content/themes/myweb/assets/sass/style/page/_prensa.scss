@@ -10,7 +10,7 @@
 
 	&.prensa-list {
 		.col-6:nth-child(2n+2) {
-			clear: both;
+			//clear: both;
 		}
 
 		.capa {
@@ -52,6 +52,7 @@
 			display: block;
 			padding: 15px 15px 35px;
 			position: relative;
+			min-height: 146px;
 		}
 
 		.titulo-prensa {

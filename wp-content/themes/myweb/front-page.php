@@ -1,66 +1,75 @@
 <?php get_header(); ?>
 
-<!-- slide --> 
-<?php if( have_rows('itens_slide') ): ?>
+		<!-- slide --> 
+		<?php if( have_rows('itens_slide') ): ?>
 
-		<section class="box-content box-slide"> 
-			<div class="slide">
+				<section class="box-content box-slide"> 
+					<div class="slide">
 
-				<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="8000">
-					<ol class="carousel-indicators">
+						<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="8000">
 
-						<?php $slide = 0;
-						while ( have_rows('itens_slide') ) : the_row(); ?>
+							<?php if(count(get_field('itens_slide')) > 1){ ?>
+								<ol class="carousel-indicators">
 
-							<li data-target="#slide-home" data-slide-to="<?php echo $slide; ?>" class="<?php if($slide == 0){ echo 'active'; } ?>"></li>
+									<?php $slide = 0;
+									while ( have_rows('itens_slide') ) : the_row(); ?>
 
-							<?php $slide = $slide+1;
-						endwhile; ?>
+										<li data-target="#slide-home" data-slide-to="<?php echo $slide; ?>" class="<?php if($slide == 0){ echo 'active'; } ?>"></li>
 
-					</ol>
+										<?php $slide = $slide+1;
+									endwhile; ?>
 
-					<div class="carousel-inner">
+								</ol>
+							<?php } ?>
+							
+							<div class="carousel-inner">
+								<?php $slide = 0;
+								while ( have_rows('itens_slide') ) : the_row(); 
 
-						<?php $slide = 0;
-						while ( have_rows('itens_slide') ) : the_row(); 
+									//$img_slide = wp_get_attachment_image_src( get_sub_field('imagem'), 'slide' ); ?>
+									<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo get_sub_field('imagem'); ?>');"></div>
 
-							//$img_slide = wp_get_attachment_image_src( get_sub_field('imagem'), 'slide' ); ?>
-							<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo get_sub_field('imagem'); ?>');"></div>
+									<?php $slide = $slide+1;
+								endwhile; ?>
+							</div>
+							
 
-							<?php $slide = $slide+1;
-						endwhile; ?>
+							<div class="mask-slide cor2"></div>
+
+							
+								<?php $slide = 0;
+								while ( have_rows('itens_slide') ) : the_row(); ?>
+									<div class="text-item <?php if($slide == 0){ echo 'active'; } ?>" id="txt-<?php echo $slide; ?>">
+										<div class="vertical-center">
+											<div class="content-vertical">
+												<span class="titulo-slide grande">
+													<?php the_sub_field('titulo'); ?>
+													<?php if(get_sub_field('link')){ ?>
+														<a href="<?php the_sub_field('link'); ?>" class="link inline">Lea más</a>
+													<?php } ?>
+												</span>
+											</div>
+										</div>
+									</div>
+									<?php $slide = $slide+1;
+								endwhile; ?>
+							
+
+							<a class="carousel-control-prev" href="#slide-home" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#slide-home" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
 
 					</div>
+				</section>
 
-					<div class="mask-slide cor2"></div>
+		<?php endif; ?>
 
-					<div class="text-item">
-						<?php $slide = 0;
-						while ( have_rows('itens_slide') ) : the_row(); ?>
-
-							<span id="txt-<?php echo $slide; ?>" class="titulo-slide grande bottom <?php if($slide == 0){ echo 'active'; } ?>">
-								<?php the_sub_field('titulo'); ?>
-								<a href="<?php echo get_permalink(get_page_by_path('funcionamiento')); ?>" class="link inline">Lea más</a>
-							</span>
-
-							<?php $slide = $slide+1;
-						endwhile; ?>
-					</div>
-
-					<a class="carousel-control-prev" href="#slide-home" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#slide-home" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-
-			</div>
-		</section>
-
-<?php endif; ?>
 
 
 <section class="box-content">
@@ -96,14 +105,19 @@
 
 							<?php
 								$prensa_list = array(
-										'posts_per_page' => 16,
-										'post_type' => 'post'
+										'posts_per_page' => 12,
+										'post_type' => 'post',
+										'category_name' => 'prensa'
 									);
 								query_posts( $prensa_list );
 
 								while ( have_posts() ) : the_post(); ?>
 
 									<div class="owl-item">
+
+										<?php get_template_part( 'content-home', '' ); ?>
+
+										<?php /*
 										<a href="<?php the_permalink(); ?>" class="capa" title="">
 											<?php 
 												$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'list-post' ); 
@@ -125,6 +139,7 @@
 												}	
 											?>
 										</span>
+										*/ ?>
 									</div>
 
 								<?php endwhile;
@@ -248,7 +263,7 @@ if( $conocenos ): ?>
 
 <script type="text/javascript">
 	$('#slide-home').on('slide.bs.carousel', function (e) {
-		$('.titulo-slide').removeClass('active');
+		$('.text-item').removeClass('active');
 	});
 
 	$('#slide-home').on('slid.bs.carousel', function (e) {
