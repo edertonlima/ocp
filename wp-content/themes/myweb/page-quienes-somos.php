@@ -25,6 +25,9 @@
 		</section>
 
 
+<?php
+	if($GLOBALS['mobile']){ $name_image = 'slide-funcionamiento'; }else{ $name_image = 'slide'; }
+?>
 
 <?php if( have_rows('mision') ): ?>
     <?php while( have_rows('mision') ): the_row(); 
@@ -36,21 +39,23 @@
 				<div class="slide">
 
 					<div id="slide-mision" class="carousel slide slide-quienes-somos" data-ride="carousel" data-interval="80000">
-						<ol class="carousel-indicators">
-					        <?php 
-					        	$slide_elem = 0;
-					        	foreach( $images as $image ): ?>
-					        		<li data-target="#slide-mision" data-slide-to="<?php echo $slide_elem; ?>" class="<?php if($slide_elem == 0){ echo 'active'; } ?>"></li>
-					        		<?php $slide_elem = $slide_elem+1;
-					        	endforeach;
-					        ?>
-						</ol>
+						<?php if( count($images) > 1 ){ ?>
+							<ol class="carousel-indicators">
+						        <?php 
+						        	$slide_elem = 0;
+						        	foreach( $images as $image ): ?>
+						        		<li data-target="#slide-mision" data-slide-to="<?php echo $slide_elem; ?>" class="<?php if($slide_elem == 0){ echo 'active'; } ?>"></li>
+						        		<?php $slide_elem = $slide_elem+1;
+						        	endforeach;
+						        ?>
+							</ol>
+						<?php } ?>
 
 						<div class="carousel-inner">
 					        <?php 
 					        	$slide_elem = 0;
 					        	foreach( $images as $image ): ?>
-					        		<div class="carousel-item <?php if($slide_elem == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes']['slide']); ?>');"></div>
+					        		<div class="carousel-item <?php if($slide_elem == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes'][$name_image]); ?>');"></div>
 					        	<?php $slide_elem = $slide_elem+1;
 					        	endforeach;
 					        ?>
@@ -58,7 +63,7 @@
 
 						<div class="mask-slide cor1 lg"></div>
 
-						<div class="text-item text-fixo lg">				
+						<div class="text-item text-fixo lg active">				
 							<div class="vertical-center">
 								<div class="content-vertical">
 									<span class="titulo-slide justify active">
@@ -113,7 +118,7 @@
 					        <?php 
 					        	$slide_elem = 0;
 					        	foreach( $images as $image ): ?>
-					        		<div class="carousel-item <?php if($slide_elem == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes']['slide']); ?>');"></div>
+					        		<div class="carousel-item <?php if($slide_elem == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes'][$name_image]); ?>');"></div>
 					        	<?php $slide_elem = $slide_elem+1;
 					        	endforeach;
 					        ?>
@@ -121,7 +126,7 @@
 
 						<div class="mask-slide cor1 lg"></div>
 
-						<div class="text-item text-fixo lg">				
+						<div class="text-item text-fixo lg active">				
 							<div class="vertical-center">
 								<div class="content-vertical">
 									<span class="titulo-slide justify active">
@@ -176,7 +181,7 @@
 					        <?php 
 					        	$slide_elem = 0;
 					        	foreach( $images as $image ): ?>
-					        		<div class="carousel-item <?php if($slide_elem == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes']['slide']); ?>');"></div>
+					        		<div class="carousel-item <?php if($slide_elem == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes'][$name_image]); ?>');"></div>
 					        	<?php $slide_elem = $slide_elem+1;
 					        	endforeach;
 					        ?>
@@ -184,7 +189,7 @@
 
 						<div class="mask-slide cor1 lg"></div>
 
-						<div class="text-item text-fixo lg">				
+						<div class="text-item text-fixo lg active">
 							<div class="vertical-center">
 								<div class="content-vertical">
 									<span class="titulo-slide justify active">

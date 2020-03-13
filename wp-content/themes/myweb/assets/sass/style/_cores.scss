@@ -109,6 +109,41 @@
 			}
 		}
 	}
+
+	&.cor3 {
+		background-color: $cor3;
+		color: #ffffff;
+		border-color: $cor3;
+
+		i {
+			color: #ffffff;
+		}
+
+		&:hover {
+			background-color: darken($cor3, 10%);
+			border-color: darken($cor3, 10%);
+			color: #ffffff;
+		}
+
+		&.transparent {
+			color: $cor3;
+			background: transparent;
+
+			i {
+				color: $cor3;
+			}
+
+			&:hover {
+				background-color: $cor3;
+				border-color: $cor3;
+				color: #ffffff;
+
+				i {
+					color: #ffffff;
+				}
+			}
+		}
+	}
 }
 
 

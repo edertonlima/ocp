@@ -2,9 +2,17 @@
 	width: 100%;
 	height: $hSlide;
 
+	@include m420 {
+		height: calc(100vh - 130px);
+	}
+
 	.carousel, .carousel-inner, .carousel-item {
 		width: 100%;
 		height: $hSlide;
+
+		@include m420 {
+			height: calc(100vh - 130px);
+		}
 	}
 
 	&.slide-grande {
@@ -27,6 +35,10 @@
 	}
 
 	.carousel-indicators {
+		@include m420 {
+			display: none;
+		}
+
 		li {
 			width: 17px;
 			height: 17px;
@@ -79,6 +91,10 @@
 		&.lg {
 			&:before {
 				width: 40%;
+
+				@include m420 {
+					width: 100%;
+				}
 			}
 		}
 
@@ -86,6 +102,30 @@
 			width: 50px;
 			margin-left: -25px;
 			transform: skew(-7deg);
+		}
+
+		@include m420 {
+			height: calc(50vh - 130px);
+			bottom: 0;
+			top: auto;
+
+			&:before, &:after {
+				width: 100%;
+			}
+
+			&:before {
+				height: 100%;
+				padding: 0;
+			}
+
+			&:after {
+				transform: skew(0,-7deg);
+				margin: 0;
+				top: -27px;
+				position: absolute;
+				left: 0;
+				height: 53px;
+			}
 		}
 	}
 
@@ -99,6 +139,15 @@
 		opacity: 0;
 		@include animacao;
 
+		@include m420 {
+			width: 100%;
+			height: calc(50vh - 130px);
+			padding: 0px 40px;
+			top: auto;
+			bottom: 0;
+			@include box-sizing;
+		}
+
 		&.active {
 			opacity: 1;
 			z-index: 2;
@@ -107,6 +156,11 @@
 		&.lg {
 			width: 40%;
 			padding: 0 5%;
+
+			@include m420 {
+				width: 100%;
+				padding: 0;
+			}
 		}
 
 		.titulo-slide {
@@ -121,6 +175,11 @@
 			-o-transition: opacity 1s ease-in-out;
 			transition: opacity 1s ease-in-out;
 
+			@include m420 {
+				font-size: 1.5rem;
+				line-height: 1.75rem;
+			}
+
 			&.bottom {
 				position: absolute;
 				bottom: 60px;
@@ -130,6 +189,11 @@
 			&.grande {
 				font-size: 2.25rem;
 				line-height: 2.5rem;
+
+				@include m420 {
+					font-size: 1.5rem;
+					line-height: 1.75rem;
+				}
 			}
 
 			&.light {

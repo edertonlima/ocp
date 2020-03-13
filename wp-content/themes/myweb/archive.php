@@ -1,26 +1,15 @@
 <?php get_header(); ?>
 
-	<?php
-		$args = array(
-		    'taxonomy'      	=> 'categoria_proyectos',
-		    'parent'        	=> 0, // get top level categories
-		    'orderby'       	=> 'count',
-		    'order'         	=> 'DESC',
-		    'hide_empty'      	=> false
-		);
-		$categories = get_categories( $args );
-	?>
-
 	<div class="breadcrumbs">
 		<ul class="container">
 			<li><a href="<?php echo get_home_url(); ?>" title="Home">Início</a></li> 
-			<li><?php echo ( is_archive('proyectos') ? get_field('tit_proyectos',16) : '' ); ?></li>
+			<li><?php the_field('titulo_menu',16); ?></li>
 		</ul>
 	</div>
 
 	<section class="box-content no-padding">
 		<div class="container">
-			<h2 class="center"><span><?php echo ( is_archive('proyectos') ? get_field('tit_proyectos',16) : '' ); ?></span></h2>
+			<h2 class="center"><span><?php the_field('titulo_menu',16); ?></span></h2>
 
 			<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
 				<fieldset>
@@ -39,11 +28,174 @@
 		</div>
 	</section>
 
-	<section class="box-content no-padding"> 
+	<?php if( have_rows('itens_dados',16) ): ?>
+		<section class="box-content no-padding-bottom">
+			<div class="container">		
+				<h2 class="center"><span><?php the_field('titulo_dados',16); ?></span></h2>
+			</div>
+		</section>
+
+		<section class="box-content bg-claro no-padding-top">
+			<div class="container">
+				
+				<div class="row">
+					<div class="col-12">
+
+						<div class="conteudo-texto margin-top-30"><?php the_field('descricao_dados',16); ?></div>
+						<?php /* <p class="sub-tituto margin-top-30"><?php the_field('descricao_dados'); ?></p> */ ?>
+
+						<ul class="icon-page count-item-5">
+
+							<?php while ( have_rows('itens_dados',16) ) : the_row(); ?>
+
+								<li>
+									<img src="<?php the_sub_field('icone'); ?>" align="">
+									<span class="titulo center"><span class="num" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('dados'); ?></span></span>
+									<p class="destaque" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('titulo'); ?></p>
+								</li>
+
+	 						<?php endwhile; ?>
+
+						</ul>
+
+						<?php /*
+						<div class="link-mais center">
+							<a href="<?php echo get_home_url(); ?>/proyectos" title="Conoce más de nuestros logros" class="link cor1">
+								<i class="fas fa-plus-circle cinza"></i> Conoce más de nuestros logros
+							</a>
+						</div>
+						*/ ?>
+
+					</div>
+				</div>
+			
+			</div>
+		</section>
+	<?php endif; ?>
+
+
+	<section class="box-content"> 
 		<div class="container">
 
 			<div class="row">
 				<div class="col-12">
+
+					<ul class="icon-page count-item-4 no-margin-top">
+
+						<?php
+							$args = array(
+							    'taxonomy'      	=> 'categoria_aportealasociedad',
+							    'parent'        	=> 0, // get top level categories
+							    'orderby'       	=> 'count',
+							    'order'         	=> 'DESC',
+							    'hide_empty'      	=> false
+							);
+							$categories = get_categories( $args );
+							//$qtd_proj = count($categories);
+
+							$count_post = wp_count_posts( 'aporte-a-la-sociedad' )->publish;
+							$porc_post = (100/$count_post);
+							$item_post = 1;
+
+							foreach ( $categories as $category ){ ?>
+
+								<li class="info-dados">
+									<img src="<?php the_field('icone', $category->taxonomy . '_' . $category->term_id ); ?>">				
+									<span class="titulo center" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
+										<span class="num" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
+
+											<?php //echo $category->category_count*$porc_post;
+											if($item_post == 1){
+												echo ceil($category->category_count*$porc_post) . '%';
+												$item_post = 0;
+											}else{
+												echo round($category->category_count*$porc_post) . '%'; 
+											} ?>
+
+										</span>
+										<?php echo $category->name; ?>
+									</span>
+								</li>
+
+								<?php /* <a href="<?php echo get_term_link( $category->term_id); ?>" title="<?php echo $category->name; ?>" class=""> */?>
+
+							<?php }
+						?>
+
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+	<section class="box-content no-padding"> 
+		<div class="container">
+
+			<div class="row">
+				<div class="col-m-1 col-10">
+
+					<?php if(get_field('titulo_etica',16)){ ?>
+						<h2 class="center"><span><?php the_field('titulo_etica',16); ?></span></h2>
+					<?php } ?>
+
+					<?php if(get_field('descricao_etica',16)){ ?>
+						<p class="margin-bottom-20"><?php the_field('descricao_etica',16); ?></p>
+					<?php } ?>
+
+					<?php if(get_field('link_etica',16)){ ?>
+					<div class="link-mais margin-bottom-40 center">
+						<a href="<?php the_field('link_etica',16); ?>" target="_blank" title="<?php the_field('titulo_link_etica',16); ?>" class="link link-bloco">
+							<?php the_field('titulo_link_etica',16); ?>
+						</a>
+					</div>
+					<?php } ?>
+
+					<div class="block-center">
+						<?php 
+							$count_arquivo = 1;
+							$count = count(get_field('arquivos_etica',16));
+						 ?>
+						
+						<?php while ( have_rows('arquivos_etica',16) ) : the_row();
+							$arquivo = get_sub_field('arquivo');
+							$filesize = filesize( get_attached_file( $arquivo['ID'] ) );
+							$filesize = size_format($filesize, 2); ?>
+
+							<div class="item-block bg-claro">
+								<span class="titulo center"><?php the_sub_field('titulo'); ?></span>
+								<div class="link-mais margin-top-30">
+									<a href="<?php echo $arquivo['url']; ?>" title="<?php the_sub_field('nome'); ?> (<?php echo strtoupper($arquivo['subtype']) . ', ' . $filesize; ?>)" target="_blank" class="link cor3 center">
+										<i class="fas fa-arrow-circle-down cor3"></i> 
+										<?php the_sub_field('nome'); ?>
+										<br>(<?php echo strtoupper($arquivo['subtype']) . ', ' . $filesize; ?>)
+									</a>
+								</div>
+							</div>
+
+							<?php if($count_arquivo != $count){ ?>
+								<div class="item-margin <?php echo 'item-count-'.$count; ?>"></div>
+							<?php } 
+							$count_arquivo = $count_arquivo+1;
+ 						endwhile; ?>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+	<section class="box-content no-padding-bottom"> 
+		<div class="container">
+
+			<div class="row">
+				<div class="col-12">
+
+					<h2 class="center uppercase"><span><?php the_field('tit_proyectos',16); ?></span></h2>
 
 					<ul class="list-category">
 
@@ -65,53 +217,104 @@
 		</div>
 	</section>
 
+
 	<section class="box-content no-padding-top prensa prensa-list">
 		<div class="container">
 
 			<div class="row">
 
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php 
+					if(have_posts()){
+						while ( have_posts() ) : the_post();
+							$row_proj = $row_proj+1;
 
-					<div class="col-4 margin-bottom-60">
+							if($row_proj == 4){
+								echo '</div><div class="row">';
+							}
+							?>
+							<div class="<?php if($row_proj <= 3){ echo 'col-4'; }else{ echo 'col-6'; } ?> margin-bottom-60">
 
-						<?php 	
-							if(get_field('video')){
+								<?php 	
+									if(get_field('video')){
 
-								get_template_part( 'content', 'video' );
-
-							}else{
-								if(get_field('galeria')){
-
-									get_template_part( 'content', 'galeria' );
-
-								}else{
-									if(get_field('link')){
-
-										get_template_part( 'content', 'link' );
+										get_template_part( 'content', 'video' );
 
 									}else{
-										if(get_field('arquivo')){
+										if(get_field('galeria')){
 
-											get_template_part( 'content', 'arquivo' );
+											get_template_part( 'content', 'galeria' );
 
 										}else{
-											get_template_part( 'content', '' );
+											if(get_field('link')){
+
+												get_template_part( 'content', 'link' );
+
+											}else{
+												if(get_field('arquivo')){
+
+													get_template_part( 'content', 'arquivo' );
+
+												}else{
+													get_template_part( 'content', '' );
+												}
+											}
 										}
 									}
-								}
-							}
-						?>
-					
-					</div>
+								?>
+							
+							</div>
+						<?php endwhile;
+					}else{ ?>
 
-				<?php endwhile; ?>
+						<div class="col-12">
+							<p class="text-destaque center"><br><br>No se encontraron entradas</p>
+						</div>
+
+					<?php }
+				?>
 
 			</div>
 
 		</div>
-	</section>	
+	</section>
+
+
+					<?php /*
+						$prensa_list = array(
+								'post_type' => 'aporte-a-la-sociedad'
+							);
+						query_posts( $prensa_list );
+
+						if(have_posts()){
+
+							//global $row_proj;
+							//global $category;
+							
+							$row_proj = 0;
+							while ( have_posts() ) : the_post(); 
+
+
+
+							endwhile;
+							wp_reset_query();
+
+						}else{ ?>
+
+							<div class="col-12">
+								<p class="text-destaque center"><br><br>No se encontraron entradas</p>
+							</div>
+
+						<?php }
+					?>
+
+					<?php //paginacao(); */ ?>
+
+
+
+	
 
 <?php get_footer(); ?>
+
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript">

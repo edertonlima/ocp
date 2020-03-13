@@ -86,7 +86,7 @@
 
 							<?php
 								$args = array(
-								    'taxonomy'      	=> 'categoria_proyectos',
+								    'taxonomy'      	=> 'categoria_aportealasociedad',
 								    'parent'        	=> 0, // get top level categories
 								    'orderby'       	=> 'count',
 								    'order'         	=> 'DESC',
@@ -95,7 +95,7 @@
 								$categories = get_categories( $args );
 								//$qtd_proj = count($categories);
 
-								$count_post = wp_count_posts( 'proyectos' )->publish;
+								$count_post = wp_count_posts( 'aporte-a-la-sociedad' )->publish;
 								$porc_post = (100/$count_post);
 								$item_post = 1;
 
@@ -227,7 +227,7 @@
 
 					<?php
 						$prensa_list = array(
-								'post_type' => 'proyectos'
+								'post_type' => 'aporte-a-la-sociedad'
 							);
 						query_posts( $prensa_list );
 

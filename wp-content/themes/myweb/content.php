@@ -1,12 +1,13 @@
 <?php
 	global $row_proj;
-	if(is_archive('proyectos')){ 
-		$category = wp_get_post_terms( $post->ID, 'categoria_proyectos' )[0];
+	if(is_archive('aporte-a-la-sociedad')){ 
+		$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
 	}
 
-	if(is_post_type_archive('post')){ 
+	if(is_home() or (is_singular('post') or is_category())){ 
 		$category = wp_get_post_terms( $post->ID, 'category' )[0];
 	}
+
 ?>
 	
 <div class="item-prensa">
@@ -40,7 +41,7 @@
 		
 		<div class="conteudo-texto"><?php the_excerpt(); ?></div>
 
-		<?php if( is_archive('proyectos') ) { ?>
+		<?php if( is_archive('aporte-a-la-sociedad') ) { ?>
 			<span class="categoria-prensa" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
 				<i class="fas fa-circle" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"></i>
 				<?php echo $category->name; ?>
@@ -63,7 +64,7 @@
 				</span>
 			<?php */}else{ ?>
 				<span class="categoria-prensa">
-					<i class="fas fa-circle"></i>
+					<i class="fas fa-circle" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"></i>
 					<?php 
 						$tags = get_the_tags();
 						//var_dump($tags);

@@ -1,6 +1,6 @@
 <?php
 	global $row_proj;
-	$category = wp_get_post_terms( $post->ID, 'categoria_proyectos' )[0];
+	$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
 
 	if($row_proj <= 3){ 
 		$size = 'list-post';

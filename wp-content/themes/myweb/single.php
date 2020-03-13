@@ -5,16 +5,17 @@
 		<div class="breadcrumbs">
 			<ul class="container">
 				<li><a href="<?php echo get_home_url(); ?>" title="Home">Início</a></li> 
-				<?php if(is_singular('proyectos')){ 
-					$name_category = 'categoria_' . $post->post_type; ?>
+				<?php if(is_singular('aporte-a-la-sociedad')){ 
+					$name_category = 'categoria_aportealasociedad'; ?>
 					<li><a href="<?php echo get_home_url(); ?>/aporte-a-la-sociedad" title="<?php the_field('titulo_menu',16); ?>"><?php the_field('titulo_menu',16); ?></a></li> 
 					<?php /*<li><a href="<?php echo get_home_url(); ?>/proyectos" title="Proyectos"><?php the_field('tit_proyectos',16); ?></a></li> */?>
 				<?php }else{
-					$name_category = 'category';
-				} ?>
+					$name_category = 'category'; ?>
+					<li><a href="<?php echo get_home_url(); ?>/sala-de-prensa" title="<?php the_field('titulo_menu',20); ?>"><?php the_field('titulo_menu',20); ?></a></li> 
+				<?php } ?>
 
 				<?php 
-					$category = wp_get_post_terms( $post->ID, $name_category )[0]; 
+					$category = wp_get_post_terms( $post->ID, $name_category )[0];
 				?>
 				<li><a href="<?php echo get_term_link($category->term_id); ?>" title="<?php echo $category->name; ?>"><?php echo $category->name; ?></a></li>
 				<li><?php the_title(); ?></li>

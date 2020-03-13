@@ -16,6 +16,12 @@ h1 {
 	margin: 15px 0;
 	@include animacao();
 
+	@include m420 {
+		width: 185px;
+		margin: 38px 0 0 10px;
+		float: left;
+	}
+
 	a {
 		display: block;
 		@include animacao();
@@ -42,6 +48,13 @@ h2 {
 	max-width: 650px;
 	@include clear;
 
+	@include m420 {
+		margin-top: 0px;
+		margin-bottom: 40px;
+		padding-right: 45px;
+		padding-left: 45px;
+	}
+
 	span {
 		font-size: 1.75rem;
 		line-height: 2.25rem;
@@ -49,6 +62,11 @@ h2 {
 		font-weight: $medium;
 		//border-bottom: 1px solid $cor-txt;
 		display: inline-block;
+
+		@include m420 {
+			font-size: 2.25rem;
+			line-height: 3rem;
+		}
 	}
 
 	&.extra-grande {
@@ -63,6 +81,13 @@ h3 {
 	font-size: 1.5rem;
 	line-height: 1.375rem+.25;
 	color: $cor1;
+
+	@include m420 {
+		padding: 0;
+		text-align: center;
+		font-size: 2.25rem;
+		line-height: 2.25rem;
+	}
 }
 
 h4 {
@@ -70,6 +95,12 @@ h4 {
 	font-size: $font-size;
 	line-height: $font-size+.25;
 	color: $cor-txt;
+
+/*	@include m420 {
+		font-size: 2.25rem;
+		line-height: 3rem;
+	} em archive.scss linha 83*/
+
 }
 
 h5 {
@@ -84,6 +115,7 @@ p {
 	font-size: $font-size;
 	line-height: $font-size+.5;
 	font-weight: $light;
+	@include box-sizing;
 	//padding-bottom: 15px;
 
 	&:last-child {
@@ -108,6 +140,7 @@ p {
 		display: block;
 		margin-right: auto;
 		margin-left: auto;
+		
 		&.mini {
 			max-width: 650px;
 		}
@@ -147,11 +180,19 @@ p {
 			line-height: 1.5rem;
 		}
 	}
-	
-	@media all and (max-width: 770px){
-		font-size: 1.25rem;
-		line-height: (1.25rem)+.5;
+
+	@include m420 {
+		font-size: 1.125rem;
+		line-height: 1.5rem;
+
+		&.p-mobile, &.sub-tituto, &.mini, .text-destaque, &.grande {
+			font-size: 1.125rem;
+			line-height: 1.5rem;
+			width: 100%;
+			padding: 0 45px;
+		}
 	}
+	
 }
 
 .justify-center {

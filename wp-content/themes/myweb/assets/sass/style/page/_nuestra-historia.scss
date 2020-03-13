@@ -2,11 +2,12 @@
 	position: fixed;
 	top: 200px;
 	left: 0px;
-	z-index: 9999;
+	z-index: 999;
 	width: 180px;
 	padding: 30px 25px;
 	background-color: #ffffff;
-	@include animacao-slow;
+	//@include animacao-slow;
+	opacity: 0;
 
 	&.linha-tempo-bottom {
 		position: absolute;
@@ -96,10 +97,11 @@
 .slide {
 	.text-item {
 		&.item-nuestra-historia {
-			padding: 0 30px;
+			padding: 30px 0 60px 30px;
 
 			.titulo-slide {
 				h2 {
+					margin-top: 0;
 					color: $cor1;
 					font-weight: $bold;
 					line-height: 1.5rem;
@@ -108,6 +110,43 @@
 
 				p {
 					font-size: .85rem;
+				}
+
+				.scrollbar {
+					max-height: 225px;
+					padding-right: 20px;
+				}
+			}
+
+			@include m420 {
+				padding-top: 0;
+				padding-bottom: 0;
+				overflow: hidden;
+				height: calc(60vh - 130px);
+			}
+		}
+	}
+
+
+	@include m420 {
+		.mask-slide.item-nuestra-historia {
+			height: calc(60vh - 130px);
+		}
+	}
+
+	.carousel-indicators {
+		&.indicators-huestra-historia {
+			bottom: 20px;
+			li {
+				border-color: $cor1;
+				width: 20px;
+				height: 20px;
+				background-color: transparent;
+				box-shadow: none;
+				margin: 0 10px;
+
+				&.active {
+					background-color: $cor1;
 				}
 			}
 		}

@@ -97,7 +97,14 @@
 				</div>
 			</div>
 		</div>
-	</div>	
+	</footer>
+
+	<button id="goTop" class="button go-item" rel="body">
+		<span></span>
+		<span></span>
+	</button>
+
+	
 
 	<?php wp_footer(); ?>
 
@@ -109,10 +116,36 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 	<script type="text/javascript">
+		
+		function go_item() {
+			if (jQuery(this).scrollTop() > 400){
+				$('.go-item').addClass('on');
+			}else{
+				$('.go-item').removeClass('on');
+			}
+		}
+
 		$(document).ready(function(){	
 
+			widthWindow = jQuery(window).width();
+
+			if(widthWindow < 421){
+				$('.menu-mobile').click(function(){
+					$('.submenu').removeClass('ativo');
+
+					$(this).toggleClass('open');
+					$('.nav-principal').toggleClass('open');
+				});
+
+				$('.btn-menu-mobile').click(function(){
+					$(this).parent().toggleClass('ativo');
+				});
+			}
+
+			go_item();
 	
 		});
+		
 
 		$('.go-item').click(function(){
 			item = $(this).attr('rel');
@@ -120,6 +153,17 @@
 				scrollTop: $(item).offset().top-20
 			}, 1000);
 		});
+
+		jQuery(window).scroll(function(){
+			go_item();
+		});
+
+		jQuery(window).resize(function(){
+			$('.menu-mobile').removeClass('open');
+			$('.nav-principal').removeClass('open');
+			$('.submenu').removeClass('ativo');
+		});
+
 	</script>
 
 </body>

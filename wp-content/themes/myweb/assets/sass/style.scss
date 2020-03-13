@@ -8,7 +8,7 @@
 @import 'owl-carousel/owl.carousel';
 @import 'owl-carousel/_theme.default';
 
-@import 'horizontal-timeline/horizontal-timeline'; 
+@import 'horizontal-timeline/horizontal-timeline';  
 
 @import 'style/_estrutura';
 @import 'style/_elementos'; 
@@ -20,6 +20,8 @@
 @import 'style/_sidebar';
 @import 'style/_footer';
 @import 'style/_cores'; 
+
+@import 'style/_scrollbar';  
 
 /* PAGES */
 @import 'style/page/_page';

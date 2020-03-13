@@ -132,7 +132,7 @@
 
 								<div class="mask-slide cor1 lg"></div>
 
-								<div class="text-item">				
+								<div class="text-item active">				
 									<div class="vertical-center">
 										<div class="content-vertical">
 											<span class="titulo-slide active">
@@ -196,7 +196,7 @@
 				<div class="col-12">
 
 					<h2 class="center"><span><?php the_field('titulo_etica'); ?></span></h2>
-					<p class="margin-bottom-20"><?php the_field('descricao_etica'); ?></p>
+					<p class="margin-bottom-20 p-mobile"><?php the_field('descricao_etica'); ?></p>
 
 					<?php if(get_field('link_etica')){ ?>
 					<div class="link-mais margin-bottom-40 center">

@@ -1,5 +1,5 @@
 	<?php
-		$category = wp_get_post_terms( $post->ID, 'categoria_proyectos' )[0];
+		$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
 	?>
 
 	<div class="item-prensa video">

@@ -2,7 +2,7 @@
 
 	<?php
 		$args = array(
-		    'taxonomy'      	=> 'categoria_proyectos',
+		    'taxonomy'      	=> 'categoria_aportealasociedad',
 		    'parent'        	=> 0, // get top level categories
 		    'orderby'       	=> 'count',
 		    'order'         	=> 'DESC',
@@ -16,8 +16,8 @@
 		<ul class="container">
 			<li><a href="<?php echo get_home_url(); ?>" title="Home">Início</a></li> 
 
-			<?php if(is_tax('categoria_proyectos')){ ?>
-				<li><a href="<?php echo get_home_url(); ?>/aporte-a-la-sociedad" title="Proyectos"><?php the_field('titulo_menu',16); ?></a></li> 
+			<?php if(is_tax('categoria_aportealasociedad')){ ?>
+				<li><a href="<?php echo get_home_url(); ?>/aporte-a-la-sociedad" title="<?php the_field('titulo_menu',16); ?>"><?php the_field('titulo_menu',16); ?></a></li> 
 			<?php } ?>
 
 			<li><?php echo $category_current->name; ?></li>
@@ -26,7 +26,7 @@
 
 	<section class="box-content no-padding">
 		<div class="container">
-			<h2 class="center"><span><?php echo ( is_archive('proyectos') ? get_field('titulo_menu',16) : '' ); ?></span></h2>
+			<h2 class="center"><span><?php echo ( is_archive('aporte-a-la-sociedad') ? get_field('titulo_menu',16) : '' ); ?></span></h2>
 
 			<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
 				<fieldset>

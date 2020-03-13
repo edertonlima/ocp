@@ -101,6 +101,32 @@
 			}
 		}
 	}
+
+	@include m420 {
+		&[class*="count-item-"] {
+			padding: 0 90px;
+			display: block;
+			margin-top: 25px;
+
+			li {
+				margin-top: 50px;
+				padding: 0;
+				display: block;
+				width: 100%;
+			
+				.vertical-center {
+					height: auto;
+					margin-top: 15px;
+				}
+
+				.titulo {
+					font-size: 1.75rem;
+					line-height: 1.75rem;
+					font-weight: $regular;
+				}
+			}
+		}
+	}
 }
 
 .container-mini {
@@ -192,6 +218,10 @@
 			&:hover {
 				background-color: $cor1;
 			}
+		}
+
+		@include m420 {
+			margin: 30px 0 30px;
 		}
 	}
 
@@ -316,6 +346,23 @@
 					}
 				}
 			}
+		}
+	}
+
+	@include m420 {
+		margin-top: 0;
+
+		.item-block {
+			display: block;
+			margin-bottom: 50px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.item-margin {
+			display: none;
 		}
 	}
 }

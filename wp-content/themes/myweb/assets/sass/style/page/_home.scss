@@ -1,5 +1,21 @@
 .home {
-
+	
+	@include m420 {
+		.prensa {
+			&.prensa-list {
+				.item-list-prensa {
+					padding-right: 30px;
+					padding-left: 30px;
+					
+					&.video {
+						.categoria-prensa {
+							font-size: 1.25rem;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 

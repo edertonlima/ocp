@@ -121,3 +121,11 @@
     -moz-filter: #{"grayscale(#{$value})"};
     filter:#{"grayscale(#{$value})"};
 }
+
+
+
+@mixin m420 {
+	@media all and (max-width: 420px){
+		@content
+	}
+}

@@ -1,12 +1,18 @@
 <?php
-	$category = wp_get_post_terms( $post->ID, 'categoria_proyectos' )[0];
+	global $row_proj;
+	$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
+	if($row_proj <= 3){ 
+		$size = 'list-post';
+	}else{
+		$size = 'wide-post';
+	}
 ?>
 	
 <div class="item-prensa">
 
 	<a href="<?php the_permalink(); ?>" class="capa" title="<?php the_title(); ?>">
 		<?php 
-			$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'wide-post' ); 
+			$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size ); 
 			if($imagem[0]){ ?>
 				<img src="<?php echo $imagem[0]; ?>">
 			<?php }
