@@ -1,6 +1,13 @@
 <?php
 	global $row_proj;
-	$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
+	
+	if($post->post_type == 'aporte-a-la-sociedad'){
+		$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
+	}
+
+	if($post->post_type == 'post'){
+		$category = wp_get_post_terms( $post->ID, 'category' )[0];
+	}
 
 	if($row_proj <= 3){ 
 		$size = 'list-post';
@@ -11,7 +18,7 @@
 	$images = get_field('galeria'); 
 ?>
 
-<div class="item-prensa galeria">
+<div class="item-prensa galeria bg-claro">
 	<div class="carousel-itens owl-carousel owl-theme owl-loaded">
 		<div class="owl-stage-outer">
 			<div class="owl-stage"> 
@@ -40,7 +47,7 @@
 		</div>
 	</div>
 
-	<div class="box-bg-content bg-claro">
+	<div class="box-bg-content">
 		<span class="data-prensa" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
 			<?php echo get_the_date(); ?>
 		</span>
@@ -49,10 +56,37 @@
 			<?php the_title(); ?>
 		</a>
 				
-		<span class="categoria-prensa" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
-			<i class="fas fa-circle" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"></i>
-			<?php echo $category->name; ?>
-		</span>
+		<?php
+			//$tags = get_the_tags();
+			/*if($tags){ ?>
+
+				<span class="categoria-prensa">
+					<i class="fas fa-circle" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"></i>
+					<?php 
+						foreach ( $tags as $key => $tag ) { ?>
+							<a href="<?php echo get_tag_link($tag->term_id); ?>" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
+								<?php echo $tag->name; ?>
+									
+								</a>
+
+							<?php if (next( $tags )){
+								echo ', ';
+							}
+						}
+					?>
+				</span>
+
+			<?php }else{ */?>
+
+				<span class="categoria-prensa">
+					<i class="fas fa-circle" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"></i>
+					<a href="<?php echo get_term_link($category->term_id); ?>" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
+						<?php echo $category->name; ?>
+					</a>
+				</span>
+
+			<?php //}
+		?>
 	</div>
 
 </div>

@@ -11,61 +11,81 @@ strong {
 }
 
 h1 {
-	display: inline-block;
-	width: 270px;
-	margin: 15px 0;
-	@include animacao();
-
-	@include m420 {
-		width: 185px;
-		margin: 38px 0 0 10px;
-		float: left;
-	}
-
-	a {
-		display: block;
+	&:not(.tit-principal){
+		display: inline-block;
+		width: 270px;
+		margin: 15px 0;
 		@include animacao();
 
-		img {
-			width: 100%;
-			@include animacao;
+		@include m420 {
+			width: 185px;
+			margin: 38px 0 0 0px;
+			float: left;
 		}
 
-		&:hover {
-			//opacity: .75;
+		a {
+			display: block;
+			@include animacao();
+
+			img {
+				width: 100%;
+				@include animacao;
+			}
+
+			&:hover {
+				//opacity: .75;
+			}
+		}
+	}
+
+	&.tit-principal {
+		@extend h2;
+	}
+}
+
+.first-section {
+	h1 {
+		&.tit-principal:not(.h1-single) {
+			@include m420 {
+				text-align: left; 
+			}
 		}
 	}
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 2.25rem;
 	line-height: 1.5625rem;
 	text-transform: uppercase;
 	font-weight: $medium;
 	display: block;
 	margin: 10px auto 15px;
 	width: 100%;
-	max-width: 650px;
+	max-width: 800px;
 	@include clear;
 
 	@include m420 {
 		margin-top: 0px;
 		margin-bottom: 40px;
-		padding-right: 45px;
-		padding-left: 45px;
+		padding-right: 50px;
+		padding-left: 50px;
+
+		&.center:not(.center-mobile) {
+			text-align: left;
+		}
 	}
 
 	span {
-		font-size: 1.75rem;
-		line-height: 2.25rem;
+		font-size: 2.25rem;
+		line-height: 2.75rem;
 		text-transform: uppercase;
 		font-weight: $medium;
 		//border-bottom: 1px solid $cor-txt;
 		display: inline-block;
 
 		@include m420 {
-			font-size: 2.25rem;
-			line-height: 3rem;
+			font-size: 2.125rem;
+			line-height: 2.5rem;
 		}
 	}
 
@@ -136,7 +156,7 @@ p {
 		font-size: 1rem;
 		line-height: 1.5rem;
 		width: 100%;
-		max-width: 650px;
+		max-width: 800px;
 		display: block;
 		margin-right: auto;
 		margin-left: auto;
@@ -186,10 +206,14 @@ p {
 		line-height: 1.5rem;
 
 		&.p-mobile, &.sub-tituto, &.mini, .text-destaque, &.grande {
-			font-size: 1.125rem;
-			line-height: 1.5rem;
+			font-size: 1.25rem;
+			line-height: 1.75rem; 
 			width: 100%;
-			padding: 0 45px;
+			padding: 0 50px;
+		}
+
+		&.center:not(.p-single) {
+			text-align: left;
 		}
 	}
 	
@@ -294,10 +318,10 @@ p {
 }
 
 .no-uppercase {
-	text-transform: none;
+	text-transform: none!important;
 
 	span {
-		text-transform: none;
+		text-transform: none!important;
 	}
 }
 

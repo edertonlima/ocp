@@ -14,7 +14,7 @@
 			</li>
 
 			<li class="submenu <?php if ( is_post_type_archive('funcionamiento') or is_tax('categoria_funcionamiento') or is_singular('funcionamiento') ) : echo 'ativo'; endif ?>">
-				<a href="<?php echo get_home_url(); ?>/funcionamiento" title="" class="">FUNCIONAMIENTO</a>
+				<a href="<?php echo get_post_type_archive_link('funcionamiento'); ?>" title="" class="">FUNCIONAMIENTO</a>
 				<i class="fas fa-chevron-down btn-menu-mobile"></i>
 
 				<div class="container-menu">
@@ -80,7 +80,7 @@
 							<ul class="">
 
 								<li>
-									<a href="<?php echo get_permalink(get_page_by_path('registro-proveedores')); ?>" title="" class="<?php if ( is_page('registro-proveedores') ) : echo 'ativo'; endif ?>"><?php the_field('titulo_menu',798); ?></a>
+									<a href="<?php echo get_permalink(get_page_by_path('registro-proveedores')); ?>" title="<?php the_field('titulo_menu',798); ?>" class="<?php if ( is_page('registro-proveedores') ) : echo 'ativo'; endif ?>"><?php the_field('titulo_menu',798); ?></a>
 								</li>
 
 								<li>

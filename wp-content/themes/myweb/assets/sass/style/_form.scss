@@ -82,7 +82,7 @@ form {
 
 		@include m420 {
 			width: 100%;
-			padding: 0 40px;
+			padding: 0 50px;
 		}
 
 		fieldset {
@@ -136,6 +136,10 @@ form {
 		max-width: 650px;
 		padding: 0 60px;
 		margin: 0px auto;
+
+		@include m420 {
+			padding: 0 50px;
+		}
 	}
 }
 

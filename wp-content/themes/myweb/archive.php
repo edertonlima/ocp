@@ -7,23 +7,15 @@
 		</ul>
 	</div>
 
-	<section class="box-content no-padding">
+	<section class="box-content first-section no-padding">
 		<div class="container">
-			<h2 class="center"><span><?php the_field('titulo_menu',16); ?></span></h2>
+			<h1 class="tit-principal center"><span><?php the_field('titulo_menu',16); ?></span></h1>
 
 			<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
 				<fieldset>
 					<input type="text" name="s" id="search" placeholder="Buscar en el sitio…" value="<?php if(isset($_GET['s'])){ echo $_GET['s']; } ?>">
-					<button type="submit" class="button"><i class="fas fa-search"></i></button>
+					<button type="submit" class="button"><i class="fas fa-search fa-flip-horizontal"></i></button>
 				</fieldset>
-
-				<?php /*if(is_search()){ ?>
-					<div class="col-6">
-						<span class="result">
-							<span><?php _e( 'Resultados da pesquisa encontrados para', 'locale' ); ?>: "<?php the_search_query(); ?></span>
-						</span>
-					</div>
-				<?php } */?>
 			</form>
 		</div>
 	</section>
@@ -99,7 +91,7 @@
 
 							foreach ( $categories as $category ){ ?>
 
-								<li class="info-dados">
+								<li class="info-dados info-col-2">
 									<img src="<?php the_field('icone', $category->taxonomy . '_' . $category->term_id ); ?>">				
 									<span class="titulo center" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
 										<span class="num" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
@@ -116,8 +108,6 @@
 										<?php echo $category->name; ?>
 									</span>
 								</li>
-
-								<?php /* <a href="<?php echo get_term_link( $category->term_id); ?>" title="<?php echo $category->name; ?>" class=""> */?>
 
 							<?php }
 						?>
@@ -195,7 +185,7 @@
 			<div class="row">
 				<div class="col-12">
 
-					<h2 class="center uppercase"><span><?php the_field('tit_proyectos',16); ?></span></h2>
+					<h2 class="center uppercase center-mobile"><span><?php the_field('tit_proyectos',16); ?></span></h2>
 
 					<ul class="list-category">
 
@@ -221,15 +211,16 @@
 	<section class="box-content no-padding-top prensa prensa-list">
 		<div class="container">
 
-			<div class="row">
+			<div class="row flex">
 
 				<?php 
 					if(have_posts()){
 						while ( have_posts() ) : the_post();
+							$post_type_cat = 'aporte-a-la-sociedad';
 							$row_proj = $row_proj+1;
 
 							if($row_proj == 4){
-								echo '</div><div class="row">';
+								echo '</div><div class="row flex">';
 							}
 							?>
 							<div class="<?php if($row_proj <= 3){ echo 'col-4'; }else{ echo 'col-6'; } ?> margin-bottom-60">
@@ -276,45 +267,23 @@
 			</div>
 
 		</div>
-	</section>
+	</section>	
 
+	<?php if($wp_query->max_num_pages > 1){ ?>
+		<section class="box-content no-padding-top">
+			<div class="container">
 
-					<?php /*
-						$prensa_list = array(
-								'post_type' => 'aporte-a-la-sociedad'
-							);
-						query_posts( $prensa_list );
+				<div class="center">
+					<button class="button load-more largo transparent cor3" var-taxonomy="" var-category="" var-post-type="aporte-a-la-sociedad" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
+						Mais
+					</button>
+				</div>			
 
-						if(have_posts()){
-
-							//global $row_proj;
-							//global $category;
-							
-							$row_proj = 0;
-							while ( have_posts() ) : the_post(); 
-
-
-
-							endwhile;
-							wp_reset_query();
-
-						}else{ ?>
-
-							<div class="col-12">
-								<p class="text-destaque center"><br><br>No se encontraron entradas</p>
-							</div>
-
-						<?php }
-					?>
-
-					<?php //paginacao(); */ ?>
-
-
-
-	
+			</div>
+		</section>
+	<?php } ?>
 
 <?php get_footer(); ?>
-
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript">
@@ -332,9 +301,4 @@
 			}
 		}
 	})
-
-	/*var qtddot = $('.owl-dots').children().length;
-	qtddot = (((qtddot*22)/2)+10)+'px';
-	$('.owl-prev').css('margin-right',qtddot);
-	$('.owl-next').css('margin-left',qtddot);*/
 </script>

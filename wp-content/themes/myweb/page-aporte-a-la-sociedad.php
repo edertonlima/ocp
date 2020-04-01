@@ -11,12 +11,12 @@
 
 		<section class="box-content no-padding">
 			<div class="container">
-				<h2 class="center"><span><?php the_title(); ?></span></h2>
+				<h1 class="tit-principal center"><span><?php the_title(); ?></span></h1>
 
 				<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
 					<fieldset>
 						<input type="text" name="s" id="search" placeholder="Buscar en el sitio…" value="<?php if(isset($_GET['s'])){ echo $_GET['s']; } ?>">
-						<button type="submit" class="button"><i class="fas fa-search"></i></button>
+						<button type="submit" class="button"><i class="fas fa-search fa-flip-horizontal"></i></button>
 					</fieldset>
 
 					<?php /*if(is_search()){ ?>

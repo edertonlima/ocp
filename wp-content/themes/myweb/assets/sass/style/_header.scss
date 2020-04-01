@@ -25,8 +25,10 @@
 	margin: 0px 0 15px;
 
 	@include m420 {
+		margin-bottom: 25px;
+
 		.container {
-			padding: 0 40px;
+			padding: 0 30px;
 			margin-top: 10px;
 		}
 	}
@@ -34,9 +36,9 @@
 	ul {
 
 		li {
-			display: inline;
+			display: inline-block;
 			font-size: $font-size;
-			line-height: $font-size;
+			line-height: 1.25rem;
 			font-weight: $light;
 
 			&:after {

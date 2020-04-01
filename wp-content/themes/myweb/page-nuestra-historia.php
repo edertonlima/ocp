@@ -9,13 +9,13 @@
 			</ul>
 		</div>
 
-		<section class="box-content"> 
+		<section class="box-content first-section">
 			<div class="container">
 
 				<div class="row">
 					<div class="col-12">
 
-						<h2 class="center"><span><?php the_title(); ?></span></h2>
+						<h1 class="tit-principal center"><span><?php the_title(); ?></span></h1>
 						<p class="sub-tituto mini"><?php the_field('content'); ?></p>
 
 					</div>
@@ -23,19 +23,7 @@
 
 			</div>
 		</section>
-<?php /*
-		<style type="text/css">
-			form a {
-				display: block;
-				padding: 5px 20px;
-			}
 
-			form a.active {
-				background-color: #ff0000;
-				color: #ffffff;
-			}
-		</style>
-*/?> 
 		<?php if(!$GLOBALS['mobile']){ ?>
 			<div class="nav-linha-tempo">
 				<h4>LINHA DE TEMPO</h4>
@@ -60,125 +48,72 @@
 		<?php } ?>
 
 
-<?php if( have_rows('nuestra-historia') ):
-	while ( have_rows('nuestra-historia') ) : the_row(); ?>
+		<?php if( have_rows('nuestra-historia') ):
+			while ( have_rows('nuestra-historia') ) : the_row(); ?>
 
-		<section class="box-content no-padding-top" id="item-<?php the_sub_field('ano-nuestra-historia'); ?>"> 
-			<div class="container">
-				<div class="row">
-					<div class="col-m-1 col-11">
+				<section class="box-content no-padding-top" id="item-<?php the_sub_field('ano-nuestra-historia'); ?>"> 
+					<div class="container">
+						<div class="row">
+							<div class="col-m-1 col-11">
 
-						<div class="slide">
-							<div id="slide-<?php the_sub_field('ano-nuestra-historia'); ?>" class="carousel slide" data-ride="carousel" data-interval="4000">
-								<div class="carousel-inner">
+								<div class="slide">
+									<div id="slide-<?php the_sub_field('ano-nuestra-historia'); ?>" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="false">
+										<div class="carousel-inner">
 
-									<?php $images = get_sub_field('imagens-nuestra-historia');
-									if($GLOBALS['mobile']){ $name_image = 'slide-funcionamiento'; }else{ $name_image = 'slide'; }
-									if( $images ): 
-										$i = 0;
-										foreach( $images as $image ): $i = $i+1; ?>
+											<?php $images = get_sub_field('imagens-nuestra-historia');
+											if($GLOBALS['mobile']){ $name_image = 'slide-funcionamiento'; }else{ $name_image = 'slide'; }
+											if( $images ): 
+												$i = 0;
+												foreach( $images as $image ): $i = $i+1; ?>
 
-											<div class="carousel-item <?php if($i == 1){ echo 'active'; } ?>" style="background-image: url('<?php echo $image['sizes'][$name_image]; ?>');">
-											</div>
+													<div class="carousel-item <?php if($i == 1){ echo 'active'; } ?>" style="background-image: url('<?php echo $image['sizes'][$name_image]; ?>');">
+													</div>
 
-										<?php endforeach;
-									endif; ?>
-								</div>
+												<?php endforeach;
+											endif; ?>
+										</div>
 
-								<div class="mask-slide bgescuro lg item-nuestra-historia"></div>
-								<div class="text-item active text-fixo lg mini item-nuestra-historia">		
-									<div class="vertical-center">
-										<div class="content-vertical">
-											<span class="titulo-slide justify active">
-												<h2 class="center"><?php the_sub_field('ano-nuestra-historia'); ?><br><?php the_sub_field('titulo-nuestra-historia'); ?></h2>
-												<div class="scrollbar scrollbar-dynamic">
-													<?php the_sub_field('texto-nuestra-historia'); ?>
+										<div class="mask-slide bgescuro lg item-nuestra-historia"></div>
+										<div class="text-item active text-fixo lg mini item-nuestra-historia">		
+
+											<span class="titulo-slide active">
+												<h2 class="center">
+													<span class="ano"><?php the_sub_field('ano-nuestra-historia'); ?></span>
+													<span><?php the_sub_field('titulo-nuestra-historia'); ?></span>
+												</h2>
+
+												<div class="carousel-texto owl-carousel owl-theme owl-loaded">
+													<div class="owl-stage-outer">
+														<div class="owl-stage"> 
+
+															<?php if( have_rows('texto-slide-nuestra-historia') ):
+																while ( have_rows('texto-slide-nuestra-historia') ) : the_row(); ?>
+
+																	<div class="owl-item">
+																		<div class="scrollbar scrollbar-dynamic">
+																			<p><?php the_sub_field('texto'); ?></p>
+																		</div>
+																	</div>
+
+																<?php endwhile;
+															endif; ?>
+
+														</div>
+													</div>
 												</div>
 											</span>
-										</div>
-									</div>
 
-									<?php if( count($images) > 1 ): 
-										$i = 0; ?>
-										<ol class="carousel-indicators indicators-huestra-historia">
-
-											<?php 
-											foreach( $images as $image ): ?>
-
-												<li data-target="#slide-<?php the_sub_field('ano-nuestra-historia'); ?>" data-slide-to="<?php echo $i; ?>" class="<?php if($i == 0){ echo 'active'; } ?>"></li>
-
-											<?php $i = $i+1; endforeach; ?>
-
-										</ol>
-									<?php endif; ?>
-
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</section>
-
-	<?php endwhile;
-endif; ?>
-
-<?php /*for($i = 0; $i <= 10; $i++){ /* ?>
-
-		<section class="box-content no-padding-top" id="item-<?php echo $i; ?>"> 
-			<div class="container">
-				<div class="row">
-					<div class="col-m-1 col-11">
-
-						<div class="slide">
-							<div id="slide-<?php echo $i; ?>" class="carousel slide" data-ride="carousel" data-interval="8000">
-								<div class="carousel-inner">
-									<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-									</div>
-
-									<div class="carousel-item" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-									</div>
-								</div>
-								<div class="mask-slide bgescuro lg"></div>
-								<div class="text-item text-fixo lg mini">		
-									<div class="vertical-center">
-										<div class="content-vertical">
-											<span class="titulo-slide justify active">
-												<h2 class="center">2001<br>Construcción del OCP</h2>
-												<p>El 15 de febrero OCP Ecuador S.A. fue autorizada por el Estado ecuatoriano para construir el Oleoducto de Crudos pesados (OCP).</p>
-												<p>El 26 de junio se inició la construcción del OCP.</p>
-											</span>
 										</div>
 									</div>
 								</div>
+
 							</div>
 						</div>
-
 					</div>
-				</div>
-			</div>
-		</section>
-<?php }*/ ?>
+				</section>
 
-<?php /*
-					<div class="spacer s1" id="item-<?php echo $i; ?>">
-						<div class="box2" style="background-color: #8DBBE0; height: 100px; width: 100%; display: block;"></div>
-					</div>
-					
-					<div class="spacer s1" id="item-<?php echo $i; ?>">
-						<div class="box2" style="background-color: #6AA6D8; height: 100px; width: 100%; display: block;"></div>
-					</div>
-
-					<div class="spacer s1" id="item-<?php echo $i; ?>">
-						<div class="box2" style="background-color: #4E96D1; height: 100px; width: 100%; display: block;"></div>
-					</div>
-
-					<div class="spacer s1" id="item-<?php echo $i; ?>">
-						<div class="box2" style="background-color: #307FB5; height: 100px; width: 100%; display: block;"></div>
-					</div>
-
-					<div style="height: 50vh; display: block;"></div> */ ?>
+			<?php endwhile;
+		endif; ?>
 
 	<?php endwhile; ?>
 
@@ -186,7 +121,6 @@ endif; ?>
 
 <?php if(!$GLOBALS['mobile']){ ?>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/scrollmagic/ScrollMagic.js"></script>
-	<?php /*<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/scrollmagic/debug.addIndicators.js"></script>*/?>
 
 	<script>
 		var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 400}});
@@ -225,11 +159,43 @@ endif; ?>
 			}
 		});
 	</script>
-
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/scrollbar/jquery.scrollbar.js"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function(){
-			jQuery('.scrollbar').scrollbar();
-		});
-	</script>
 <?php } ?>
+
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/scrollbar/jquery.scrollbar.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('.scrollbar').scrollbar();
+	});
+</script>
+
+
+<!-- CAROUSEL -->
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
+
+<script type="text/javascript">
+	$('.carousel-texto').owlCarousel({
+		loop: false,
+		margin: 20,
+		responsiveClass: true,
+		nav: true,
+		dots: true,
+		navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+		responsive:{
+			0:{
+				items:1,
+				dots:false,
+				nav: true
+			},
+			980:{
+				items:1
+			}
+		}
+	});
+
+	<?php if(!$GLOBALS['mobile']){ ?>
+		$( '.carousel-texto' ).each(function( index ) {
+			var qtddot = $('.owl-dots',this).width();
+			$('.owl-nav',this).width(qtddot+50);
+		});
+	<?php } ?>
+</script>

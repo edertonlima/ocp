@@ -1,5 +1,5 @@
 
-<div class="item-prensa">
+<div class="item-prensa bg-claro">
 
 	<a href="<?php the_permalink(); ?>" class="capa" title="<?php the_title(); ?>">
 		<?php 
@@ -13,7 +13,7 @@
 		<i class="fas fa-search"></i>
 	</a>
 
-	<div class="box-bg-content bg-claro">
+	<div class="box-bg-content">
 		<span class="data-prensa cor3">
 			<?php echo get_the_date(); ?>
 		</span>

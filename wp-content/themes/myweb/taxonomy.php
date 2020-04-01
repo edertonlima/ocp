@@ -10,6 +10,7 @@
 		);
 		$categories = get_categories( $args );
 		$category_current = get_queried_object();
+		//var_dump($category_current);
 	?>
 
 	<div class="breadcrumbs">
@@ -24,38 +25,32 @@
 		</ul>
 	</div>
 
-	<section class="box-content no-padding">
+	<section class="box-content first-section no-padding">
 		<div class="container">
-			<h2 class="center"><span><?php echo ( is_archive('aporte-a-la-sociedad') ? get_field('titulo_menu',16) : '' ); ?></span></h2>
+			<h1 class="tit-principal center"><span><?php echo $category_current->name; ?></span></h1>
 
 			<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
 				<fieldset>
 					<input type="text" name="s" id="search" placeholder="Buscar en el sitio…" value="<?php if(isset($_GET['s'])){ echo $_GET['s']; } ?>">
-					<button type="submit" class="button"><i class="fas fa-search"></i></button>
+					<button type="submit" class="button"><i class="fas fa-search fa-flip-horizontal"></i></button>
 				</fieldset>
-
-				<?php /*if(is_search()){ ?>
-					<div class="col-6">
-						<span class="result">
-							<span><?php _e( 'Resultados da pesquisa encontrados para', 'locale' ); ?>: "<?php the_search_query(); ?></span>
-						</span>
-					</div>
-				<?php } */?>
 			</form>
 		</div>
 	</section>
 
-	<section class="box-content no-padding"> 
+	<section class="box-content no-padding-bottom"> 
 		<div class="container">
 
 			<div class="row">
 				<div class="col-12">
 
+					<h2 class="center uppercase center-mobile"><span><?php the_field('tit_proyectos',16); ?></span></h2>
+
 					<ul class="list-category">
 
 						<?php foreach ( $categories as $category ){ ?>
 
-							<li class="<?php if($category_current->term_id != $category->term_id): echo 'off'; endif; ?>">
+							<li>
 								<a href="<?php echo get_term_link( $category->term_id); ?>" title="<?php echo $category->name; ?>">
 									<img src="<?php the_field('icone', $category->taxonomy . '_' . $category->term_id ); ?>" alt="<?php echo $category->name; ?>">	
 									<span style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"><?php echo $category->name; ?></span>
@@ -74,48 +69,77 @@
 	<section class="box-content no-padding-top prensa prensa-list">
 		<div class="container">
 
-			<div class="row">
+			<div class="row flex">
 
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php 
+					if(have_posts()){
+						while ( have_posts() ) : the_post();
+							$post_type_cat = 'aporte-a-la-sociedad';
+							$row_proj = $row_proj+1;
 
-					<div class="col-4 margin-bottom-60">
+							if($row_proj == 4){
+								echo '</div><div class="row flex">';
+							}
+							?>
+							<div class="<?php if($row_proj <= 3){ echo 'col-4'; }else{ echo 'col-6'; } ?> margin-bottom-60">
 
-						<?php 	
-							if(get_field('video')){
+								<?php 	
+									if(get_field('video')){
 
-								get_template_part( 'content', 'video' );
-
-							}else{
-								if(get_field('galeria')){
-
-									get_template_part( 'content', 'galeria' );
-
-								}else{
-									if(get_field('link')){
-
-										get_template_part( 'content', 'link' );
+										get_template_part( 'content', 'video' );
 
 									}else{
-										if(get_field('arquivo')){
+										if(get_field('galeria')){
 
-											get_template_part( 'content', 'arquivo' );
+											get_template_part( 'content', 'galeria' );
 
 										}else{
-											get_template_part( 'content', '' );
+											if(get_field('link')){
+
+												get_template_part( 'content', 'link' );
+
+											}else{
+												if(get_field('arquivo')){
+
+													get_template_part( 'content', 'arquivo' );
+
+												}else{
+													get_template_part( 'content', '' );
+												}
+											}
 										}
 									}
-								}
-							}
-						?>
-					
-					</div>
+								?>
+							
+							</div>
+						<?php endwhile;
+					}else{ ?>
 
-				<?php endwhile; ?>
+						<div class="col-12">
+							<p class="text-destaque center"><br><br>No se encontraron entradas</p>
+						</div>
+
+					<?php }
+				?>
 
 			</div>
 
 		</div>
 	</section>	
+
+	<?php if($wp_query->max_num_pages > 1){ ?>
+		<section class="box-content no-padding-top">
+			<div class="container">
+
+				<div class="center">
+					<button class="button load-more largo transparent cor3" var-taxonomy="categoria_aportealasociedad" var-category="<?php echo $category_current->term_id; ?>" var-post-type="aporte-a-la-sociedad" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
+						Mais
+					</button>
+				</div>			
+
+			</div>
+		</section>
+	<?php } ?>
 
 <?php get_footer(); ?>
 
@@ -135,9 +159,41 @@
 			}
 		}
 	})
-
-	/*var qtddot = $('.owl-dots').children().length;
-	qtddot = (((qtddot*22)/2)+10)+'px';
-	$('.owl-prev').css('margin-right',qtddot);
-	$('.owl-next').css('margin-left',qtddot);*/
 </script>
+
+<?php
+/*
+		$arg = array(
+			'posts_per_page' => 6,
+			'post_type'   => 'aporte-a-la-sociedad',//$_POST['post-type'],
+			'post_status' => 'any',
+			'paged' => 2//$_POST['paged']
+		);
+
+							        /*$getPosts = array(
+							            'posts_per_page' => 6,
+							            'post_type'   => $_POST['post-type'],
+							            'post_status' => 'any',
+										'tax_query' => array(
+										    array(
+										        'taxonomy' => $_POST['taxonomy'],
+										        'terms' => $_POST['category'],,
+										        'include_children' => false,
+										        'operator' => 'IN'
+										    )
+										),
+							        );
+
+							        $posts = new WP_Query( $arg );
+							        if(count($posts) > 0){
+
+										while($posts->have_posts()) : $posts->the_post();
+											
+											the_title();
+											echo '<br>';		
+												
+										endwhile;
+
+							        }
+*/
+?>

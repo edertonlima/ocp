@@ -74,7 +74,7 @@
 							<div class="container">
 						<?php } ?>
 
-							<div class="conteudo-texto <?php if(get_sub_field('tamanho-imagem')){ echo 'full'; } ?>">
+							<div class="conteudo-texto <?php if(get_sub_field('tamanho-imagem')){ echo 'normal'; }else{ echo 'full'; } ?>">
 								<?php $image = get_sub_field('imagem'); ?>
 								<img src="<?php echo esc_url($image['sizes']['slide']); ?>">
 							</div>

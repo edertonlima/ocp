@@ -129,3 +129,10 @@
 		@content
 	}
 }
+
+
+@mixin m980 {
+	@media all and (max-width: 980px){
+		@content
+	}
+}

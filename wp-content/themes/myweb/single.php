@@ -23,14 +23,14 @@
 		</div>
 
 
-		<section class="box-content no-padding"> 
+		<section class="box-content first-section">
 			<div class="container">
 
 				<div class="row">
 					<div class="col-m-1 col-10">
 
-						<h2 class="center no-uppercase"><span style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"><?php the_title(); ?></span></h2>
-						<p class="margin-bottom-20 center" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"><?php echo get_the_date(); ?></p>
+						<h1 class="tit-principal center center-mobile no-uppercase h1-single"><span style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"><?php the_title(); ?></span></h1>
+						<p class="margin-bottom-20 center p-single" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"><?php echo get_the_date(); ?></p>
 
 					</div>
 				</div>

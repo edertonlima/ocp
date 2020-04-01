@@ -16,7 +16,7 @@
 			</ul>
 		</div>
 
-		<section class="box-content"> 
+		<section class="box-content first-section"> 
 			<div class="container">
 
 				<h2 class="center no-uppercase"><span><?php the_title(); ?></span></h2>

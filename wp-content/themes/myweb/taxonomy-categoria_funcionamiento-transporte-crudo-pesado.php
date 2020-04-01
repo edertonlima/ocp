@@ -2,7 +2,7 @@
 	get_header();
 	$term_id = get_queried_object_id();
 	$description = get_queried_object()->description;
-	$term = get_queried_object(); //var_dump($term);
+	$term = get_queried_object();
 	$image = get_field('imagem-taxonomy', $taxonomy . '_' . $term_id );
 ?>
 
@@ -14,20 +14,23 @@
 		</ul>
 	</div>
 
-	<section class="box-content"> 
+	<section class="box-content first-section">
 		<div class="container">
 
-			<h2 class="center"><span><?php the_field('titulo-taxonomy', $taxonomy . '_' . $term_id ); ?></span></h2>
+			<h1 class="tit-principal center"><span><?php the_field('titulo-taxonomy', $taxonomy . '_' . $term_id ); ?></span></h1>
 			<p class="sub-tituto mini center"><?php echo $description; ?></p>
 
 		</div>
 	</section>
 
-	<section class="box-content no-padding servicios det-servicios"> 
+	<?php if(!$GLOBALS['mobile']){ ?>
+	<section class="box-content no-padding servicios det-servicios img-funcionamiento"> 
 		<div class="img-topo">
 			<img src="<?php echo esc_url($image['sizes']['slide']); ?>">
 		</div>
-	</section>	
+	</section>
+	<?php } ?>
+
 	
 	<section class="box-content no-padding-top time-line"> 
 		<div class="cd-h-timeline js-cd-h-timeline margin-bottom-md"> 
@@ -38,11 +41,32 @@
 							<ol>
 								<?php 
 									$nun_nav = 0;
+
+									if(!$GLOBALS['mobile']){
+										global $query_string;
+										query_posts( $query_string . '&order=ASC' );
+										$count_post = count($posts);
+									}else{
+										$count_post = 1;
+									}									
+
 									while ( have_posts() ) : the_post();
 										$nun_nav = $nun_nav+1; ?>
 
-										<li>
-											<button type="button" data-date="<?php echo get_the_date('d/m/Y'); ?>" class="cd-h-timeline__date <?php if($nun_nav == 1){ echo 'cd-h-timeline__date--selected'; } ?>"></button>
+										<li data-date="<?php echo $nun_nav . '/1/0001'; //echo get_the_date('d/m/Y'); ?>" class="cd-h-timeline__date <?php if($nun_nav == $count_post){ echo 'cd-h-timeline__date--selected'; } ?>">
+											<span></span>
+
+											<?php if(!$GLOBALS['mobile']){ ?>
+												<div class="legenda">
+													<div class="titulo">
+														<?php 
+															if($nun_nav == 1){ echo 'FINAL'; }
+															if($nun_nav == $count_post){ echo 'INICIO'; }
+														?>												
+													</div>
+													<div><?php the_field('titulo-funcionamiento'); ?></div>
+												</div>
+											<?php } ?>
 										</li>
 
 									<?php endwhile;
@@ -64,10 +88,10 @@
 
 				<div class="container">
 					<div class="link-nav">
-						<a href="javascript:" class="link-timeline prev-timeline" style="">
+						<a href="javascript:" class="link-timeline prev-timeline" <?php if($GLOBALS['mobile']){ echo 'style="display: none;"'; } ?>>
 							<i class="fas fa-chevron-left"></i>
 						</a>
-						<a href="javascript:" class="link-timeline next-timeline">
+						<a href="javascript:" class="link-timeline next-timeline" <?php if(!$GLOBALS['mobile']){ echo 'style=" display: none;"'; } ?>>
 							<i class="fas fa-chevron-right"></i>
 						</a>
 					</div>
@@ -76,43 +100,32 @@
 
 					<ol>
 						<?php 
-							$nun_cont = 0;
-							while ( have_posts() ) : the_post();
-								$nun_cont = $nun_cont+1; ?>
+							$nun_nav = 0;
 
-								<li class="cd-h-timeline__event <?php if($nun_nav == 1){ echo 'cd-h-timeline__event--selected'; } ?> text-component">
+							if(!$GLOBALS['mobile']){
+								/*global $query_string;
+								query_posts( $query_string . '&order=ASC' );*/
+							}else{
+
+							}
+
+							while ( have_posts() ) : the_post();
+								$nun_nav = $nun_nav+1; ?>
+
+								<li class="cd-h-timeline__event <?php if($nun_nav == $count_post){ echo 'cd-h-timeline__event--selected'; } ?> text-component">
 									<div class="cd-h-timeline__event-content">
 
 										<div class="container">
-
-											<h2 class="center uppercase"><span><?php the_field('titulo-funcionamiento'); ?></span></h2>
-											<p class="sub-tituto center"><?php the_field('subtitulo-funcionamiento'); ?></p>
+											
+											<?php if($GLOBALS['mobile']){ ?>
+												<h2 class="center uppercase"><span><?php the_field('titulo-funcionamiento'); ?></span></h2>
+												<p class="sub-tituto center"><?php the_field('subtitulo-funcionamiento'); ?></p> 
+											<?php } ?>
 
 
 											<?php get_template_part( 'content-funcionamiento-slide', get_post_format() ); ?>
 
 										</div>
-
-		<?php /*
-										<div class="img-timeline">
-											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/img-funcionamento-1.jpg">
-										</div>
-										
-										<div class="text-timeline">
-
-											<div class="link-mais margin-top-10 margin-bottom-20">
-												<a href="<?php the_permalink(); ?>">
-													<h4 class="link link-bloco">
-														<?php the_title(); ?>
-													</h4>
-												</a>
-											</div>
-
-											<p class="">
-		sadadadadadada
-											</p>	
-										</div>
-		*/ ?>
 
 									</div>
 								</li>
@@ -138,8 +151,8 @@
 
 	// nav timeline
 	$('.prev-timeline').click(function(){
-		ele = $('.cd-h-timeline__date--selected').parent().prev();
-		$('button',ele).trigger( 'click' );
+		ele = $('.cd-h-timeline__date--selected').prev();
+		$(ele).trigger( 'click' );
 
 		if(!ele.prev().length){
 			$(this).hide();
@@ -151,8 +164,8 @@
 	});
 
 	$('.next-timeline').click(function(){
-		ele = $('.cd-h-timeline__date--selected').parent().next();
-		$('button',ele).trigger( 'click' );
+		ele = $('.cd-h-timeline__date--selected').next();
+		$(ele).trigger( 'click' );
 
 		if(!ele.next().length){
 			$(this).hide();
@@ -163,31 +176,82 @@
 		}
 	});
 
+	$('.cd-h-timeline__date').click(function(){
+		//ele = $(this)().next();
+		//$('button',ele).trigger( 'click' );
+
+		if(!$(this).next().length){
+			$('.next-timeline').hide();
+		}else{
+			$('.next-timeline').show();
+		}
+
+		if(!$(this).prev().length){
+			$('.prev-timeline').hide();
+		}else{
+			$('.prev-timeline').show();
+		}
+	});
+
 </script>
 
 
+<?php if(!$GLOBALS['mobile']){ ?>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 
 <script type="text/javascript">
-	$('.funcionamiento').owlCarousel({
-		loop:false,
-		margin:60,
-		responsiveClass:true,
-		nav:true,
-		dots: false,
-		navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
-		//rtl:true,
-		responsive:{
-			0:{
-				items:1,
-				nav:true
+	width_body = jQuery(window).width();
+	if(width_body > 980){
+		$('.funcionamiento').owlCarousel({
+			loop:false,
+			margin:60,
+			responsiveClass:true,
+			nav:true,
+			dots: false,
+			navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+			//rtl:true,
+			responsive:{
+				0:{
+					items:1
+				}
 			}
+		})
+	}else{
+
+		/*jQuery(document).ready(function(){
+			$margin_top = ($('.img-slide img').height())+70;
+			$('.link-nav').css('top',$margin_top);
+		})*/
+
+	}
+
+	$(window).resize(function(){
+		width_body = jQuery(window).width();
+
+		if(width_body <= 980){
+			$('.funcionamiento').owlCarousel('destroy');
+	
+			/*$margin_top = 0;
+			$('.link-nav').css('top',$margin_top);*/
+
+		}else{
+			$('.funcionamiento').owlCarousel({
+				loop:false,
+				margin:60,
+				responsiveClass:true,
+				nav:true,
+				dots: false,
+				navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+				//rtl:true,
+				responsive:{
+					0:{
+						items:1
+					}
+				}
+			})
+
+			/*$('.link-nav').css('margin-top','0px');*/
 		}
 	})
-/*
-	var qtddot = $('.owl-dots').children().length;
-	qtddot = (((qtddot*22)/2)+10)+'px';
-	$('.owl-prev').css('margin-right',qtddot);
-	$('.owl-next').css('margin-left',qtddot);
-*/
 </script>
+<?php } ?>

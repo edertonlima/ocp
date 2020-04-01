@@ -12,7 +12,7 @@
 		<!-- slide --> 
 		<?php if( have_rows('itens_slide') ): ?>
 
-				<section class="box-content box-slide"> 
+				<section class="box-content first-section box-slide"> 
 					<div class="slide">
 
 						<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="8000">
@@ -35,8 +35,9 @@
 								<?php $slide = 0;
 								while ( have_rows('itens_slide') ) : the_row(); 
 
+									$image = get_sub_field('imagem');
 									//$img_slide = wp_get_attachment_image_src( get_sub_field('imagem'), 'slide' ); ?>
-									<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo get_sub_field('imagem'); ?>');"></div>
+									<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes']['slide']); ?>');"></div>
 
 									<?php $slide = $slide+1;
 								endwhile; ?>
@@ -80,10 +81,10 @@
 		<?php endif; ?>
 
 
-		<?php if( have_rows('itens_dados') ): ?>
+ 		<?php if( have_rows('itens_dados') ): ?>
 			<section class="box-content">
 				<div class="container">		
-					<h2 class="center"><span><?php the_field('titulo_dados'); ?></span></h2>
+					<h1 class="tit-principal center"><span><?php the_field('titulo_dados'); ?></span></h1>
 				</div>
 			</section>
 
@@ -141,14 +142,13 @@
 		<?php endif; ?>
 
 
-
 		<?php if( have_rows('conteudo_flexivel') ):
 			while( have_rows('conteudo_flexivel') ): the_row();
 
 				switch (get_row_layout()) {
 					case 'conteudo': ?>
 
-						<section class="box-content no-padding-bottom"> 
+						<section class="box-content no-padding-bottom no-padding-top-mobile"> 
 							<div class="container">
 
 								<?php if(get_sub_field('titulo')){ ?>
@@ -206,12 +206,12 @@
 
 					case 'imagem': ?>
 
-						<section class="box-content no-padding-bottom">
+						<section class="box-content no-padding-bottom hide-mobile">
 							<?php if(get_sub_field('tamanho-imagem')){ ?>
 								<div class="container">
 							<?php } ?>
 
-								<div class="conteudo-texto <?php if(get_sub_field('tamanho-imagem')){ echo 'full'; } ?>">
+								<div class="conteudo-texto center <?php if(get_sub_field('tamanho-imagem')){ echo 'normal'; }else{ echo 'full';} ?>">
 									<?php $image = get_sub_field('imagem'); ?>
 									<img src="<?php echo esc_url($image['sizes']['slide']); ?>">
 								</div>
@@ -292,7 +292,7 @@
  ?>
 
 
-		<section class="box-content"> 
+		<section class="box-content hide-mobile"> 
 			<div class="container">
 
 				<div class="row">

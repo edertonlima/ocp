@@ -93,13 +93,13 @@
 
 				<h3>Notas de Prensa 
 					<?php if(!$GLOBALS['mobile']){ ?>
-						<a href="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" class="link all-post">Todos</a>
+						<a href="<?php echo get_term_link( 1 ); ?>" class="link all-post">Todos</a>
 					<?php } ?>
 				</h3>
 			
 				<div class="carousel-itens owl-carousel owl-theme owl-loaded">
 					<div class="owl-stage-outer">
-						<div class="owl-stage"> 
+						<div class="owl-stage flex"> 
 
 							<?php
 								if($GLOBALS['mobile']){ $count_prensa = 4; }else{ $count_prensa = 12; }
@@ -112,7 +112,7 @@
 
 								while ( have_posts() ) : the_post(); ?>
 
-									<div class="owl-item">
+									<div class="owl-item bg-claro">
 
 										<?php get_template_part( 'content-home', '' ); ?>
 
@@ -182,7 +182,7 @@ if( $conocenos ): ?>
 	<section class="box-content prensa prensa-list">
 		<div class="container">
 
-			<h2 class="center"><span>CONÓCENOS</span></h2>
+			<h1 class="tit-principal center center-mobile"><span>CONÓCENOS</span></h1>
 					
 			<div class="row">
 

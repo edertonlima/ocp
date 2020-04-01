@@ -1,6 +1,6 @@
-jQuery(document).ready(function($) { 
+jQuery(document).ready(function($) {
 
-	$('.load-more').click(function(){
+	$('.load-more').click(function(){ 
 
 		$(this).html('<i class="fas fa-circle-notch cor3 fa-spin"></i> Mais');
 
@@ -8,12 +8,12 @@ jQuery(document).ready(function($) {
 		paged = parseInt($(this).attr('var-paged'));
 
 		$.ajax({
-			url: ajaxurl, // Isso será definido no functions.php
+			url: ajaxurl,
 			type: 'POST',
 			data: {
-				'action': 'acao_do_ajax', // Ação do Ajax
-				'post-type': post_type,
-				'paged': paged
+				'action': 'load_more' // Ação do Ajax
+				//'post-type': post_type,
+				//'paged': paged
 			},
 			success: function( response ){
 				max_paged = response.split('max_paged').pop();
@@ -32,9 +32,17 @@ jQuery(document).ready(function($) {
 				$('.prensa-list .row:last-child').append(loopHTML);
 
 				$('.load-more').html('Mais');
+			},
+			
+			error: function(){
+
+				$('.prensa-list .row:last-child').append('<div class="col-12 center"><p>Lo sentimos, no fue posible traer más contenido.</p></div>');
+				$('.load-more').html('Mais');
+				$('.load-more').hide();
+
 			}
 		});
 
 	});
 
-});
+});	

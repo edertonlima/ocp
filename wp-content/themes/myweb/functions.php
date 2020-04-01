@@ -674,10 +674,8 @@ function query_order( $query ) {
 add_action( 'pre_get_posts', 'query_order' );*/
 
 
-
-
 // Função para adicionar nosso script
-function javascript_do_ajax() {
+function add_js() {
 	
 	// Define a variável ajaxurl
 	$script  = '<script>';
@@ -696,66 +694,76 @@ function javascript_do_ajax() {
 	
 }
 // Adiciona no rodapé
-add_action( 'wp_footer', 'javascript_do_ajax' );
+add_action( 'wp_footer', 'add_js' );
 
 
 
 // Ação de callback do Ajax
-function acao_do_ajax() {
+function load_more() {
 
-	/* 
-	Abaixo vou fazer um loop de pesquisa para buscar pelo termo que colocamos
-	no javascript
-	*/
+	//echo $_POST['post-type'];
+	//echo $_POST['paged'];
+
 	$loop = new WP_Query(
 		array(
-			'post_type' => $_POST['post-type'],
-			//'category_name' => 'prensa',
-			'posts_per_page' => 8,
-			'paged' => $_POST['paged']
+			'post_type' => 'post',//$_POST['post-type'],
+			'posts_per_page' => 6,
+			'paged' => 2//$_POST['paged']
 		)
 	);
 	?>
 
-	<?php if ( $loop->have_posts() ): ?>
+	<?php if ( $loop->have_posts() ): 
+		$qtd_item = 0; ?>
 
-			<?php while ( $loop->have_posts() ): ?>
+			<?php while ( $loop->have_posts() ): 
+				$qtd_item++;
+				$no_first = 1;
 
-				<?php $loop->the_post(); ?>
+				if(($qtd_item == 1) and ($_POST['paged'] == 2)){
+					$no_first = 0;
+					//echo '<div class="col-6 margin-bottom-60">PRIMEIRO</div>';
+				}
 
-							<div class="col-6 margin-bottom-60">
+				//echo '<div class="col-12 margin-bottom-60">PAGINA'.$_POST['paged'].'</div>';
+				//echo '<div class="col-12 margin-bottom-60">ITEM'.$qtd_item.'</div>';
 
-								<?php 	
-									if(get_field('video')){
+				$post_type_cat = $_POST['post-type'];
+				$loop->the_post();
 
-										get_template_part( 'content', 'video' );
+				if($no_first === 1){ ?>
+					<div class="col-6 margin-bottom-60">
+						<?php 
+							if(get_field('video')){
+
+								get_template_part( 'content', 'video' );
+
+							}else{
+								if(get_field('galeria')){
+
+									get_template_part( 'content', 'galeria' ); 
+
+								}else{
+									if(get_field('link')){
+
+										get_template_part( 'content', 'link' );
 
 									}else{
-										if(get_field('galeria')){
+										if(get_field('arquivo')){
 
-											get_template_part( 'content', 'galeria' );
+											get_template_part( 'content', 'arquivo' );
 
 										}else{
-											if(get_field('link')){
-
-												get_template_part( 'content', 'link' );
-
-											}else{
-												if(get_field('arquivo')){
-
-													get_template_part( 'content', 'arquivo' );
-
-												}else{
-													get_template_part( 'content', '' );
-												}
-											}
+											get_template_part( 'content', '' );
 										}
 									}
-								?>
-							
-							</div>				
+								}
+							}
+						?>							
+					</div>
+				<?php }
 				
-			<?php endwhile; ?>
+			endwhile; ?>
 
 		<?php echo 'max_paged' . $loop->max_num_pages; ?>
 	<?php else: ?>    
@@ -766,14 +774,7 @@ function acao_do_ajax() {
 
 	die();
 }
-/* 
- * wp_ajax_ + ação que colocamos no JavaScript, função de callback
- * Em: 
- * data: {
- *     'action': 'acao_do_ajax', // Ação do Ajax
- *     's': buscar // O que vamos postar para $_POST
- * },
- */
-add_action( 'wp_ajax_acao_do_ajax', 'acao_do_ajax' );
+
+add_action( 'wp_ajax_load_more', 'load_more' );
 
 ?>

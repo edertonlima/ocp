@@ -4,8 +4,8 @@
 		.prensa {
 			&.prensa-list {
 				.item-list-prensa {
-					padding-right: 30px;
-					padding-left: 30px;
+					padding-right: 50px;
+					padding-left: 50px;
 					
 					&.video {
 						.categoria-prensa {
@@ -14,6 +14,14 @@
 					}
 				}
 			}
+		}
+	}
+
+	.owl-carousel .owl-nav {
+		top: -35px;
+
+		button i {
+			margin: 0;
 		}
 	}
 }

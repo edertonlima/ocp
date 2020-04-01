@@ -18,11 +18,11 @@
 			<a href="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" title="" class="<?php if ( is_page('sala-de-prensa') ) : echo 'ativo'; endif ?>">SALA DE PRENSA</a>
 		</li>
 		<li class="">
-			<a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" title="" class="<?php if ( is_page('contactenos') ) : echo 'ativo'; endif ?>">CONTÁCTENOS</a>
+			<a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" title="<?php the_field('titulo_menu',23); ?>" class="<?php if ( is_page('contactenos') ) : echo 'ativo'; endif ?>"><?php the_field('titulo_menu',23); ?></a>
 		</li>
 	</ul>
 
-	<ul class="idiomas">
+	<ul class="idiomas" style="opacity: 0">
 		<li style="display: none;">
 			<a href="<?php echo get_home_url(); ?>" title=""><img src="<?php echo get_template_directory_uri(); ?>/assets/images/idiomas-en.jpg" alt="EN"><span>EN</span></a>
 		</li>

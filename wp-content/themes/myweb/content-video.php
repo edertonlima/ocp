@@ -2,7 +2,7 @@
 		$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
 	?>
 
-	<div class="item-prensa video">
+	<div class="item-prensa video bg-claro">
 
 		<?php 
 			$video_array = get_field('video');
@@ -22,7 +22,7 @@
 			<div class="mask" style="background-color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"></div>
 		</a>
 
-		<div class="box-bg-content bg-claro">
+		<div class="box-bg-content">
 			<span class="data-prensa" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
 				<?php echo get_the_date(); ?>
 			</span>

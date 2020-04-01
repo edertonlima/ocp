@@ -9,13 +9,13 @@
 			</ul>
 		</div>
 
-		<section class="box-content"> 
+		<section class="box-content first-section">
 			<div class="container">
 
 				<div class="row">
 					<div class="col-12">
 
-						<h2 class="center"><span><?php the_title(); ?></span></h2>
+						<h1 class="tit-principal center"><span><?php the_title(); ?></span></h1>
 						<p class="sub-tituto mini"><?php the_field('content'); ?></p>
 
 					</div>

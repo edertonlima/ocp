@@ -3,13 +3,13 @@
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<div class="breadcrumbs">
-			<ul>
+			<ul class="container">
 				<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
-				<li>Trabaje con Nosotros</li>
+				<li><?php the_field('titulo_menu'); ?></li>
 			</ul>
 		</div>
 
-		<section class="box-content no-padding margin-top-15 contacto">
+		<section class="box-content no-padding-top margin-top-15 contacto">
 			<div class="container">
 				<div class="slide">
 
@@ -19,17 +19,17 @@
 						</ol>
 
 						<div class="carousel-inner">
-							<div class="carousel-item active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-slide.jpg');">
-							</div>
+							<?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'wide' ); ?>
+							<div class="carousel-item active" style="background-image: url('<?php echo $imagem[0]; ?>');"></div>
 						</div>
 
 						<div class="mask-slide cor1 lg"></div>
 
-						<div class="text-item text-fixo lg">				
+						<div class="text-item text-fixo lg active">				
 							<div class="vertical-center">
 								<div class="content-vertical">
-									<span class="titulo-slide justify active">
-										<h2 class="">Trabaje con <br>Nosotros</h2>
+									<span class="titulo-slide active">
+										<h2 class=""><?php the_title(); ?></h2>
 									</span>
 								</div>
 							</div>
@@ -40,21 +40,159 @@
 			</div>
 		</section>
 
-		<section class="box-content"> 
+
+		<?php if( have_rows('conteudo_flexivel') ):
+			while( have_rows('conteudo_flexivel') ): the_row();
+
+				switch (get_row_layout()) {
+					case 'conteudo': ?>
+
+						<section class="box-content no-padding-top"> 
+							<div class="container">
+
+								<?php if(get_sub_field('titulo')){ ?>
+									<h2 class="center"><span><?php the_sub_field('titulo'); ?></span></h2>
+								<?php } ?>
+
+								<?php if(get_sub_field('subtitulo')){ ?>
+									<p class="sub-tituto center"><?php the_sub_field('subtitulo'); ?></p>
+								<?php } ?>
+
+								<?php if(get_sub_field('texto')){ ?>
+									<div class="conteudo-texto mini margin-top-40"><?php the_sub_field('texto'); ?></div>
+								<?php } ?>
+
+							</div>
+						</section>	
+
+					<?php break;
+
+					case 'video': ?>
+
+						<section class="box-content no-padding-top prensa prensa-list">
+							<div class="container">
+										
+								<div class="row conteudo-texto">
+									<div class="col-m-2 col-8 item-list-prensa video">
+
+											<?php 
+												$video_array = get_sub_field('video');
+												preg_match('/src="(.+?)"/', $video_array, $matches);
+												$video_url = $matches[1];
+
+												$video_id = explode("embed/", $video_url);
+												$video_id = $video_id[1];
+												$video_id = explode("?feature=oembed", $video_id);
+												$video_id = $video_id[0];
+												$thumbnail="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
+											?>
+
+											<a data-fancybox href="<?php echo $video_url; ?>" class="capa">
+												<img src="<?php echo $thumbnail; ?>">
+											</a>
+
+									</div>
+								</div>
+
+							</div>
+						</section>
+
+					<?php break;
+
+					case 'imagem': ?>
+
+						<section class="box-content no-padding-top">
+							<?php if(get_sub_field('tamanho-imagem')){ ?>
+								<div class="container">
+							<?php } ?>
+
+								<div class="conteudo-texto <?php if(get_sub_field('tamanho-imagem')){ echo 'full'; } ?>">
+									<?php $image = get_sub_field('imagem'); ?>
+									<img src="<?php echo esc_url($image['sizes']['slide']); ?>">
+								</div>
+
+							<?php if(get_sub_field('tamanho-imagem')){ ?>
+								</div>
+							<?php } ?>
+						</section>	
+
+					<?php break;
+
+					case 'arquivo': ?>
+
+						<section class="box-content no-padding-top">
+							<div class="container">
+
+								<div class="link-mais center">
+									<a href="<?php the_sub_field('arquivo'); ?>" target="_blank" title="<?php the_sub_field('titulo-arquivo'); ?>" class="link link-bloco">
+										<?php the_sub_field('titulo-arquivo'); ?>
+									</a>
+								</div>
+
+							</div>
+						</section>	
+
+					<?php break;
+
+					case 'slide-destaque':
+
+						$images = get_sub_field('imagens-slide'); ?>
+
+						<section class="box-content no-padding-top">
+							<div class="slide">
+
+								<div id="slide" class="carousel slide" data-ride="carousel" data-interval="80000">
+									<ol class="carousel-indicators">
+								        <?php 
+								        	$slide_elem = 0;
+								        	foreach( $images as $image ): ?>
+								        		<li data-target="#slide" data-slide-to="<?php echo $slide_elem; ?>" class="<?php if($slide_elem == 0){ echo 'active'; } ?>"></li>
+								        		<?php $slide_elem = $slide_elem+1;
+								        	endforeach;
+								        ?>
+									</ol>
+
+									<div class="carousel-inner">
+								        <?php 
+								        	$slide_elem = 0;
+								        	foreach( $images as $image ): ?>
+								        		<div class="carousel-item <?php if($slide_elem == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes']['slide']); ?>');"></div>
+								        	<?php $slide_elem = $slide_elem+1;
+								        	endforeach;
+								        ?>
+									</div>
+
+									<div class="mask-slide cor1 lg"></div>
+
+									<div class="text-item active">				
+										<div class="vertical-center">
+											<div class="content-vertical">
+												<span class="titulo-slide active">
+													<?php the_sub_field('texto-destaque'); ?>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</section>
+
+					<?php break;
+
+				}
+			
+			endwhile;
+		endif; ?>
+
+		<section class="box-content no-padding-top"> 
 			<div class="container">
 
 				<div class="row">
 					<div class="col-12">
 
-						<h2 class="center"><span>TRABAJE CON NOSOTROS</span></h2>
-						<p class="sub-tituto mini justify">
-							El compromiso y entusiasmo de nuestra gente, permiten que nuestros sueños se cristalicen, sueños que van más allá de nuestra empresa y que buscan contribuir con el desarrollo de nuestro país. Déjanos saber si tú eres un profesional que quiere ser parte de este importante reto, porque por donde pasa OCP suceden cosas buenas!!!!
-							<br><br>
-							A través de este portal podemos conocerte, por favor llena el siguiente formulario y adjunta tu hoja de vida actualizada.
-						</p>
-
 						<form class="contacto" id="contacto" action="javascript:" method="post">
-							<fieldset>
+							<fieldset class="no-margin">
 								<label for="nombre">Nombre*</label>
 								<input type="text" name="nombre" id="nombre">
 							</fieldset>

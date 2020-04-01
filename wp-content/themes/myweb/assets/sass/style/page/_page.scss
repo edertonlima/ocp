@@ -62,15 +62,70 @@
 		}
 	}
 
+	@include m420 {
+		&[class*="count-item-"] {
+			padding: 0 60px;
+			display: block;
+			margin-top: 25px;
+
+			li {
+				margin-top: 50px;
+				padding: 0;
+				display: block;
+				text-align: center !important;
+			
+				.vertical-center {
+					height: auto;
+					margin-top: 15px;
+				}
+
+				.titulo {
+					font-size: 1.125rem;
+					line-height: 1.5rem;
+					text-align: center!important;
+					text-transform: uppercase;
+				}
+
+				p {
+					text-align: center;
+				}
+			}
+		}
+	}
+
 	&.count-item-5 {
 		li {
 			width: 20%;
+
+			@include m420 {
+				width: 100%;
+			}
 		}
 	}
 
 	&.count-item-4 {
 		li {
 			width: 25%;
+
+			@include m420 {
+				width: 100%;
+
+				&.info-col-2 {
+					width: 50%;
+
+					.titulo {
+						margin-top: 15px;
+					}
+
+					&:nth-child(odd) {
+						padding-right: 15px;
+					}
+
+					&:nth-child(even) {
+						padding-left: 15px;
+					}
+				}
+			}
 		}
 	}
 
@@ -92,38 +147,42 @@
 				padding: 0;
 			}
 		}
+
+		@include m420 {
+			&[class*="count-item-"] {
+				padding: 0 90px;
+				display: block;
+				margin-top: 25px;
+
+				li {
+					margin-top: 50px;
+					padding: 0;
+					display: block;
+					width: 100%;
+				
+					.vertical-center {
+						height: auto;
+						margin-top: 15px;
+					}
+
+					.titulo {
+						font-size: 1.75rem;
+						line-height: 1.75rem;
+						font-weight: $regular;
+					}
+
+					p {
+						text-align: left;
+					}
+				}
+			}
+		}
 	}
 
 	a {
 		&:hover {
 			.titulo {
 				color: $cor1;
-			}
-		}
-	}
-
-	@include m420 {
-		&[class*="count-item-"] {
-			padding: 0 90px;
-			display: block;
-			margin-top: 25px;
-
-			li {
-				margin-top: 50px;
-				padding: 0;
-				display: block;
-				width: 100%;
-			
-				.vertical-center {
-					height: auto;
-					margin-top: 15px;
-				}
-
-				.titulo {
-					font-size: 1.75rem;
-					line-height: 1.75rem;
-					font-weight: $regular;
-				}
 			}
 		}
 	}
@@ -256,8 +315,8 @@
 	}
 
 	.titulo {
-		font-size: 1.25rem;
-		line-height: 1.5rem;
+		font-size: 1.5rem;
+		line-height: 1.75rem; 
 		font-weight: $bold;
 		color: $cor-txt;
 		max-width: 260px;
@@ -398,3 +457,27 @@
 	}
 }
 
+@include m420 {
+	.page-id-18 {
+		.box-content:not(.bg-claro) {
+			padding-bottom: 0!important;
+		}
+
+		.conteudo-texto.bg-claro {
+			background-color: transparent;
+			padding: 0;
+		}
+
+		.conteudo-texto.margin-top-40 {
+			margin-top: 0px!important;
+
+			.padding-top-20 {
+				padding-top: 0px!important;	
+			}
+		}
+
+		.no-padding-top-mobile {
+			padding-top: 0px!important;
+		}
+	}
+}

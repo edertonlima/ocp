@@ -15,14 +15,15 @@
 	<div class="breadcrumbs">
 		<ul class="container">
 			<li><a href="<?php echo get_home_url(); ?>" title="Home">Início</a></li> 
-			<li><?php the_field('titulo_menu',20); ?></li>
+			<li><a href="<?php echo get_home_url(); ?>/sala-de-prensa" title="<?php the_field('titulo_menu',20); ?>"><?php the_field('titulo_menu',20); ?></a></li>
+			<li>Tag <?php echo $category_current->name; ?></li>
 		</ul>
 	</div>
 
 	<section class="box-content no-padding">
 		<div class="container">
 
-			<h1 class="tit-principal center"><span><?php the_field('titulo_menu',20); ?></span></h1>
+			<h1 class="tit-principal center"><span>Tag <?php echo $category_current->name; ?></span></h1>
 
 			<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
 				<fieldset>
@@ -51,13 +52,6 @@
 							</li>
 
 						<?php } ?>
-
-							<li class="off">
-								<a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" title="<?php the_field('titulo_menu',23); ?>">
-									<img src="<?php the_field('icone', get_page_by_path('contactenos') ); ?>" alt="<?php the_field('titulo_menu',23); ?>">
-									<span><?php the_field('titulo_menu',23); ?></span>
-								</a>
-							</li>
 
 					</ul>
 				</div>
@@ -131,7 +125,7 @@
 			<div class="container">
 
 				<div class="center">
-					<button class="button load-more largo transparent cor3" var-taxonomy="" var-category="" var-post-type="post" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
+					<button class="button load-more largo transparent cor3" var-taxonomy="category" var-category="<?php echo $category_current->term_id; ?>" var-post-type="post" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
 						Mais
 					</button>
 				</div>			

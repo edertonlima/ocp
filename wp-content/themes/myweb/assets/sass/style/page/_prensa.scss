@@ -32,6 +32,12 @@
 				.col-12 {
 					padding: 0;
 				}
+
+				[class*="col-"] {
+					&.margin-bottom-60 {
+						margin-bottom: 20px;
+					}
+				}
 			}
 
 			.carousel-itens {
@@ -76,26 +82,30 @@
 
 		.box-bg-content {
 			display: block;
-			padding: 15px 15px 35px;
-			position: relative;
+			padding: 15px 20px 35px;
+			//position: relative;
 			min-height: 146px;
 
 			@include m420 {
-				padding-right: 30px;
-				padding-left: 30px;
+				padding-right: 50px;
+				padding-left: 50px;
 				margin-bottom: 20px;
 				min-height: none;
+
+				.conteudo-texto p {
+					padding: 0;
+				}
 			}
 		}
 
 		.titulo-prensa {
 			display: block;
-			font-size: 1.5rem;
+			font-size: 1.45rem;
 			line-height: 1.75rem;
 			margin-top: 15px;
 			font-weight: 400;
 			margin-bottom: 15px;
-			height: 59px;
+			//height: 59px;
 			overflow: hidden;
 
 			@include m420 {
@@ -128,6 +138,9 @@
 
 			@include m420 {
 				font-size: 1rem;
+				position: relative;
+				bottom: 0;
+				padding-top: 10px;
 			}
 
 			i {
@@ -153,6 +166,8 @@
 		}
 
 		.item-prensa {
+			height: 100%;
+
 			&:hover {
 				.capa{
 					.mask {
@@ -234,6 +249,7 @@
 								color: $cor-txt;
 								top: 1px;
 								position: relative;
+								margin: 0;
 							}
 
 							&:hover {

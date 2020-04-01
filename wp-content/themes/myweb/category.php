@@ -15,28 +15,21 @@
 	<div class="breadcrumbs">
 		<ul class="container">
 			<li><a href="<?php echo get_home_url(); ?>" title="Home">Início</a></li> 
-			<li><a href="<?php echo get_home_url(); ?>/sala-de-prensa" title="<?php the_field('titulo_menu',20); ?>"><?php the_field('titulo_menu',20); ?></a></li> 			
+			<li><a href="<?php echo get_home_url(); ?>/sala-de-prensa" title="<?php the_field('titulo_menu',20); ?>"><?php the_field('titulo_menu',20); ?></a></li> 
 			<li><?php echo $category_current->name; ?></li>
 		</ul>
 	</div>
 
 	<section class="box-content no-padding">
 		<div class="container">
-			<h2 class="center"><span><?php echo $category_current->name; ?></span></h2>
+
+			<h1 class="tit-principal center"><span><?php echo $category_current->name; ?></span></h1>
 
 			<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
 				<fieldset>
 					<input type="text" name="s" id="search" placeholder="Buscar en el sitio…" value="<?php if(isset($_GET['s'])){ echo $_GET['s']; } ?>">
-					<button type="submit" class="button"><i class="fas fa-search"></i></button>
+					<button type="submit" class="button"><i class="fas fa-search fa-flip-horizontal"></i></button>
 				</fieldset>
-
-				<?php /*if(is_search()){ ?>
-					<div class="col-6">
-						<span class="result">
-							<span><?php _e( 'Resultados da pesquisa encontrados para', 'locale' ); ?>: "<?php the_search_query(); ?></span>
-						</span>
-					</div>
-				<?php } */?>
 			</form>
 		</div>
 	</section>
@@ -60,6 +53,13 @@
 
 						<?php } ?>
 
+							<li class="off">
+								<a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" title="<?php the_field('titulo_menu',23); ?>">
+									<img src="<?php the_field('icone', get_page_by_path('contactenos') ); ?>" alt="<?php the_field('titulo_menu',23); ?>">
+									<span><?php the_field('titulo_menu',23); ?></span>
+								</a>
+							</li>
+
 					</ul>
 				</div>
 			</div>
@@ -70,48 +70,76 @@
 	<section class="box-content no-padding-top prensa prensa-list">
 		<div class="container">
 
-			<div class="row">
+			<div class="row flex">
 
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php 
+					if(have_posts()){
+						while ( have_posts() ) : the_post();
+							$row_proj = $row_proj+1;
 
-					<div class="col-4 margin-bottom-60">
+							if($row_proj == 4){
+								echo '</div><div class="row flex">';
+							}
+							?>
+							<div class="<?php if($row_proj <= 3){ echo 'col-4'; }else{ echo 'col-6'; } ?> margin-bottom-60">
 
-						<?php 	
-							if(get_field('video')){
+								<?php 	
+									if(get_field('video')){
 
-								get_template_part( 'content', 'video' );
-
-							}else{
-								if(get_field('galeria')){
-
-									get_template_part( 'content', 'galeria' );
-
-								}else{
-									if(get_field('link')){
-
-										get_template_part( 'content', 'link' );
+										get_template_part( 'content', 'video' );
 
 									}else{
-										if(get_field('arquivo')){
+										if(get_field('galeria')){
 
-											get_template_part( 'content', 'arquivo' );
+											get_template_part( 'content', 'galeria' );
 
 										}else{
-											get_template_part( 'content', '' );
+											if(get_field('link')){
+
+												get_template_part( 'content', 'link' );
+
+											}else{
+												if(get_field('arquivo')){
+
+													get_template_part( 'content', 'arquivo' );
+
+												}else{
+													get_template_part( 'content', '' );
+												}
+											}
 										}
 									}
-								}
-							}
-						?>
-					
-					</div>
+								?>
+							
+							</div>
+						<?php endwhile;
+					}else{ ?>
 
-				<?php endwhile; ?>
+						<div class="col-12">
+							<p class="text-destaque center"><br><br>No se encontraron entradas</p>
+						</div>
+
+					<?php }
+				?>
 
 			</div>
 
 		</div>
-	</section>
+	</section>	
+
+	<?php if($wp_query->max_num_pages > 1){ ?>
+		<section class="box-content no-padding-top">
+			<div class="container">
+
+				<div class="center">
+					<button class="button load-more largo transparent cor3" var-taxonomy="category" var-category="<?php echo $category_current->term_id; ?>" var-post-type="post" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
+						Mais
+					</button>
+				</div>			
+
+			</div>
+		</section>
+	<?php } ?>
 
 <?php get_footer(); ?>
 
@@ -131,9 +159,4 @@
 			}
 		}
 	})
-
-	/*var qtddot = $('.owl-dots').children().length;
-	qtddot = (((qtddot*22)/2)+10)+'px';
-	$('.owl-prev').css('margin-right',qtddot);
-	$('.owl-next').css('margin-left',qtddot);*/
 </script>

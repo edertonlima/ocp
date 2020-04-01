@@ -1,78 +1,86 @@
 
-			
-										<div class="row">										
-											<div class="col-6">
+<div class="row det-slide-funcionamiento <?php if(!$GLOBALS['mobile']){ echo 'row-flex'; } ?>">
 
-												<?php if(get_the_title()){ ?>
-													<div class="conteudo-texto cont-left">
-														<div class="link-mais margin-top-10 margin-bottom-20">
-															<a href="<?php the_permalink(); ?>">
-																<h4 class="link link-bloco">
-																	<?php the_title(); ?>
-																</h4>
-															</a>
-														</div>
-													</div>
-												<?php } ?>												
+	<?php if($GLOBALS['mobile']){ ?>
+	<div class="col-6 bg-img-slide">
+		<div class="conteudo-texto">
 
-												<div class="funcionamiento funcionamiento-navegacao owl-carousel owl-theme owl-loaded">
-													<div class="owl-stage-outer">
-														<div class="owl-stage">
+			<?php 
+				$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slide-funcionamiento' ); 
+				if($imagem[0]){ ?>
+					<img src="<?php echo $imagem[0]; ?>">
+				<?php }
+			?>
 
-															<?php 
-																if( have_rows('itens-funcionamiento') ):
-																	while ( have_rows('itens-funcionamiento') ) : the_row(); ?>
+		</div>
+	</div>
+	<?php } ?>
 
+	<div class="col-6 <?php if(!$GLOBALS['mobile']){ echo 'txt-slide'; } ?>">
 
-																		<div class="owl-item">
-																			<div class="conteudo-texto cont-left">
+		<?php if(get_the_title()){ ?>
+			<div class="conteudo-texto cont-left">
+				<div class="link-mais margin-top-10 margin-bottom-20 center">
+					<a href="<?php the_permalink(); ?>">
+						<h4 class="link link-bloco">
+							<?php the_title(); ?>
+						</h4>
+					</a>
+				</div>
+			</div>
+		<?php } ?>												
 
-																				<?php //if(is_singular('funcionamiento')){
+		<div class="funcionamiento funcionamiento-navegacao owl-carousel owl-theme owl-loaded">
+			<div class="owl-stage-outer">
+				<div class="owl-stage">
 
-																					if(get_sub_field('titulo')){ ?>
-																						<h3 class="center"><?php the_sub_field('titulo'); ?></h3>
-																					<?php } ?>
-
-																				<?php // } ?>
-																				
-																				<p class="justify"><?php the_sub_field('texto'); ?></p>
-
-																			</div>
-																		</div>
+					<?php 
+						if( have_rows('itens-funcionamiento') ):
+							while ( have_rows('itens-funcionamiento') ) : the_row(); ?>
 
 
-																		<?php
-																	endwhile;
-																endif;
-															?>
+								<div class="owl-item">
+									<div class="conteudo-texto cont-left">
 
-														</div>
-													</div>
-												</div>
+										<?php //if(is_singular('funcionamiento')){
 
-											</div>
+											if(get_sub_field('titulo')){ ?>
+												<h3 class="center"><?php the_sub_field('titulo'); ?></h3>
+											<?php } ?>
 
-											<div class="col-6">
-												<div class="conteudo-texto cont-right">
+										<?php // } ?>
+										
+										<p class="justify"><?php the_sub_field('texto'); ?></p>
 
-													<?php 
-														$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slide-funcionamiento' ); 
-														if($imagem[0]){ ?>
-															<img src="<?php echo $imagem[0]; ?>">
-														<?php }
-													?>
-
-													<?php 
-														/*
-														$imagem = get_field('imagem-funcionamiento');
-														<img src="<?php echo esc_url($imagem['sizes']['slide-funcionamiento']); ?>" alt="">
-														*/
-													?>
-
-												</div>
-											</div>
-
-										</div>
+									</div>
+								</div>
 
 
+								<?php
+							endwhile;
+						endif;
+					?>
 
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<?php if(!$GLOBALS['mobile']){ ?>
+	<div class="col-6 img-slide bg-img-slide">
+		<div class="conteudo-texto cont-right">
+
+			<?php 
+				$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slide-funcionamiento' ); 
+				if($imagem[0]){ ?>
+					<img src="<?php echo $imagem[0]; ?>">
+				<?php }
+			?>
+
+		</div>
+	</div>
+	<?php } ?>
+
+</div>

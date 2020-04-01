@@ -1,6 +1,6 @@
 
 
-			<div class="funcionamiento owl-carousel owl-theme owl-loaded" id="">
+			<div class="funcionamiento det-slide-funcionamiento owl-carousel owl-theme owl-loaded" id="">
 				<div class="owl-stage-outer">
 					<div class="owl-stage">
 
@@ -10,7 +10,15 @@
 									$imagem = get_sub_field('imagem'); ?>
 
 									<div class="owl-item">
-										<div class="row">
+										<div class="row <?php if(!$GLOBALS['mobile']){ echo 'row-flex'; } ?>">
+
+											<?php if($GLOBALS['mobile']){ ?>
+												<div class="col-6 bg-img-slide">
+													<div class="conteudo-texto cont-right">
+														<img src="<?php echo esc_url($imagem['sizes']['slide-funcionamiento']); ?>" alt="">
+													</div>
+												</div>
+											<?php } ?>
 										
 											<div class="col-6">
 												<div class="conteudo-texto cont-left">
@@ -36,11 +44,13 @@
 												</div>
 											</div>
 
-											<div class="col-6">
-												<div class="conteudo-texto cont-right">
-													<img src="<?php echo esc_url($imagem['sizes']['slide-funcionamiento']); ?>" alt="">
+											<?php if(!$GLOBALS['mobile']){ ?>
+												<div class="col-6 bg-img-slide">
+													<div class="conteudo-texto cont-right">
+														<img src="<?php echo esc_url($imagem['sizes']['slide-funcionamiento']); ?>" alt="">
+													</div>
 												</div>
-											</div>
+											<?php } ?>
 
 										</div>
 									</div>

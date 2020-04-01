@@ -14,10 +14,10 @@
 		</ul>
 	</div>
 
-	<section class="box-content"> 
+	<section class="box-content first-section">
 		<div class="container">
 
-			<h2 class="center"><span><?php the_field('titulo-taxonomy', $taxonomy . '_' . $term_id ); ?></span></h2>
+			<h1 class="tit-principal center"><span><?php the_field('titulo-taxonomy', $taxonomy . '_' . $term_id ); ?></span></h1>
 			<p class="sub-tituto mini center"><?php echo $description; ?></p>
 
 		</div>
@@ -26,7 +26,7 @@
 	<section class="box-content no-padding-top">
 		<div class="container">
 
-			<div class="funcionamiento owl-carousel owl-theme owl-loaded" id="funcionamiento">
+			<div class="funcionamiento det-slide-funcionamiento owl-carousel owl-theme owl-loaded" id="funcionamiento">
 				<div class="owl-stage-outer">
 					<div class="owl-stage">
 
@@ -65,10 +65,4 @@
 			}
 		}
 	})
-/*
-	var qtddot = $('.owl-dots').children().length;
-	qtddot = (((qtddot*22)/2)+10)+'px';
-	$('.owl-prev').css('margin-right',qtddot);
-	$('.owl-next').css('margin-left',qtddot);
-*/
 </script>

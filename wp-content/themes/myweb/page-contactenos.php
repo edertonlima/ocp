@@ -3,54 +3,58 @@
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<div class="breadcrumbs">
-			<ul>
+			<ul class="container">
 				<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
-				<li>Contactenos</li>
+				<li><?php the_field('titulo_menu'); ?></li>
 			</ul>
 		</div>
 
-		<section class="box-content"> 
+		<section class="box-content first-section"> 
 			<div class="container">
 
 				<div class="row">
 					<div class="col-12">
 
-						<h2 class="center"><span>CONTACTO</span></h2>
+						<h1 class="tit-principal center"><span><?php the_title(); ?></span></h1>
 
-						<div class="container-mini">
-							<ul class="icon-page count-item-5">
-								<li>
-									<!--<a href="">-->
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contacto-1.png" align="">
-										<span class="titulo center">General</span>
-									<!--</a>-->
+							<!--<ul class="icon-page count-item-5">-->
+							<ul class="list-category list-category-mini">
+								<li class="off">
+									<a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" title="Geral">
+										<img src="<?php the_field('icone', get_page_by_path('contactenos') ); ?>" alt="Geral">
+										<span>Geral</span>
+									</a>
 								</li>
 
 								<li>
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contacto-2.png" align="">
-									<span class="titulo center">Comunidad</span>
+									<a href="">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contacto-2.png" align="">
+										<span>Comunidad</span>
+									</a>
 								</li>
 
 								<li>
 									<a href="<?php echo get_permalink(get_page_by_path('trabaje-nosotros')); ?>" title="">
 										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contacto-3.png" align="">
-										<span class="titulo center">Trabaje con nosostros</span>
+										<span>Trabaje con nosostros</span>
 									</a>
 								</li>
 
 								<li>
 									<a href="<?php echo get_permalink(get_page_by_path('sala-proveedores')); ?>" title="">
 										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contacto-4.png" align="">
-										<span class="titulo center">Registro proveedores</span>
+										<span>Registro proveedores</span>
 									</a>
 								</li>
 
 								<li>
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contacto-5.png" align="">
-									<span class="titulo center">Facturación Electrónica</span>
+									<a href="">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico-contacto-5.png" align="">
+										<span>Facturación Electrónica</span>
+									</a>
 								</li>
 							</ul>
-						</div>
+
 					</div>
 				</div>
 
@@ -87,8 +91,8 @@
 				<div class="row">
 					<div class="col-12">
 
-						<h2 class="center"><span>CONTACTO</span></h2>
-						<p class="sub-tituto mini justify">Si desea ofertar sus servicios o productos haga en <a href="<?php echo get_permalink(get_page_by_path('sala-proveedores')); ?>" title="registro de proveedores">registro de proveedores.</a> Si desea registrar su hoja de vida haga en <a href="<?php echo get_permalink(get_page_by_path('trabaje-nosotros')); ?>" title="trabaje con nosotros">trabaje con nosotros.</a> Para cualquier otro asunto, llene el siguiente formulario:</p>
+						<h2 class="center center-mobile"><span>CONTACTO</span></h2>
+						<p class="sub-tituto mini justify txt-contato">Si desea ofertar sus servicios o productos haga en <a href="<?php echo get_permalink(get_page_by_path('sala-proveedores')); ?>" title="registro de proveedores">registro de proveedores.</a> Si desea registrar su hoja de vida haga en <a href="<?php echo get_permalink(get_page_by_path('trabaje-nosotros')); ?>" title="trabaje con nosotros">trabaje con nosotros.</a> Para cualquier otro asunto, llene el siguiente formulario:</p>
 
 						<form class="contacto" id="contacto" action="javascript:" method="post">
 							<fieldset>

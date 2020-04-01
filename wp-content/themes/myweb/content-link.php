@@ -1,6 +1,14 @@
 <?php
 	global $row_proj;
-	$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
+
+	if($post->post_type == 'aporte-a-la-sociedad'){
+		$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
+	}
+
+	if($post->post_type == 'post'){
+		$category = wp_get_post_terms( $post->ID, 'category' )[0];
+	}
+	
 	if($row_proj <= 3){ 
 		$size = 'list-post';
 	}else{
@@ -8,7 +16,7 @@
 	}
 ?>
 	
-<div class="item-prensa">
+<div class="item-prensa bg-claro">
 
 	<a href="<?php the_permalink(); ?>" class="capa" title="<?php the_title(); ?>">
 		<?php 
@@ -22,7 +30,7 @@
 		<i class="fas fa-link"></i>
 	</a>
 
-	<div class="box-bg-content bg-claro">
+	<div class="box-bg-content">
 		<span class="data-prensa" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
 			<?php echo get_the_date(); ?>
 		</span>

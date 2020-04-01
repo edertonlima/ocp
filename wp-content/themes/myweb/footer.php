@@ -3,29 +3,23 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-4">
-					<img src="<?php the_field('logo_footer', 'option'); ?>" alt="<?php //the_field('titulo', 'option'); ?>">
+					<img src="<?php the_field('logo_footer', 'option'); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">
 					<p class=""><?php echo get_the_excerpt(get_page_by_path('quienes-somos')); ?></p>
 
-					<div class="list-txt">
-						<?php /*<h3>Oficinas:</h3>*/ ?>
-						<span>
-							Oficinas:
-							Av. Amazonas 1014<br>
-							y Naciones Unidas<br>
-							Edf. Banco La Previsora,<br>
-							Torre A, 3er piso
-						</span>
-					</div>
+					<?php if(get_field('texto-rodape-1', 'option')){ ?>
+						<div class="list-txt">
+							<?php /*<h3>Oficinas:</h3>*/ ?>
+							<span><?php the_field('texto-rodape-1', 'option'); ?></span>
+						</div>
+					<?php } ?>
 
-					<div class="list-txt">
-						<?php /*<h3>Quito - Ecuador:</h3>*/?>
-						<span>
-							Quito - Ecuador:
-							Teléfonos:<br>
-							PBX (593) 2 297 3200<br> 
-							Fax: (593) 2 246 9746
-						</span>
-					</div>
+					<?php if(get_field('texto-rodape-2', 'option')){ ?>
+						<div class="list-txt">
+							<?php /*<h3>Quito - Ecuador:</h3>*/?>
+							<span><?php the_field('texto-rodape-2', 'option'); ?></span>
+						</div>
+					<?php } ?>
+
 				</div>
 
 				<div class="col-2 col-m-1">
@@ -35,10 +29,9 @@
 							<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
 							<li><a href="<?php echo get_permalink(get_page_by_path('quienes-somos')); ?>" title="Quiénes Somos">Quiénes Somos</a></li>
 							<li><a href="<?php echo get_permalink(get_page_by_path('nuestra-historia')); ?>" title="Nuestra Historia">Nuestra Historia</a></li>
-							<li><a href="<?php echo get_home_url(); ?>/funcionamient" title="Funcionamento">Funcionamento</a></li>
-							<li><a href="#" title="Servicios">Servicios</a></li>
-							<li><a href="#" title="Aporte a la Sociedad">Aporte a la Sociedad</a></li>
-							<li><a href="#" title="Aporte al Pais">Aporte al Pais</a></li>
+							<li><a href="<?php echo get_post_type_archive_link('funcionamiento'); ?>" title="Funcionamento">Funcionamento</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('aporte-a-la-sociedad')); ?>" title="<?php the_field('titulo_menu',16); ?>"><?php the_field('titulo_menu',16); ?></a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('aporte-al-pais')); ?>" title="Aporte al Pais">Aporte al Pais</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -47,9 +40,8 @@
 					<nav class="nav nav-footer">
 						<h3>Menús Adicionales</h3>
 						<ul>
-							<li><a href="#" title="Sala de Prensa">Sala de Prensa</a></li>
-							<li><a href="#" title="Sala de Clientes">Sala de Clientes</a></li>
-							<li><a href="#" title="Contáctenos">Contáctenos</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" title="Sala de Prensa">Sala de Prensa</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" title="Contáctenos">Contáctenos</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -58,9 +50,9 @@
 					<nav class="nav nav-footer">
 						<h3>Contacto</h3>
 						<ul>
-							<li><a href="#" title="Sala de Proveedores">Sala de Proveedores</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('registro-proveedores')); ?>" title="<?php the_field('titulo_menu',798); ?>"><?php the_field('titulo_menu',798); ?></a></li>
 							<?php /*<li><a href="#" title="Sala de Clientes">Sala de Clientes</a></li>*/?>
-							<li><a href="#" title="Trabaje con nosotros">Trabaje con nosotros</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('trabaje-nosotros')); ?>" title="<?php the_field('titulo_menu',801); ?>"><?php the_field('titulo_menu',801); ?></a></li>
 						</ul>
 					</nav>
 
@@ -91,7 +83,7 @@
 				<div class="col-12">
 					<div class="list-txt">
 						<span class="copy">
-							© OCP Ecuador 2019
+							© <?php echo get_bloginfo( 'name' ) . ' ' . date('Y'); ?>
 						</span>
 					</div>
 				</div>
