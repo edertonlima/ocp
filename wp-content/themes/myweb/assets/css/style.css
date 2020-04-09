@@ -11526,19 +11526,20 @@ input::-webkit-input-placeholder {
     background-color: rgba(74, 74, 74, 0.25); }
 
 .nav-linha-tempo {
-  position: fixed;
-  top: 200px;
+  position: absolute;
+  top: 176px;
   left: 0px;
   z-index: 999;
   width: 180px;
   padding: 30px 25px;
-  background-color: #ffffff;
-  opacity: 0; }
+  background-color: #ffffff; }
+  @media all and (min-width: 1380px) {
+    .nav-linha-tempo {
+      margin-left: -690px;
+      left: 50%; } }
   .nav-linha-tempo.linha-tempo-bottom {
     position: absolute;
     margin: 0; }
-  .nav-linha-tempo h4 {
-    font-weight: 300; }
   .nav-linha-tempo ul {
     margin-top: 5px; }
   .nav-linha-tempo li {
@@ -11581,6 +11582,9 @@ input::-webkit-input-placeholder {
         display: inline-block; }
       .nav-linha-tempo li.active i.far {
         display: none; }
+  .nav-linha-tempo.fixed {
+    position: fixed;
+    top: 76px; }
 
 .slide .text-item.item-nuestra-historia {
   width: 40%;

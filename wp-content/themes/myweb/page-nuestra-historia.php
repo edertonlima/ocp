@@ -137,25 +137,60 @@
 	</script>
 
 	<script type="text/javascript">
-		height_linha = jQuery('.nav-linha-tempo').height();
-		posLinha = '-'+(height_linha/2)+'px';
-		altura = (jQuery('.footer').position().top)-600;
 
-		if(height_linha < jQuery(window).height()){
-			jQuery('.nav-linha-tempo').css('margin-top',posLinha);
-			jQuery('.nav-linha-tempo').css('top', '50%');
-			jQuery('.nav-linha-tempo').css('opacity',1);
-		}
+		$(document).ready(function(){
+			nav = $('.nav-linha-tempo');
+			nav_height = nav.height()+60;
+			posLinha = '-'+(nav_height/2)+'px';
+			footer_top = ($('.footer').position().top)-600;
+			//top_nav = nav.position().top;
+			altura_header = ($('.header').height())+200; 
 
-		jQuery(window).scroll(function(){
-			if (jQuery(this).scrollTop() > altura){
-				jQuery(".nav-linha-tempo").css('top',altura);
-				jQuery(".nav-linha-tempo").css('position','absolute');
-				jQuery(".nav-linha-tempo").css('margin-top',(jQuery(".nav-linha-tempo").height()/2)+'px');
+			/*if((nav_height < $(window).height()) && (top_nav > altura_header)){
+
+				//alert(top_nav +' > '+ altura_header);
+
+				nav_height.css('margin-top',posLinha);
+				//$('.nav-linha-tempo').css('top', '50%');
+				nav_height.addClass('fixed');
+				
+				//if(top_nav > altura_header){
+				//}
+			}*/
+
+			nav.css('opacity',1);
+			//alert(top_nav);
+		});
+
+		$(window).scroll(function(){
+
+			//alert(top_nav);
+			//console.log($(this).scrollTop());
+			janela_top = $(this).scrollTop();
+			if( janela_top >= 100 ){ 
+				if ( janela_top > footer_top ){
+					
+					console.log('limite footer');
+					console.log(footer_top);
+					nav.removeClass('fixed');
+					nav.css('top',footer_top+75);
+					//nav.css('margin-top',posLinha);*/
+
+				}else{
+					
+					console.log('topo');
+					nav.css('top','76px');
+					console.log('em moimento');
+					//nav.css('margin-top',posLinha);
+					nav.addClass('fixed');
+
+				}
 			}else{
-				jQuery(".nav-linha-tempo").css('top','50%');
-				jQuery(".nav-linha-tempo").css('position','fixed');
-				jQuery(".nav-linha-tempo").css('margin-top',posLinha);
+
+				console.log('topo topo');
+				nav.css('top','176px');
+				nav.removeClass('fixed');
+				//nav.css('margin-top','0px');
 			}
 		});
 	</script>
@@ -163,8 +198,8 @@
 
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/scrollbar/jquery.scrollbar.js"></script>
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		jQuery('.scrollbar').scrollbar();
+	$(document).ready(function(){
+		$('.scrollbar').scrollbar();
 	});
 </script>
 

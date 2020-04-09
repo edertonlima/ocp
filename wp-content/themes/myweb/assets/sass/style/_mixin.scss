@@ -124,6 +124,12 @@
 
 
 
+@mixin min1380 {
+	@media all and (min-width: 1380px){
+		@content
+	}
+}
+
 @mixin m420 {
 	@media all and (max-width: 420px){
 		@content

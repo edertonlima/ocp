@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header(); ?>  
 
 	<div class="breadcrumbs">
 		<ul class="container">
@@ -20,7 +20,7 @@
 		</div>
 	</section>
 
-	<?php if( have_rows('itens_dados',16) ): ?>
+	<?php if( have_rows('itens_dados',16) ): ?> 
 		<section class="box-content no-padding-bottom">
 			<div class="container">		
 				<h2 class="center"><span><?php the_field('titulo_dados',16); ?></span></h2>

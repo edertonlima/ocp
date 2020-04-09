@@ -1,13 +1,19 @@
 .nav-linha-tempo {
-	position: fixed;
-	top: 200px;
+	position: absolute;
+	top: 176px;
 	left: 0px;
 	z-index: 999;
 	width: 180px;
 	padding: 30px 25px;
+	//background-color: blue;
 	background-color: #ffffff;
 	//@include animacao-slow;
-	opacity: 0;
+	//opacity: 0;
+
+	@include min1380 {
+		margin-left: -690px;
+		left: 50%;
+	}
 
 	&.linha-tempo-bottom {
 		position: absolute;
@@ -15,7 +21,7 @@
 	}
 
 	h4 {
-		font-weight: $light;
+		//font-weight: $light;
 	}
 
 	ul {
@@ -90,6 +96,11 @@
 				}
 			}
 		}
+	}
+
+	&.fixed {
+		position: fixed;
+		top: 76px;
 	}
 }
 

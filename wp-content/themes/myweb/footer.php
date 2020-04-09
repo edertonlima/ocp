@@ -110,7 +110,7 @@
 	<script type="text/javascript">
 		
 		function go_item() {
-			if (jQuery(this).scrollTop() > 400){
+			if ($(this).scrollTop() > 400){
 				$('.go-item').addClass('on');
 			}else{
 				$('.go-item').removeClass('on');
@@ -119,7 +119,7 @@
 
 		$(document).ready(function(){	
 
-			widthWindow = jQuery(window).width();
+			widthWindow = $(window).width();
 
 			if(widthWindow < 421){
 				$('.menu-mobile').click(function(){
@@ -146,11 +146,11 @@
 			}, 1000);
 		});
 
-		jQuery(window).scroll(function(){
+		$(window).scroll(function(){
 			go_item();
 		});
 
-		jQuery(window).resize(function(){
+		$(window).resize(function(){
 			$('.menu-mobile').removeClass('open');
 			$('.nav-principal').removeClass('open');
 			$('.submenu').removeClass('ativo');
