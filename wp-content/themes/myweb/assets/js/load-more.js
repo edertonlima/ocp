@@ -1,19 +1,25 @@
 jQuery(document).ready(function($) {
 
-	$('.load-more').click(function(){ 
+	$('.load-more').click(function(){
 
 		$(this).html('<i class="fas fa-circle-notch cor3 fa-spin"></i> Mais');
 
 		post_type = $(this).attr('var-post-type');
 		paged = parseInt($(this).attr('var-paged'));
+		category = parseInt($(this).attr('var-category'));
+		taxonomy = parseInt($(this).attr('var-taxonomy'));
+		pesquisa = $(this).attr('var-pesquisa');
 
 		$.ajax({
-			url: ajaxurl,
+			url: $(this).attr('var-url'),//ajaxurl,
 			type: 'POST',
 			data: {
-				'action': 'load_more' // Ação do Ajax
-				//'post-type': post_type,
-				//'paged': paged
+				'action': 'load_more', // Ação do Ajax
+				'post-type': post_type,
+				'category': category,
+				'taxonomy': taxonomy,
+				'paged': paged,
+				'pesquisa': pesquisa
 			},
 			success: function( response ){
 				max_paged = response.split('max_paged').pop();
@@ -31,12 +37,14 @@ jQuery(document).ready(function($) {
 
 				$('.prensa-list .row:last-child').append(loopHTML);
 
+				owlCarousel();
+
 				$('.load-more').html('Mais');
 			},
 			
 			error: function(){
 
-				$('.prensa-list .row:last-child').append('<div class="col-12 center"><p>Lo sentimos, no fue posible traer más contenido.</p></div>');
+				$('.prensa-list .row:last-child').append('<div class="col-12 center"><p>.Lo sentimos, no fue posible traer más contenido.</p></div>');
 				$('.load-more').html('Mais');
 				$('.load-more').hide();
 

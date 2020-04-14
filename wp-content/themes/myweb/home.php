@@ -24,7 +24,7 @@
 
 			<h1 class="tit-principal center"><span><?php the_field('titulo_menu',20); ?></span></h1>
 
-			<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
+			<form action="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" class="form-busca" method="get">
 				<fieldset>
 					<input type="text" name="s" id="search" placeholder="Buscar en el sitio…" value="<?php if(isset($_GET['s'])){ echo $_GET['s']; } ?>">
 					<button type="submit" class="button"><i class="fas fa-search fa-flip-horizontal"></i></button>
@@ -131,7 +131,7 @@
 			<div class="container">
 
 				<div class="center">
-					<button class="button load-more largo transparent cor3" var-taxonomy="" var-category="" var-post-type="post" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
+					<button class="button load-more largo transparent cor3" var-url="<?php echo admin_url( 'admin-ajax.php' ); ?>" var-taxonomy="" var-category="" var-post-type="post" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
 						Mais
 					</button>
 				</div>			
@@ -144,18 +144,24 @@
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript">
-	$('.carousel-itens').owlCarousel({
-		loop:false,
-		margin:0,
-		responsiveClass:true,
-		nav:true,
-		navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
-		//rtl:true,
-		responsive:{
-			0:{
-				items:1,
-				nav:true
+
+	function owlCarousel(){
+		$('.carousel-itens').owlCarousel({
+			loop:false,
+			margin:0,
+			responsiveClass:true,
+			nav:true,
+			navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+			//rtl:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true
+				}
 			}
-		}
-	})
+		})
+	}
+
+	owlCarousel();
+
 </script>

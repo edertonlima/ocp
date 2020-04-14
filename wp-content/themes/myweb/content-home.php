@@ -23,13 +23,12 @@
 		</a>
 
 
-			
+		<?php $tags = get_the_tags();
+		if($tags){ ?> 
+
 				<span class="categoria-prensa">
 					<i class="fas fa-circle cor3"></i>
-					<?php 
-						$tags = get_the_tags();
-						//var_dump($tags);
-
+					<?php
 						foreach ( $tags as $key => $tag ) { ?>
 							<a href="<?php echo get_tag_link($tag->term_id); ?>" class="cor3">
 								<?php echo $tag->name; ?>
@@ -42,6 +41,8 @@
 						}
 					?>
 				</span>
+
+		<?php } ?>
 
 		
 	</div>

@@ -1,5 +1,15 @@
 	<?php
-		$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
+
+		if($post->post_type == 'aporte-a-la-sociedad'){
+			$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
+		}
+
+		if($post->post_type == 'post'){
+			$category = wp_get_post_terms( $post->ID, 'category' )[0];
+		}
+
+		//$category = wp_get_post_terms( $post->ID, 'categoria_aportealasociedad' )[0];
+
 	?>
 
 	<div class="item-prensa video bg-claro">

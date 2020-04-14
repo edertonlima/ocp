@@ -10,15 +10,15 @@
 									$imagem = get_sub_field('imagem'); ?>
 
 									<div class="owl-item">
-										<div class="row <?php if(!$GLOBALS['mobile']){ echo 'row-flex'; } ?>">
+										<div class="row row-flex">
 
-											<?php if($GLOBALS['mobile']){ ?>
-												<div class="col-6 bg-img-slide">
+											<?php// if($GLOBALS['mobile']){ ?>
+												<div class="col-6 bg-img-slide if-mobile-true">
 													<div class="conteudo-texto cont-right">
 														<img src="<?php echo esc_url($imagem['sizes']['slide-funcionamiento']); ?>" alt="">
 													</div>
 												</div>
-											<?php } ?>
+											<?php //} ?>
 										
 											<div class="col-6">
 												<div class="conteudo-texto cont-left">
@@ -44,13 +44,13 @@
 												</div>
 											</div>
 
-											<?php if(!$GLOBALS['mobile']){ ?>
-												<div class="col-6 bg-img-slide">
+											<?php //if(!$GLOBALS['mobile']){ ?>
+												<div class="col-6 bg-img-slide if-mobile-false">
 													<div class="conteudo-texto cont-right">
 														<img src="<?php echo esc_url($imagem['sizes']['slide-funcionamiento']); ?>" alt="">
 													</div>
 												</div>
-											<?php } ?>
+											<?php //} ?>
 
 										</div>
 									</div>

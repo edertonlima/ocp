@@ -15,7 +15,7 @@
 			&.off-mobile {
 				display: none;
 
-				@include m420 {
+				@include m980 {
 					display: table-row;
 				}
 			}
@@ -30,12 +30,12 @@
 				}
 			}
 
-			@include m420 {
+			@include m980 {
 				display: table-row;
 			}
 		}
 
-		@include m420 {
+		@include m980 {
 			display: table;
 			height: 100%;
 		}
@@ -57,7 +57,7 @@
 			position: relative;
 		}
 
-		@include m420 {
+		@include m980 {
 			position: relative;
 			z-index: 999
 		}
@@ -73,7 +73,7 @@
 			z-index: 9999;
 			cursor: pointer;
 
-			@include m420 {
+			@include m980 {
 				position: absolute;
 				margin-top: 11px;
 				top: auto;
@@ -92,7 +92,7 @@
 			opacity: 0;
 			@include animacao;
 
-			@include m420 {
+			@include m980 {
 				height: 0px;
 				overflow: hidden;
 				display: block;
@@ -106,14 +106,14 @@
 			i {
 				color: $cor2;
 
-				@include m420 {
+				@include m980 {
 				    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
 				    -webkit-transform: rotate(180deg);
 				    transform: rotate(180deg);
 				}
 			}
 
-			@include m420 {
+			@include m980 {
 				position: relative;
 				z-index: 0;
 
@@ -158,7 +158,7 @@
 			text-align: left;
 			overflow: hidden;
 
-			@include m420 {
+			@include m980 {
 				padding: 0;
 				background: transparent;
 			}
@@ -175,7 +175,7 @@
 			border-right: 2px solid #ffffff;
 			padding-right: 10px;
 
-			@include m420 {
+			@include m980 {
 				display: none;
 			}
 		}
@@ -188,12 +188,12 @@
 				font-size: 1.125rem;
 				font-weight: $light;
 
-				@include m420 {
+				@include m980 {
 					padding: 0;
 				}
 			}
 
-			@include m420 {
+			@include m980 {
 				width: 100%;
 				padding: 0;
 			}
@@ -208,7 +208,7 @@
 			font-weight: $bold;
 			margin-bottom: 20px;
 
-			@include m420 {
+			@include m980 {
 				display: none;
 			}
 		}
@@ -235,13 +235,13 @@
 			}
 		}
 
-		@include m420 {
+		@include m980 {
 			//display: none;
 			height: 100vh;
-			border-top: 130px solid #ffffff;
+			border-top: 80px solid #ffffff;
 			z-index: 9999;
 			position: fixed;
-			top: -100vh;
+			top: -110vh;
 			left: 0;
 			//opacity: 0;
 
@@ -306,7 +306,7 @@
 			display: table-cell;
 			max-width: 660px;
 
-			@include m420 {
+			@include m980 {
 				&:not(.idiomas){
 					display: none;
 				}
@@ -388,7 +388,7 @@
 				padding-right: 3px;
 				vertical-align: middle;
 
-				@include m420 {
+				@include m980 {
 					position: relative;
 					top: -1px;
 				}
@@ -455,8 +455,9 @@
 	margin-right: 20px;
 	@include clear;
 
-	@include m420 {
+	@include m980 {
 		display: inline-block;
+		margin-top: 15px;
 	}
 }
 

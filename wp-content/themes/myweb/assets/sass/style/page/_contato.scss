@@ -6,14 +6,14 @@
 		padding: 0 50px;
 		display: inline-block;
 
-		@include m420 {
+		@include m980 {
 			padding: 0 25px;
 		}
 
 		i {
 			font-size: 3.5rem;
 
-			@include m420 {
+			@include m980 {
 				//font-size: 2rem;
 			}
 		}
@@ -38,7 +38,7 @@
 	}
 }
 
-@include m420 {
+@include m980 {
 	.txt-contato {
 		text-align: left;
 	}

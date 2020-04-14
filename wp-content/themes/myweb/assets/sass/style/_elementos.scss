@@ -17,9 +17,10 @@ h1 {
 		margin: 15px 0;
 		@include animacao();
 
-		@include m420 {
+		@include m980 {
 			width: 185px;
 			margin: 38px 0 0 0px;
+			margin: 15px 0 0 0px;
 			float: left;
 		}
 
@@ -46,7 +47,7 @@ h1 {
 .first-section {
 	h1 {
 		&.tit-principal:not(.h1-single) {
-			@include m420 {
+			@include m980 {
 				text-align: left; 
 			}
 		}
@@ -64,7 +65,7 @@ h2 {
 	max-width: 800px;
 	@include clear;
 
-	@include m420 {
+	@include m980 {
 		margin-top: 0px;
 		margin-bottom: 40px;
 		padding-right: 50px;
@@ -83,7 +84,7 @@ h2 {
 		//border-bottom: 1px solid $cor-txt;
 		display: inline-block;
 
-		@include m420 {
+		@include m980 {
 			font-size: 2.125rem;
 			line-height: 2.5rem;
 		}
@@ -102,7 +103,7 @@ h3 {
 	line-height: 1.375rem+.25;
 	color: $cor1;
 
-	@include m420 {
+	@include m980 {
 		padding: 0;
 		text-align: center;
 		font-size: 2.25rem;
@@ -201,7 +202,7 @@ p {
 		}
 	}
 
-	@include m420 {
+	@include m980 {
 		font-size: 1.125rem;
 		line-height: 1.5rem;
 

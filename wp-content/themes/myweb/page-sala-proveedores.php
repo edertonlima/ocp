@@ -67,6 +67,47 @@
 
 					<?php break;
 
+
+					case 'acordion': ?>
+
+						<section class="box-content no-padding-top"> 
+							<div class="container">
+
+								<div class="conteudo-texto mini">
+									
+									<?php if(get_sub_field('acordion')): ?>
+
+										<ul class="acordion">
+
+										<?php while(has_sub_field('acordion')): ?>
+
+											<li>
+												<?php the_sub_field('titulo');
+
+												if(get_sub_field('texto')){ ?>
+													
+													<i class="fas fa-chevron-down btn-acordion"></i>
+													<div class="cont-acordion">
+														<?php the_sub_field('texto'); ?>
+													</div>
+
+												<?php } ?>
+											</li>
+
+										<?php endwhile; ?>
+
+										</ul>
+
+									<?php endif; ?>
+
+								</div>
+
+							</div>
+						</section>	
+
+					<?php break;
+
+
 					case 'video': ?>
 
 						<section class="box-content no-padding-top prensa prensa-list">
@@ -270,3 +311,17 @@
 	<?php endwhile; ?>
 
 <?php get_footer(); ?>
+
+<script>
+	$('.btn-acordion').click(function(){
+
+		if($(this).hasClass('on')){
+			$(this).removeClass('on fa-times').addClass('fa-chevron-down');
+			$(this).siblings('.cont-acordion').hide();
+		}else{
+			$(this).addClass('on fa-times').removeClass('fa-chevron-down');
+			$(this).siblings('.cont-acordion').show();
+		}
+		
+	});
+</script>

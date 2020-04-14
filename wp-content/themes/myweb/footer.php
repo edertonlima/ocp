@@ -121,7 +121,7 @@
 
 			widthWindow = $(window).width();
 
-			if(widthWindow < 421){
+			if(widthWindow < 980){
 				$('.menu-mobile').click(function(){
 					$('.submenu').removeClass('ativo');
 

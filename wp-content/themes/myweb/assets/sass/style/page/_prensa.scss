@@ -25,6 +25,17 @@
 			clear: both;
 		}
 
+		@include m980 {
+			.row {
+				[class*="col-"] {
+					margin-left: auto;
+					margin-right: auto;
+					max-width: 500px;
+					float: none;
+				}
+			}
+		}
+
 		@include m420 {
 			.row {
 				margin: 0;

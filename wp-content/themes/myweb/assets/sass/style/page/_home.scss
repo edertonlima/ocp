@@ -1,5 +1,32 @@
 .home {
 	
+	@include m980 {
+		.mobile-prensa {
+			width: 47.5%;
+
+			&:nth-child(1) {
+				margin-right: 5%;
+			}
+
+			&:nth-child(3), &:nth-child(4){
+				display: none;
+			}
+		}
+
+		.link.all-post:not(.position-top) {
+			float: none;
+			margin: 40px 0 0;
+		}
+
+		.owl-theme .owl-nav.disabled + .owl-dots {
+			margin-top:  0;
+		}
+
+		.link.all-post.position-top {
+
+		}
+	}
+
 	@include m420 {
 		.prensa {
 			&.prensa-list {
@@ -13,6 +40,18 @@
 						}
 					}
 				}
+			}
+		}
+
+		.mobile-prensa {
+			width: 100%;
+
+			&:nth-child(1) {
+				margin-right: 0;
+			}
+
+			&:nth-child(3), &:nth-child(4){
+				display: block;
 			}
 		}
 	}

@@ -36,8 +36,14 @@
 								while ( have_rows('itens_slide') ) : the_row(); 
 
 									$image = get_sub_field('imagem');
+									$image = esc_url($image['sizes']['slide']);
+
+									if(($GLOBALS['mobile']) AND (get_sub_field('imagem_mobile'))){
+										$image = get_sub_field('imagem_mobile');
+									}
+
 									//$img_slide = wp_get_attachment_image_src( get_sub_field('imagem'), 'slide' ); ?>
-									<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes']['slide']); ?>');"></div>
+									<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo $image; ?>');"></div>
 
 									<?php $slide = $slide+1;
 								endwhile; ?>
@@ -53,7 +59,7 @@
 										<div class="vertical-center">
 											<div class="content-vertical">
 												<span class="titulo-slide grande">
-													<?php the_sub_field('titulo'); ?>
+													<?php the_sub_field('titulo'); ?> aa
 													<?php if(get_sub_field('link')){ ?>
 														<a href="<?php the_sub_field('link'); ?>" class="link inline">Lea más</a>
 													<?php } ?>
@@ -292,7 +298,8 @@
  ?>
 
 
-		<section class="box-content hide-mobile"> 
+	<section class="box-content hide-mobile">
+		<?php if(get_field('mostrar_etica')){ ?>
 			<div class="container">
 
 				<div class="row">
@@ -338,8 +345,9 @@
 				</div>
 
 			</div>
-		</section>
-
+		<?php } ?>
+	</section>
+	
 	<?php endwhile; ?>
 
 <?php get_footer(); ?>

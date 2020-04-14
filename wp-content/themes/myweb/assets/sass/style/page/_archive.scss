@@ -7,7 +7,7 @@
 	margin: 40px 0;
 	text-align: center;
 
-	@include m420 {
+	@include m980 {
 		justify-content: center;
 		flex-direction: column;
 	}
@@ -59,7 +59,7 @@
 			}
 		}
 
-		@include m420 {
+		@include m980 {
 			padding: 0;
 			display: inline-block;
 			text-align: left;
@@ -79,13 +79,9 @@
 				img {
 					width: 75px;
 					display: inline-block;
-					margin-right: 25px;
+					margin-right: 15px;
 					vertical-align: middle;
 					margin-bottom: 0;
-
-					@include m420 {
-						margin-right: 15px;
-					}
 				}
 
 				span {
@@ -94,7 +90,7 @@
 					//top: -7px;
 				}
 			}
-		};
+		}
 	}
 
 	&.list-category-mini {
@@ -116,7 +112,7 @@
 			}
 		}
 
-		@include m420 {
+		@include m980 {
 			float: left;
 			display: block;
 			padding: 0 50px;
@@ -180,7 +176,7 @@
 			padding-bottom: 15px;
 			font-weight: $bold;
 
-			@include m420 {
+			@include m980 {
 				font-weight: $regular;
 				font-size: 2.25rem;
 				line-height: 3rem;
@@ -188,7 +184,7 @@
 		}
 	}
 
-	@include m420 {
+	@include m980 {
 		.link-mais {
 			margin-top: 0;
 

@@ -29,7 +29,7 @@
 		<div class="container">
 			<h1 class="tit-principal center"><span><?php echo $category_current->name; ?></span></h1>
 
-			<form action="<?php echo home_url(); ?>" class="form-busca" method="get">
+			<form action="<?php echo get_term_link( $category_current->term_id); ?>" class="form-busca" method="get">
 				<fieldset>
 					<input type="text" name="s" id="search" placeholder="Buscar en el sitio…" value="<?php if(isset($_GET['s'])){ echo $_GET['s']; } ?>">
 					<button type="submit" class="button"><i class="fas fa-search fa-flip-horizontal"></i></button>
@@ -132,7 +132,7 @@
 			<div class="container">
 
 				<div class="center">
-					<button class="button load-more largo transparent cor3" var-taxonomy="categoria_aportealasociedad" var-category="<?php echo $category_current->term_id; ?>" var-post-type="aporte-a-la-sociedad" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
+					<button class="button load-more largo transparent cor3" var-url="<?php echo admin_url( 'admin-ajax.php' ); ?>" var-taxonomy="categoria_aportealasociedad" var-category="<?php echo $category_current->term_id; ?>" var-post-type="aporte-a-la-sociedad" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
 						Mais
 					</button>
 				</div>			
@@ -145,46 +145,55 @@
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript">
-	$('.carousel-itens').owlCarousel({
-		loop:false,
-		margin:0,
-		responsiveClass:true,
-		nav:true,
-		navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
-		//rtl:true,
-		responsive:{
-			0:{
-				items:1,
-				nav:true
+
+	function owlCarousel(){
+		$('.carousel-itens').owlCarousel({
+			loop:false,
+			margin:0,
+			responsiveClass:true,
+			nav:true,
+			navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+			//rtl:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true
+				}
 			}
-		}
-	})
+		})
+	}
+
+	owlCarousel();
+
 </script>
 
-<?php
-/*
+<?php /*
+
 		$arg = array(
-			'posts_per_page' => 6,
+			'posts_per_page' => 3,
 			'post_type'   => 'aporte-a-la-sociedad',//$_POST['post-type'],
 			'post_status' => 'any',
 			'paged' => 2//$_POST['paged']
 		);
 
-							        /*$getPosts = array(
-							            'posts_per_page' => 6,
-							            'post_type'   => $_POST['post-type'],
+							        $getPosts = array(
+							            'posts_per_page' => 3,
+							            'post_type'   => 'aporte-a-la-sociedad',
 							            'post_status' => 'any',
+							            'paged' => 2,
 										'tax_query' => array(
 										    array(
-										        'taxonomy' => $_POST['taxonomy'],
-										        'terms' => $_POST['category'],,
+										        'taxonomy' => 'categoria_aportealasociedad',
+										        'terms' => $category_current->term_id,
 										        'include_children' => false,
 										        'operator' => 'IN'
 										    )
 										),
 							        );
 
-							        $posts = new WP_Query( $arg );
+							        var_dump($getPosts);
+
+							        $posts = new WP_Query( $getPosts );
 							        if(count($posts) > 0){
 
 										while($posts->have_posts()) : $posts->the_post();

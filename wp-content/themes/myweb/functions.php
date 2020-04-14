@@ -674,27 +674,24 @@ function query_order( $query ) {
 add_action( 'pre_get_posts', 'query_order' );*/
 
 
-// Função para adicionar nosso script
-function add_js() {
-	
-	// Define a variável ajaxurl
-	$script  = '<script>';
-	$script .= 'var ajaxurl = "' . admin_url('admin-ajax.php') . '";';
-	$script .= '</script>';
-	echo $script;
-			
-	// Nosso ajax (js/nosso-ajax.js)
+add_action( 'wp_enqueue_scripts', 'meus_scripts', 100 );
+
+function meus_scripts() {
 	wp_enqueue_script(
-		'load-more', 
-		get_template_directory_uri() . '/assets/js/load-more.js', 
-		array('jquery'), 
-		'0.0.1',
-		true
+	    'load-more',
+	    get_template_directory_uri() . '/assets/js/load-more.js?ver=1.0', //esse é o arquivo .js do seu tema que vai conter todos os scripts (pode ser diferente no seu tema)
+	    array( 'jquery' ),
+	    null,
+	    false
 	);
-	
+	wp_localize_script(
+	    'meus_scripts',
+	    'WPaAjax',
+	    array(
+	        'ajaxurl' => admin_url( 'admin-ajax.php' )
+	    )
+	);
 }
-// Adiciona no rodapé
-add_action( 'wp_footer', 'add_js' );
 
 
 
@@ -704,26 +701,50 @@ function load_more() {
 	//echo $_POST['post-type'];
 	//echo $_POST['paged'];
 
+	if($_POST['paged'] == 2){
+		$offset = 7;
+	}else{
+		$offset = '';
+	}
+
+	if( ($_POST['post-type'] == 'aporte-a-la-sociedad') AND ($_POST['taxonomy'] = 'categoria_aportealasociedad') ){
+		$tax_query = array(
+		    array(
+		        'taxonomy' => $_POST['taxonomy'],
+		        'terms' => $_POST['category'],
+		        'include_children' => false,
+		        'operator' => 'IN'
+		    )
+		);
+	}
+
 	$loop = new WP_Query(
 		array(
-			'post_type' => 'post',//$_POST['post-type'],
+			'post_type' => $_POST['post-type'],
+			'cat' => $_POST['category'],
+			'post_status' => 'any',
+			's' => $_POST['pesquisa'],
 			'posts_per_page' => 6,
-			'paged' => 2//$_POST['paged']
+			'offset' => $offset,
+			'paged' => $_POST['paged'],
+			'tax_query' => $tax_query
 		)
 	);
-	?>
 
-	<?php if ( $loop->have_posts() ): 
-		$qtd_item = 0; ?>
+	//var_dump($loop);
 
-			<?php while ( $loop->have_posts() ): 
+
+	if ( $loop->have_posts() ): 
+		$qtd_item = 0;
+
+			while ( $loop->have_posts() ): 
 				$qtd_item++;
-				$no_first = 1;
+				//$no_first = 1;
 
-				if(($qtd_item == 1) and ($_POST['paged'] == 2)){
+				/*if(($qtd_item == 1) and ($_POST['paged'] == 2)){
 					$no_first = 0;
 					//echo '<div class="col-6 margin-bottom-60">PRIMEIRO</div>';
-				}
+				}*/
 
 				//echo '<div class="col-12 margin-bottom-60">PAGINA'.$_POST['paged'].'</div>';
 				//echo '<div class="col-12 margin-bottom-60">ITEM'.$qtd_item.'</div>';
@@ -731,7 +752,7 @@ function load_more() {
 				$post_type_cat = $_POST['post-type'];
 				$loop->the_post();
 
-				if($no_first === 1){ ?>
+				//if($no_first === 1){ ?>
 					<div class="col-6 margin-bottom-60">
 						<?php 
 							if(get_field('video')){
@@ -761,13 +782,13 @@ function load_more() {
 							}
 						?>							
 					</div>
-				<?php }
+				<?php //}
 				
 			endwhile; ?>
 
 		<?php echo 'max_paged' . $loop->max_num_pages; ?>
 	<?php else: ?>    
-		<p>No se encontraron entradas.</p>
+		<p>..No se encontraron entradas.</p>
 	<?php endif; ?>
 
 	<?php wp_reset_postdata(); 
@@ -775,6 +796,7 @@ function load_more() {
 	die();
 }
 
+add_action( 'wp_ajax_nopriv_load_more', 'load_more' );
 add_action( 'wp_ajax_load_more', 'load_more' );
 
 ?>

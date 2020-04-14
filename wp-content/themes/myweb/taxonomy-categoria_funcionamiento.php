@@ -64,5 +64,26 @@
 				nav:true
 			}
 		}
-	})
+	});
+
+	function top_nav(data){
+		if(data <= 980){
+
+			setTimeout(function(){
+				position_nav = ($('.funcionamiento .owl-item img').height())+25;
+				$('.funcionamiento .owl-nav').css('top',position_nav);
+			}, 300);
+
+		}
+	}	
+
+	$(document).ready(function(){	
+		width_body = $(window).width();
+		top_nav(width_body);
+	});
+
+	$(window).resize(function(){
+		width_body = $(window).width();
+		top_nav(width_body);
+	});
 </script>

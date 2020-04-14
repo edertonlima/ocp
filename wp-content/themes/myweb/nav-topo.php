@@ -22,7 +22,7 @@
 		</li>
 	</ul>
 
-	<ul class="idiomas" style="opacity: 0">
+	<ul class="idiomas" style="display: none;">
 		<li style="display: none;">
 			<a href="<?php echo get_home_url(); ?>" title=""><img src="<?php echo get_template_directory_uri(); ?>/assets/images/idiomas-en.jpg" alt="EN"><span>EN</span></a>
 		</li>

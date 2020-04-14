@@ -24,12 +24,18 @@
 							
 							<div class="carousel-inner">
 								<?php 
-								if($GLOBALS['mobile']){ $name_image = 'slide-funcionamiento'; }else{ $name_image = 'slide'; }
 								$slide = 0;
 								while ( have_rows('itens_slide') ) : the_row(); 
 
-									$img_slide = get_sub_field('imagem'); ?>
-									<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo $img_slide['sizes'][$name_image]; ?>');"></div>
+									$image = get_sub_field('imagem');
+									$image = esc_url($image['sizes']['slide']);
+
+									if(($GLOBALS['mobile']) AND (get_sub_field('imagem_mobile'))){
+										$image = get_sub_field('imagem_mobile');
+									}
+
+									?>
+									<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo $image; ?>');"></div>
 
 									<?php $slide = $slide+1;
 								endwhile; ?>
@@ -93,7 +99,7 @@
 
 				<h3>Notas de Prensa 
 					<?php if(!$GLOBALS['mobile']){ ?>
-						<a href="<?php echo get_term_link( 1 ); ?>" class="link all-post">Todos</a>
+						<a href="<?php echo get_term_link( 1 ); ?>" class="link all-post position-top">Todos</a>
 					<?php } ?>
 				</h3>
 			
@@ -112,7 +118,7 @@
 
 								while ( have_posts() ) : the_post(); ?>
 
-									<div class="owl-item bg-claro">
+									<div class="owl-item bg-claro <?php if($GLOBALS['mobile']){ echo 'mobile-prensa'; } ?>">
 
 										<?php get_template_part( 'content-home', '' ); ?>
 
@@ -264,10 +270,14 @@ if( $conocenos ): ?>
 					nav:true
 				},
 				600:{
+					items:2,
+					nav:false
+				},
+				900:{
 					items:3,
 					nav:false
 				},
-				1000:{
+				1100:{
 					items:4,
 					nav:true,
 					loop:false

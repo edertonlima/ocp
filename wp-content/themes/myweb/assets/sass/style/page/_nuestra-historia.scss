@@ -1,3 +1,14 @@
+@include m980 {
+	.page-id-9 {
+		.col-m-1.col-11 {
+			margin: 0;
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+
+
 .nav-linha-tempo {
 	position: absolute;
 	top: 176px;
@@ -13,6 +24,10 @@
 	@include min1380 {
 		margin-left: -690px;
 		left: 50%;
+	}
+
+	@include m980 {
+		display: none;
 	}
 
 	&.linha-tempo-bottom {

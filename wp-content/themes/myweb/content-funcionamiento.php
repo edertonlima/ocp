@@ -1,8 +1,8 @@
 <div class="owl-item">
-	<div class="row <?php if(!$GLOBALS['mobile']){ echo 'row-flex'; } ?>">
+	<div class="row row-flex">
 
-		<?php if($GLOBALS['mobile']){ ?>
-			<div class="col-6 bg-img-slide">
+		<?php //if($GLOBALS['mobile']){ ?>
+			<div class="col-6 bg-img-slide if-mobile-true">
 				<div class="conteudo-texto cont-right">
 					<?php 
 						$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slide-funcionamiento' ); 
@@ -12,7 +12,7 @@
 					?>
 				</div>
 			</div>
-		<?php } ?>
+		<?php //} ?>
 	
 		<div class="col-6">
 			<div class="conteudo-texto cont-left">
@@ -25,8 +25,8 @@
 			</div>
 		</div>
 
-		<?php if(!$GLOBALS['mobile']){ ?>
-			<div class="col-6 bg-img-slide">
+		<?php// if(!$GLOBALS['mobile']){ ?>
+			<div class="col-6 bg-img-slide if-mobile-false">
 				<div class="conteudo-texto cont-right">
 					<?php 
 						$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slide-funcionamiento' ); 
@@ -36,7 +36,7 @@
 					?>
 				</div>
 			</div>
-		<?php } ?>
+		<?php //} ?>
 
 	</div>
 </div>

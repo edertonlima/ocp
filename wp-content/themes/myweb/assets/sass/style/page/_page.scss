@@ -62,7 +62,7 @@
 		}
 	}
 
-	@include m420 {
+	@include m980 {
 		&[class*="count-item-"] {
 			padding: 0 60px;
 			display: block;
@@ -97,6 +97,10 @@
 		li {
 			width: 20%;
 
+			@include m980 {
+				width: 100%;
+			}
+
 			@include m420 {
 				width: 100%;
 			}
@@ -107,7 +111,7 @@
 		li {
 			width: 25%;
 
-			@include m420 {
+			@include m980 {
 				width: 100%;
 
 				&.info-col-2 {
@@ -148,7 +152,7 @@
 			}
 		}
 
-		@include m420 {
+		@include m980 {
 			&[class*="count-item-"] {
 				padding: 0 90px;
 				display: block;
@@ -279,7 +283,7 @@
 			}
 		}
 
-		@include m420 {
+		@include m980 {
 			margin: 30px 0 30px;
 		}
 	}
@@ -408,7 +412,7 @@
 		}
 	}
 
-	@include m420 {
+	@include m980 {
 		margin-top: 0;
 
 		.item-block {
@@ -457,7 +461,7 @@
 	}
 }
 
-@include m420 {
+@include m980 {
 	.page-id-18 {
 		.box-content:not(.bg-claro) {
 			padding-bottom: 0!important;

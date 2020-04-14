@@ -14,7 +14,7 @@
 					margin-bottom: 30px;
 				}
 
-				@include m420 {
+				@include m980 {
 					padding-right: 0px;
 
 					p {
@@ -91,7 +91,7 @@
 		h2 {
 			margin: 0 auto 10px;
 
-			@include m420 {
+			@include m980 {
 				text-align: center;
 				margin-bottom: 0px;
 
@@ -105,7 +105,7 @@
 		p.sub-tituto {
 			margin-bottom: 30px;
 
-			@include m420 {
+			@include m980 {
 				text-align: center;
 			}
 		}
@@ -113,7 +113,7 @@
 		.cd-h-timeline__event {
 			padding: 0 20px;
 
-			@include m420 {
+			@include m980 {
 				padding: 0px;
 			}
 		}
@@ -126,7 +126,7 @@
 			font-size: 1.5rem;
 			line-height: 2rem;
 
-			@include m420 {
+			@include m980 {
 				margin: 30px 50px 0;
 			}
 		}
@@ -432,7 +432,7 @@
 
 	&.owl-carousel {
 		.owl-nav {
-			@include m420 {
+			@include m980 {
 				top: 330px;
 				left: auto;
 				right: 0px;
@@ -482,7 +482,8 @@
 			.col-6 {
 				flex: 100%;
 				width: 100%;
-				max-width: 600px;
+				//max-width: 600px;
+				max-width: 100%;
 				padding: 0;
 				float: none;
 				display: block;
@@ -518,6 +519,27 @@
 				}
 			}
 		}
-	}	
+	}
 }
 
+.row-flex {
+	@include m980 {
+		display: block!important;
+	}
+}
+
+.if-mobile-true {
+	display: none!important;
+
+	@include m980 {
+		display: block!important;
+	}
+}
+
+.if-mobile-false {
+	display: block!important;
+
+	@include m980 {
+		display: none!important;
+	}
+}
