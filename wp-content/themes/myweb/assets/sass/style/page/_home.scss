@@ -56,6 +56,17 @@
 		}
 	}
 
+	@include m380 {
+		.prensa {
+			&.prensa-list {
+				.item-list-prensa {
+					padding-right: 30px;
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+
 	.owl-carousel .owl-nav {
 		top: -35px;
 

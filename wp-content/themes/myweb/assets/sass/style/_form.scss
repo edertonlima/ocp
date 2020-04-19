@@ -85,6 +85,10 @@ form {
 			padding: 0 50px;
 		}
 
+		@include m380 {
+			padding: 0 30px;
+		}
+
 		fieldset {
 			position: relative;
 			margin: 0;

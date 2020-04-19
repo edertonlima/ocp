@@ -224,6 +224,10 @@
 									@include m420 {
 										left: -35px;
 									}
+
+									@include m380 {
+										left: -15px;
+									}									
 								}
 
 								&.owl-next {
@@ -232,6 +236,10 @@
 									@include m420 {
 										right: -35px;
 									}
+
+									@include m380 {
+										right: -15px;
+									}			
 								}
 
 								&.disabled {
@@ -275,6 +283,11 @@
 				overflow: hidden;
 				height: calc(60vh - 130px);
 			}
+
+			@include m380 {
+				padding: 0px 25px 0 25px;
+				height: calc(65vh - 130px);
+			}
 		}
 	}
 
@@ -282,6 +295,13 @@
 	@include m420 {
 		.mask-slide.item-nuestra-historia {
 			height: calc(60vh - 130px);
+		}
+	}
+
+
+	@include m380 {
+		.mask-slide.item-nuestra-historia {
+			height: calc(65vh - 130px);
 		}
 	}
 

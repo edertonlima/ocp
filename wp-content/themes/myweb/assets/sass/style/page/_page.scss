@@ -181,6 +181,12 @@
 				}
 			}
 		}
+
+		@include m380 {
+			&[class*="count-item-"] {
+				padding: 0 50px;
+			}
+		}
 	}
 
 	a {

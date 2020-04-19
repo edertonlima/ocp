@@ -119,7 +119,7 @@
 
 				&:before {
 					content: '';
-					background-color: rgba(#ffffff, .2);
+					//background-color: rgba(#ffffff, .2);
 					position: absolute;
 					z-index: 0;
 					left: 0;
@@ -186,6 +186,7 @@
 
 			a {
 				font-size: 1.125rem;
+				line-height: 1.125rem;
 				font-weight: $light;
 
 				@include m980 {
@@ -222,6 +223,18 @@
 		ul {
 			width: 100%;
 			display: table;
+
+			@include m980 {
+				max-height: 50vh;
+			}
+
+			@include m420 {
+				max-height: 75vh;
+			}
+
+			@include m380 {
+				max-height: none;
+			}
 		}
 
 		.submenu { 

@@ -107,6 +107,11 @@
 					padding: 0;
 				}
 			}
+
+			@include m380 {
+				padding-right: 30px;
+				padding-left: 30px;
+			}
 		}
 
 		.titulo-prensa {

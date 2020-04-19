@@ -8166,6 +8166,10 @@ h2, h1.tit-principal {
       padding-left: 50px; }
       h2.center:not(.center-mobile), h1.center.tit-principal:not(.center-mobile) {
         text-align: left; } }
+  @media all and (max-width: 380px) {
+    h2, h1.tit-principal {
+      padding-right: 30px;
+      padding-left: 30px; } }
   h2 span, h1.tit-principal span {
     font-size: 2.25rem;
     line-height: 2.75rem;
@@ -8262,6 +8266,9 @@ p {
         padding: 0 50px; }
       p.center:not(.p-single) {
         text-align: left; } }
+  @media all and (max-width: 380px) {
+    p.p-mobile, p.sub-tituto, p.mini, p .text-destaque, p.grande {
+      padding: 0 30px; } }
 
 .justify-center {
   text-align: justify;
@@ -8542,6 +8549,9 @@ form {
       form.form-busca {
         width: 100%;
         padding: 0 50px; } }
+    @media all and (max-width: 380px) {
+      form.form-busca {
+        padding: 0 30px; } }
     form.form-busca fieldset {
       position: relative;
       margin: 0;
@@ -8872,7 +8882,6 @@ input::-webkit-input-placeholder {
       z-index: 0; }
       .nav .submenu.ativo:before {
         content: '';
-        background-color: rgba(255, 255, 255, 0.2);
         position: absolute;
         z-index: 0;
         left: 0;
@@ -8922,6 +8931,7 @@ input::-webkit-input-placeholder {
     padding-left: 10px; }
     .nav .submenu .col-links a {
       font-size: 1.125rem;
+      line-height: 1.125rem;
       font-weight: 300; }
       @media all and (max-width: 980px) {
         .nav .submenu .col-links a {
@@ -8948,6 +8958,15 @@ input::-webkit-input-placeholder {
     .nav.nav-principal ul {
       width: 100%;
       display: table; }
+      @media all and (max-width: 980px) {
+        .nav.nav-principal ul {
+          max-height: 50vh; } }
+      @media all and (max-width: 420px) {
+        .nav.nav-principal ul {
+          max-height: 75vh; } }
+      @media all and (max-width: 380px) {
+        .nav.nav-principal ul {
+          max-height: none; } }
     .nav.nav-principal .submenu ul {
       display: block; }
       .nav.nav-principal .submenu ul li {
@@ -10742,6 +10761,9 @@ input::-webkit-input-placeholder {
             font-weight: 400; }
           .icon-page.itens-style-2[class*="count-item-"] li p {
             text-align: left; } }
+    @media all and (max-width: 380px) {
+      .icon-page.itens-style-2[class*="count-item-"] {
+        padding: 0 50px; } }
   .icon-page a:hover .titulo {
     color: #007F3D; }
 
@@ -11088,6 +11110,11 @@ input::-webkit-input-placeholder {
     .home .mobile-prensa:nth-child(3), .home .mobile-prensa:nth-child(4) {
       display: block; } }
 
+@media all and (max-width: 380px) {
+  .home .prensa.prensa-list .item-list-prensa {
+    padding-right: 30px;
+    padding-left: 30px; } }
+
 .home .owl-carousel .owl-nav {
   top: -35px; }
   .home .owl-carousel .owl-nav button i {
@@ -11414,6 +11441,10 @@ input::-webkit-input-placeholder {
       min-height: none; }
       .prensa.prensa-list .box-bg-content .conteudo-texto p {
         padding: 0; } }
+  @media all and (max-width: 380px) {
+    .prensa.prensa-list .box-bg-content {
+      padding-right: 30px;
+      padding-left: 30px; } }
 
 .prensa.prensa-list .titulo-prensa {
   display: block;
@@ -11725,11 +11756,17 @@ input::-webkit-input-placeholder {
           @media all and (max-width: 420px) {
             .slide .text-item.item-nuestra-historia .titulo-slide .carousel-texto.owl-carousel .owl-nav button.owl-prev {
               left: -35px; } }
+          @media all and (max-width: 380px) {
+            .slide .text-item.item-nuestra-historia .titulo-slide .carousel-texto.owl-carousel .owl-nav button.owl-prev {
+              left: -15px; } }
         .slide .text-item.item-nuestra-historia .titulo-slide .carousel-texto.owl-carousel .owl-nav button.owl-next {
           float: right; }
           @media all and (max-width: 420px) {
             .slide .text-item.item-nuestra-historia .titulo-slide .carousel-texto.owl-carousel .owl-nav button.owl-next {
               right: -35px; } }
+          @media all and (max-width: 380px) {
+            .slide .text-item.item-nuestra-historia .titulo-slide .carousel-texto.owl-carousel .owl-nav button.owl-next {
+              right: -15px; } }
         .slide .text-item.item-nuestra-historia .titulo-slide .carousel-texto.owl-carousel .owl-nav button.disabled {
           opacity: 0; }
     .slide .text-item.item-nuestra-historia .titulo-slide .carousel-texto.owl-carousel .owl-dots {
@@ -11756,10 +11793,18 @@ input::-webkit-input-placeholder {
       padding: 0px 50px 0 50px;
       overflow: hidden;
       height: calc(60vh - 130px); } }
+  @media all and (max-width: 380px) {
+    .slide .text-item.item-nuestra-historia {
+      padding: 0px 25px 0 25px;
+      height: calc(65vh - 130px); } }
 
 @media all and (max-width: 420px) {
   .slide .mask-slide.item-nuestra-historia {
     height: calc(60vh - 130px); } }
+
+@media all and (max-width: 380px) {
+  .slide .mask-slide.item-nuestra-historia {
+    height: calc(65vh - 130px); } }
 
 .slide .carousel-indicators.indicators-huestra-historia {
   bottom: 20px; }
@@ -11813,8 +11858,6 @@ input::-webkit-input-placeholder {
         .funcionamiento .owl-item .conteudo-texto.cont-left p {
           padding-right: 50px;
           padding-left: 50px; } }
-  .funcionamiento .owl-item .conteudo-texto.cont-right {
-    padding-left: 20px; }
   .funcionamiento.owl-carousel .owl-nav {
     top: 400px;
     background-color: #ffffff;
@@ -11868,6 +11911,11 @@ input::-webkit-input-placeholder {
       @media all and (max-width: 980px) {
         .time-line .cd-h-timeline__events h4 {
           margin: 30px 50px 0; } }
+      @media all and (max-width: 420px) {
+        .time-line .cd-h-timeline__events h4 {
+          margin-right: 0px;
+          margin-left: 0px;
+          text-align: left; } }
     .time-line .cd-h-timeline__events .link-nav {
       position: relative;
       top: -300px; }
@@ -12064,6 +12112,12 @@ input::-webkit-input-placeholder {
 					border-color: $cor1;
 				}*/ }
 
+.det-slide-funcionamiento .row {
+  margin: 0; }
+
+.det-slide-funcionamiento .row:not(.no-padding) .col-6 {
+  padding-left: 0px; }
+
 @media all and (max-width: 980px) {
   .det-slide-funcionamiento .col-6 .conteudo-texto h3 {
     text-align: left;
@@ -12072,7 +12126,8 @@ input::-webkit-input-placeholder {
     margin-top: 60px; } }
 
 .det-slide-funcionamiento .col-6.bg-img-slide {
-  background-color: #f4f3f3; }
+  background-color: #f4f3f3;
+  padding: 0; }
 
 @media all and (max-width: 980px) {
   .det-slide-funcionamiento.owl-carousel .owl-nav {

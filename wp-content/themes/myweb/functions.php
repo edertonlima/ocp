@@ -701,11 +701,13 @@ function load_more() {
 	//echo $_POST['post-type'];
 	//echo $_POST['paged'];
 
-	if($_POST['paged'] == 2){
+	/*if($_POST['paged'] == 2){
 		$offset = 7;
 	}else{
 		$offset = '';
-	}
+	}*/
+	$paged = $_POST['paged']-1;
+	$offset = $paged*6+1;
 
 	if( ($_POST['post-type'] == 'aporte-a-la-sociedad') AND ($_POST['taxonomy'] = 'categoria_aportealasociedad') ){
 		$tax_query = array(
