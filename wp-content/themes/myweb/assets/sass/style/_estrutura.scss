@@ -314,6 +314,14 @@ body * {
 		}
 	}
 
+	&.img-area-gestion {
+		padding: 0 100px;
+
+		@include m980 {
+			padding: 0;
+		}
+	}
+
 	&.full {
 		img {
 			width: 100%;

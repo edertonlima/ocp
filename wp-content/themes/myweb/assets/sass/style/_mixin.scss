@@ -149,3 +149,9 @@
 		@content
 	}
 }
+
+@mixin media($value) {
+	@media all and(max-width: #{$value}px) {
+		@content
+	}
+}

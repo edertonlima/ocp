@@ -59,7 +59,7 @@
 										<div class="vertical-center">
 											<div class="content-vertical">
 												<span class="titulo-slide grande">
-													<?php the_sub_field('titulo'); ?> aa
+													<?php the_sub_field('titulo'); ?> 
 													<?php if(get_sub_field('link')){ ?>
 														<a href="<?php the_sub_field('link'); ?>" class="link inline">Lea más</a>
 													<?php } ?>
@@ -125,7 +125,7 @@
 									<li>
 										<img src="<?php the_sub_field('icone'); ?>" align="">
 										<span class="titulo center"><span class="num" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('dados'); ?></span></span>
-										<p class="destaque" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('titulo'); ?></p>
+										<p class="destaque center" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('titulo'); ?></p>
 									</li>
 
 		 						<?php endwhile; ?>

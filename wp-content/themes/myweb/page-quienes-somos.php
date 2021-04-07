@@ -81,9 +81,9 @@
 		<?php if(get_sub_field('texto_mision')){ ?>
 			<div class="container">
 				<section class="box-content bg-claro">	
-					<p class="text-destaque grande">
+					<div class="p text-destaque grande">
 						<?php the_sub_field('texto_mision'); ?>
-					</p>
+					</div>
 				</section>
 			</div>
 		<?php } ?>
@@ -144,9 +144,9 @@
 		<?php if(get_sub_field('texto_vision')){ ?>
 			<div class="container">
 				<section class="box-content bg-claro">	
-					<p class="text-destaque grande">
+					<div class="p text-destaque grande">
 						<?php the_sub_field('texto_vision'); ?>
-					</p>
+					</div>
 				</section>
 			</div>
 		<?php } ?>
@@ -207,9 +207,9 @@
 		<?php if(get_sub_field('texto_valores')){ ?>
 			<div class="container">
 				<section class="box-content bg-claro">	
-					<p class="text-destaque grande">
+					<div class="p text-destaque grande">
 						<?php the_sub_field('texto_valores'); ?>
-					</p>
+					</div>
 				</section>
 			</div>
 		<?php } ?>

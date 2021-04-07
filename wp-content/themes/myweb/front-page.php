@@ -8,6 +8,18 @@
 
 						<div id="slide-home" class="carousel slide" data-ride="carousel" data-interval="8000">
 
+							<div class="arrow-slide">
+								<a class="carousel-control-prev" href="#slide-home" role="button" data-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+
+								<a class="carousel-control-next" href="#slide-home" role="button" data-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
+
 							<?php if(count(get_field('itens_slide')) > 1){ ?>
 								<ol class="carousel-indicators">
 
@@ -62,15 +74,6 @@
 									<?php $slide = $slide+1;
 								endwhile; ?>
 							
-
-							<a class="carousel-control-prev" href="#slide-home" role="button" data-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="sr-only">Previous</span>
-							</a>
-							<a class="carousel-control-next" href="#slide-home" role="button" data-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
-							</a>
 						</div>
 
 					</div>
@@ -250,6 +253,9 @@ if( $conocenos ): ?>
 	$('#slide-home').on('slid.bs.carousel', function (e) {
 		$('#txt-'+e.to).addClass('active');
 	});
+
+	$('#slide-home .arrow-slide').width(($('#slide-home .carousel-indicators li').length)*40);
+
 </script>
 
 <?php if(!$GLOBALS['mobile']){ ?>

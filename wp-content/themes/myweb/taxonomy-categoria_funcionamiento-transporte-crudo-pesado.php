@@ -24,11 +24,11 @@
 	</section>
 
 	<?php if(!$GLOBALS['mobile']){ ?>
-	<section class="box-content no-padding servicios det-servicios img-funcionamiento"> 
+	<?php /*<section class="box-content no-padding servicios det-servicios img-funcionamiento"> 
 		<div class="img-topo">
 			<img src="<?php echo esc_url($image['sizes']['slide']); ?>">
 		</div>
-	</section>
+	</section> */?>
 	<?php } ?>
 
 	
@@ -86,16 +86,16 @@
 
 			<div class="cd-h-timeline__events">
 
-				<div class="container">
+				<?php /* <div class="container">
 					<div class="link-nav">
 						<a href="javascript:" class="link-timeline prev-timeline" <?php if($GLOBALS['mobile']){ echo 'style="display: none;"'; } ?>>
 							<i class="fas fa-chevron-left"></i>
 						</a>
 						<a href="javascript:" class="link-timeline next-timeline" <?php if(!$GLOBALS['mobile']){ echo 'style=" display: none;"'; } ?>>
-							<i class="fas fa-chevron-right"></i>
+							<i class="fas fa-chevron-right"></i> 
 						</a>
 					</div>
-				</div>
+				</div> */ ?>  
 				
 
 					<ol>

@@ -40,7 +40,7 @@
 									foreach ( $categories as $category ){ ?>
 
 										<li>
-											<a href="" title="<?php echo $category->name; ?>" class="">
+											<a href="<?php echo get_term_link( $category->term_id); ?>" title="<?php echo $category->name; ?>" class="">
 												<?php echo $category->name; ?>										
 											</a>
 										</li>

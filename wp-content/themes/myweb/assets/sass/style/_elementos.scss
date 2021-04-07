@@ -137,7 +137,7 @@ h6 {
 
 }
 
-p {
+p, div.p {
 	font-size: $font-size;
 	line-height: $font-size+.5;
 	font-weight: $light;
@@ -229,6 +229,17 @@ p {
 		}
 	}
 	
+}
+
+div.p {
+	ul {
+		padding: 10px 20px;
+
+		li {
+			padding: 5px 0;
+			list-style: disc;
+		}
+	}
 }
 
 .justify-center {

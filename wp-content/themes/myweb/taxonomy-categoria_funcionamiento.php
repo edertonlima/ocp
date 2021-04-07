@@ -36,6 +36,41 @@
 								get_template_part( 'content-funcionamiento', get_post_format() );
 
 							endwhile;
+
+							if(get_field('video-taxonomy', $taxonomy . '_' . $term_id )){ ?>
+								<div class="owl-item">
+									<div class="row row-flex">
+										<div class="col-12">
+											<!--<div class="video-funcionamiento">
+												<?php the_field('video-taxonomy', $taxonomy . '_' . $term_id ); ?>
+											</div>-->
+
+							<div class="conteudo-texto">
+								<div class="col-m-2 col-8 video-funcionamiento">
+
+										<?php 
+											$video_array = get_field('video-taxonomy', $taxonomy . '_' . $term_id );
+											preg_match('/src="(.+?)"/', $video_array, $matches);
+											$video_url = $matches[1];
+
+											$video_id = explode("embed/", $video_url);
+											$video_id = $video_id[1];
+											$video_id = explode("?feature=oembed", $video_id);
+											$video_id = $video_id[0];
+											$thumbnail="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
+										?>
+
+										<a data-fancybox href="<?php echo $video_url; ?>" class="capa">
+											<img src="<?php echo $thumbnail; ?>">
+										</a>
+
+								</div>
+							</div>
+
+										</div>
+									</div>
+								</div>
+							<?php }
 						?>
 
 					</div>

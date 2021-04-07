@@ -53,7 +53,7 @@
 									<li>
 										<img src="<?php the_sub_field('icone'); ?>" align="">
 										<span class="titulo center"><span class="num" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('dados'); ?></span></span>
-										<p class="destaque" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('titulo'); ?></p>
+										<p class="destaque center" style="color: <?php the_sub_field('cor'); ?>"><?php the_sub_field('titulo'); ?></p>
 									</li>
 
 		 						<?php endwhile; ?>
@@ -74,6 +74,24 @@
 				</div>
 			</section>
 		<?php endif; ?>
+
+		
+		<?php if(get_field('titulo-area-gestion')){ ?>
+			<section class="box-content"> 
+				<div class="container">
+
+					<div class="row">
+						<div class="col-12">
+							<h2 class="center uppercase"><span><?php the_field('titulo-area-gestion'); ?></span></h2>
+
+							<div class="conteudo-texto img-area-gestion">
+								<img src="<?php the_field('imagem-area-gestion'); ?>" alt="<?php the_field('titulo-area-gestion'); ?>">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		<?php } ?>
 
 
 		<section class="box-content"> 
@@ -241,6 +259,11 @@
 
 								$row_proj = $row_proj+1; ?>
 
+								<?php if($row_proj == 4){  ?>
+									</div>
+									<div class="row">
+								<?php } ?>
+								
 								<div class="<?php if($row_proj <= 3){ echo 'col-4'; }else{ echo 'col-6'; } ?> margin-bottom-60">
 
 									<?php 	
