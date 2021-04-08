@@ -316,6 +316,7 @@ body * {
 
 	&.img-area-gestion {
 		padding: 0 100px;
+		text-align: center;
 
 		@include m980 {
 			padding: 0;

@@ -100,7 +100,7 @@
 				<div class="row">
 					<div class="col-12">
 
-						<ul class="icon-page count-item-4 no-margin-top">
+						<ul class="icon-page count-item-5 no-margin-top">
 
 							<?php
 								$args = array(
@@ -119,7 +119,7 @@
 
 								foreach ( $categories as $category ){ ?>
 
-									<li class="info-dados">
+									<li class="info-dados" style="order: <?php the_field('order', $category->taxonomy . '_' . $category->term_id ); ?>">
 										<img src="<?php the_field('icone', $category->taxonomy . '_' . $category->term_id ); ?>">				
 										<span class="titulo center" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
 											<span class="num" style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>">
@@ -198,7 +198,7 @@
 								<?php if($count_arquivo != $count){ ?>
 									<div class="item-margin <?php echo 'item-count-'.$count; ?>"></div>
 								<?php } 
-								$count_arquivo = $count_arquivo+1;
+								$count_arquivo = $count_arquivo+1; 
 	 						endwhile; ?>
 						</div>
 
@@ -221,7 +221,7 @@
 
 							<?php foreach ( $categories as $category ){ ?>
 
-								<li>
+								<li style="order: <?php the_field('order', $category->taxonomy . '_' . $category->term_id ); ?>">
 									<a href="<?php echo get_term_link( $category->term_id); ?>" title="<?php echo $category->name; ?>">
 										<img src="<?php the_field('icone', $category->taxonomy . '_' . $category->term_id ); ?>" alt="<?php echo $category->name; ?>">	
 										<span style="color: <?php the_field('cor_categoria', $category->taxonomy . '_' . $category->term_id ); ?>"><?php echo $category->name; ?></span>
@@ -297,7 +297,6 @@
 								</div>
 
 							<?php endwhile;
-							wp_reset_query();
 
 						}else{ ?>
 
@@ -314,6 +313,23 @@
 			</div>
 		</section>
 
+		<?php
+			if($wp_query->max_num_pages > 1){ ?>
+				<section class="box-content no-padding-top">
+					<div class="container">
+
+						<div class="center">
+							<button class="button load-more largo transparent cor3" var-url="<?php echo admin_url( 'admin-ajax.php' ); ?>" var-taxonomy="categoria_aportealasociedad" var-category="<?php //echo $category_current->term_id; ?>" var-post-type="aporte-a-la-sociedad" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
+								Mais
+							</button>
+						</div>			
+
+					</div>
+				</section>
+			<?php }
+			wp_reset_query();
+		?>
+
 	<?php endwhile; ?>
 
 <?php get_footer(); ?>
@@ -321,20 +337,24 @@
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript">
-	$('.carousel-itens').owlCarousel({
-		loop:false,
-		margin:0,
-		responsiveClass:true,
-		nav:true,
-		navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
-		//rtl:true,
-		responsive:{
-			0:{
-				items:1,
-				nav:true
+	function owlCarousel(){
+		$('.carousel-itens').owlCarousel({
+			loop:false,
+			margin:0,
+			responsiveClass:true,
+			nav:true,
+			navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+			//rtl:true,
+			responsive:{
+				0:{
+					items:1,
+					nav:true
+				}
 			}
-		}
-	})
+		})
+	}
+
+	owlCarousel();
 
 	/*var qtddot = $('.owl-dots').children().length;
 	qtddot = (((qtddot*22)/2)+10)+'px';
