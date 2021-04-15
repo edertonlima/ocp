@@ -239,7 +239,8 @@
 
 		.submenu { 
 			ul {
-				display: block;
+				display: flex;
+				flex-direction: column;
 
 				li {
 					display: block;
@@ -420,7 +421,7 @@
 		margin-top: 10px;
 
 		&.rede-social {
-			margin-top: 60px;
+			//margin-top: 60px;
 		}
 
 		li {

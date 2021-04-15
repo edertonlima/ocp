@@ -16,19 +16,7 @@
 	</div>
 	<?php } ?>
 
-	<div class="col-6 <?php if(!$GLOBALS['mobile']){ echo 'txt-slide'; } ?>">
-
-		<?php if(get_the_title()){ ?>
-			<div class="conteudo-texto cont-left">
-				<div class="link-mais margin-top-10 margin-bottom-20 center">
-					<a href="<?php the_permalink(); ?>">
-						<h4 class="link link-bloco">
-							<?php the_title(); ?>
-						</h4>
-					</a>
-				</div>
-			</div>
-		<?php } ?>												
+	<div class="col-6 <?php if(!$GLOBALS['mobile']){ echo 'txt-slide'; } ?>">											
 
 		<div class="funcionamiento funcionamiento-navegacao owl-carousel owl-theme owl-loaded">
 			<div class="owl-stage-outer">
@@ -82,5 +70,20 @@
 		</div>
 	</div>
 	<?php } ?>
+
+	<?php if(get_the_title()){ ?>
+		<div class="col-6"> </div>
+		<div class="col-6">
+			<div class="conteudo-texto cont-left">
+				<div class="link-mais margin-top-10 margin-bottom-20 center">
+					<a href="<?php the_permalink(); ?>">
+						<h4 class="link link-bloco">
+							<?php the_title(); ?>
+						</h4> 
+					</a>
+				</div>
+			</div>
+		</div>
+	<?php } ?>	
 
 </div>

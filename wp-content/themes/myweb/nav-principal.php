@@ -35,11 +35,11 @@
 									    'order'         	=> 'ASC',
 									    'hide_empty'      	=> false
 									);
-									$categories = get_categories( $args );
+									$categories = get_categories( $args );  
 
 									foreach ( $categories as $category ){ ?>
 
-										<li>
+										<li style="order: <?php the_field('order', $category->taxonomy . '_' . $category->term_id ); ?>">
 											<a href="<?php echo get_term_link( $category->term_id); ?>" title="<?php echo $category->name; ?>" class="">
 												<?php echo $category->name; ?>										
 											</a>

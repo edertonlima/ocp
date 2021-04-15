@@ -29,6 +29,69 @@
 	if($GLOBALS['mobile']){ $name_image = 'slide-funcionamiento'; }else{ $name_image = 'slide'; }
 ?>
 
+<?php if( have_rows('proposito') ): ?>
+    <?php while( have_rows('proposito') ): the_row(); 
+
+    	$images = get_sub_field('imagens_proposito'); ?>
+
+		<section class="box-content no-padding">
+			<div class="container">
+				<div class="slide">
+
+					<div id="slide-proposito" class="carousel slide slide-quienes-somos" data-ride="carousel" data-interval="80000">
+						<?php if( count($images) > 1 ){ ?>
+							<ol class="carousel-indicators">
+						        <?php 
+						        	$slide_elem = 0;
+						        	foreach( $images as $image ): ?>
+						        		<li data-target="#slide-proposito" data-slide-to="<?php echo $slide_elem; ?>" class="<?php if($slide_elem == 0){ echo 'active'; } ?>"></li>
+						        		<?php $slide_elem = $slide_elem+1;
+						        	endforeach;
+						        ?>
+							</ol>
+						<?php } ?>
+
+						<div class="carousel-inner">
+					        <?php 
+					        	$slide_elem = 0;
+					        	foreach( $images as $image ): ?>
+					        		<div class="carousel-item <?php if($slide_elem == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo esc_url($image['sizes'][$name_image]); ?>');"></div>
+					        	<?php $slide_elem = $slide_elem+1;
+					        	endforeach;
+					        ?>
+						</div>
+
+						<div class="mask-slide cor1 lg"></div>
+
+						<div class="text-item text-fixo lg active">				
+							<div class="vertical-center">
+								<div class="content-vertical">
+									<span class="titulo-slide justify active">
+										<h2 class="center extra-grande">PROPÓSITO</h2>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<?php if(get_sub_field('texto_proposito')){ ?>
+			<div class="container">
+				<section class="box-content bg-claro">	
+					<div class="p text-destaque grande">
+						<?php the_sub_field('texto_proposito'); ?>
+					</div>
+				</section>
+			</div>
+		<?php } ?>
+
+
+    <?php endwhile; ?>
+<?php endif; ?>
+
 <?php if( have_rows('mision') ): ?>
     <?php while( have_rows('mision') ): the_row(); 
 

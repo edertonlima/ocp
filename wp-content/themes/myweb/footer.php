@@ -26,35 +26,42 @@
 					<nav class="nav nav-footer">
 						<h3>Menús Principales</h3>
 						<ul>
-							<li><a href="<?php echo get_home_url(); ?>" title="Home">Home</a></li>
+							<li><a href="<?php echo get_home_url(); ?>" title="Inicio">Inicio</a></li>
 							<li><a href="<?php echo get_permalink(get_page_by_path('quienes-somos')); ?>" title="Quiénes Somos">Quiénes Somos</a></li>
 							<li><a href="<?php echo get_permalink(get_page_by_path('nuestra-historia')); ?>" title="Nuestra Historia">Nuestra Historia</a></li>
 							<li><a href="<?php echo get_post_type_archive_link('funcionamiento'); ?>" title="Funcionamento">Funcionamento</a></li>
 							<li><a href="<?php echo get_permalink(get_page_by_path('aporte-a-la-sociedad')); ?>" title="<?php the_field('titulo_menu',16); ?>"><?php the_field('titulo_menu',16); ?></a></li>
 							<li><a href="<?php echo get_permalink(get_page_by_path('aporte-al-pais')); ?>" title="Aporte al Pais">Aporte al Pais</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_path('operacion-segura')); ?>" title="Operación Segura">Operación Segura</a></li>
 						</ul>
 					</nav>
 				</div>
 
 				<div class="col-2">
 					<nav class="nav nav-footer">
-						<h3>Menús Adicionales</h3>
+						<h3>Menús Adicionales</h3> 
 						<ul>
 							<li><a href="<?php echo get_permalink(get_page_by_path('sala-de-prensa')); ?>" title="Sala de Prensa">Sala de Prensa</a></li>
 							<li><a href="<?php echo get_permalink(get_page_by_path('contactenos')); ?>" title="Contáctenos">Contáctenos</a></li>
+							
+							<li><a href="<?php echo get_permalink(get_page_by_path('registro-proveedores')); ?>" title="<?php the_field('titulo_menu',798); ?>"><?php the_field('titulo_menu',798); ?></a></li>
+							<?php //<li><a href="#" title="Sala de Clientes">Sala de Clientes</a></li>?>
+							<li><a href="<?php echo get_permalink(get_page_by_path('trabaje-nosotros')); ?>" title="<?php the_field('titulo_menu',801); ?>"><?php the_field('titulo_menu',801); ?></a></li>
 						</ul>
 					</nav>
 				</div>
 
 				<div class="col-3">
+					<?php /*
 					<nav class="nav nav-footer">
 						<h3>Contacto</h3>
 						<ul>
 							<li><a href="<?php echo get_permalink(get_page_by_path('registro-proveedores')); ?>" title="<?php the_field('titulo_menu',798); ?>"><?php the_field('titulo_menu',798); ?></a></li>
-							<?php /*<li><a href="#" title="Sala de Clientes">Sala de Clientes</a></li>*/?>
+							<?php //<li><a href="#" title="Sala de Clientes">Sala de Clientes</a></li>?>
 							<li><a href="<?php echo get_permalink(get_page_by_path('trabaje-nosotros')); ?>" title="<?php the_field('titulo_menu',801); ?>"><?php the_field('titulo_menu',801); ?></a></li>
 						</ul>
 					</nav>
+					*/ ?>
 
 					<nav class="nav nav-footer rede-social">
 						<h3>Síguenos</h3>

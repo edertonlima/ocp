@@ -26,7 +26,7 @@
 
 		<?php if(!$GLOBALS['mobile']){ ?>
 			<div class="nav-linha-tempo">
-				<h4>LINHA DE TEMPO</h4>
+				<h4>LINEA DEL TIEMPO</h4>
 				<ul>
 								
 					<?php if( have_rows('nuestra-historia') ):
