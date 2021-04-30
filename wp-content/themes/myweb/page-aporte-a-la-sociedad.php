@@ -320,7 +320,7 @@
 
 						<div class="center">
 							<button class="button load-more largo transparent cor3" var-url="<?php echo admin_url( 'admin-ajax.php' ); ?>" var-taxonomy="categoria_aportealasociedad" var-category="<?php //echo $category_current->term_id; ?>" var-post-type="aporte-a-la-sociedad" var-paged="2" var-max-paged="<?php echo $wp_query->max_num_pages; ?>">
-								Mais
+								Más
 							</button>
 						</div>			
 

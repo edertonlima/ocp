@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
 	$('.load-more').click(function(){
 
-		$(this).html('<i class="fas fa-circle-notch cor3 fa-spin"></i> Mais');
+		$(this).html('<i class="fas fa-circle-notch cor3 fa-spin"></i> Más');
 
 		post_type = $(this).attr('var-post-type');
 		paged = parseInt($(this).attr('var-paged'));
@@ -25,11 +25,11 @@ jQuery(document).ready(function($) {
 				max_paged = response.split('max_paged').pop();
 				loopHTML  = response.split('max_paged').shift();
 
-				if(paged == max_paged){
+				paged = paged + 1;
+				if(paged == max_paged){ 
 					$('.load-more').hide();
 				}else{
 
-					paged = paged + 1;
 					$('.load-more').attr('var-paged' , paged);
 					$('.load-more').attr('var-max-paged' , max_paged);
 
@@ -39,13 +39,13 @@ jQuery(document).ready(function($) {
 
 				owlCarousel();
 
-				$('.load-more').html('Mais');
+				$('.load-more').html('Más');
 			},
 			
 			error: function(){
 
 				$('.prensa-list .row:last-child').append('<div class="col-12 center"><p>.Lo sentimos, no fue posible traer más contenido.</p></div>');
-				$('.load-more').html('Mais');
+				$('.load-more').html('Más');
 				$('.load-more').hide();
 
 			}
