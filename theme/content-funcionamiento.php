@@ -23,6 +23,30 @@
 																	
 				<p class="justify"><?php the_field('content'); ?></p>
 			</div>
+
+						<?php if(get_field('video-funcionamiento')){ ?>
+							<div class="conteudo-texto margin-top-30">
+								<div class="video-funcionamiento">
+
+										<?php 
+											$video_array = get_field('video-funcionamiento');
+											preg_match('/src="(.+?)"/', $video_array, $matches);
+											$video_url = $matches[1];
+
+											$video_id = explode("embed/", $video_url);
+											$video_id = $video_id[1];
+											$video_id = explode("?feature=oembed", $video_id);
+											$video_id = $video_id[0];
+											$thumbnail="https://img.youtube.com/vi/".$video_id."/maxresdefault.jpg";
+										?>
+
+										<a data-fancybox href="<?php echo $video_url; ?>" class="capa">
+											<img src="<?php echo $thumbnail; ?>">
+										</a>
+
+								</div>
+							</div>
+						<?php } ?>
 		</div>
 
 		<?php// if(!$GLOBALS['mobile']){ ?>

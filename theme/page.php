@@ -137,6 +137,9 @@
 										<div class="content-vertical">
 											<span class="titulo-slide active">
 												<?php the_sub_field('texto-destaque'); ?>
+												<?php if(get_sub_field('link-destaque')){ ?>
+													<a href="<?php the_sub_field('link-destaque'); ?>" title="<?php the_sub_field('tit-link-destaque'); ?>" class="link inline banner-destaque"><?php the_sub_field('tit-link-destaque'); ?></a>
+												<?php } ?>
 											</span>
 										</div>
 									</div>

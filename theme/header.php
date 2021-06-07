@@ -112,76 +112,7 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" media="screen" />
 
-
-<?php if(!is_home()){ ?>
-	
-	<!-- CAROUSEL -->
-	<!--<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />-->
-
-<?php } ?>
-
-<script type="text/javascript">
-	//jQuery.noConflict();
-
-	/*jQuery(document).ready(function(){
-
-		jQuery('.menu-mobile').click(function(){
-			if(jQuery(this).hasClass('active')){
-				jQuery('.nav').css('top','-100vh');
-				jQuery(this).removeClass('active');
-				jQuery('.header').removeClass('active');
-			}else{
-				jQuery('.nav').css('top','0px');
-				jQuery(this).addClass('active');
-				jQuery('.header').addClass('active');
-			}
-		});
-
-		if(jQuery('body').height() <= jQuery(window).height()){
-			jQuery('.footer').css({position: 'absolute', bottom: '0px'});
-		}else{
-			jQuery('.footer').css({position: 'relative'});
-		}
-
-		scroll_body = jQuery(window).scrollTop();
-		if(scroll_body > 400){
-			jQuery('.header').addClass('scroll_menu');
-		}
-	});	
-
-	jQuery(window).resize(function(){
-		jQuery('.menu-mobile').removeClass('active');
-		jQuery('.header').removeClass('active');
-		jQuery('.nav').css('top','-100vh');
-		if(jQuery('body').height() <= jQuery(window).height()){
-			jQuery('.footer').css({position: 'absolute', bottom: '0px'});
-		}else{
-			jQuery('.footer').css({position: 'relative'});
-		}
-	});
-
-	jQuery(window).scroll(function(){
-		scroll_body = jQuery(window).scrollTop();
-		if(scroll_body > 400){
-			jQuery('.header').addClass('scroll_menu');
-		}else{
-			jQuery('.header').removeClass('scroll_menu');
-		}
-	});*/
-</script>
-
-<!-- ZOPIM -->
-<!--Start of Zendesk Chat Script-->
-<script type="text/javascript">/*
-window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
-d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
-$.src="https://v2.zopim.com/?4wUPiAqqUPHLIihFTiGQt2Su4HknexxE";z.t=+new Date;$.
-type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
-</script>
-
-
-
+<?php /*
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -189,11 +120,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-M7ZTNGC');</script>
 <!-- End Google Tag Manager -->
+*/ ?>
 
+<?php /*
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+   function onSubmit(token) {
+     document.getElementById("contacto").submit(); 
+   }
+</script>
+*/ ?>
 
-
+<?php /*
 <!-- SUMO -->
 <!--<script src="//load.sumome.com/" data-sumo-site-id="0820f5828ba5ae1d27edd8bde6d74989a0ddbfa73cad0af4f62420486d84f071" async="async"></script>-->
+*/ ?>
 
 <?php wp_head(); ?> 
 

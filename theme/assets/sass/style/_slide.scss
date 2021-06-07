@@ -216,6 +216,12 @@
 				&:hover {
 					color: $cor1;
 				}
+
+				&.banner-destaque {
+					&:hover {
+						color: $cor2;
+					}
+				}
 			}
 		}
 

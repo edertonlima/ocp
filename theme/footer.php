@@ -83,6 +83,12 @@
 									<i class="fab fa-twitter"></i><?php the_field('tit_twitter','option'); ?>
 								</a></li>
 							<?php } ?>
+
+							<?php if(get_field('url_linkedin','option')){ ?>
+								<li><a href="<?php the_field('url_linkedin','option'); ?>" title="<?php the_field('tit_linkedin','option'); ?>" target="_blank">
+									<i class="fab fa-linkedin"></i><?php the_field('tit_linkedin','option'); ?>
+								</a></li>
+							<?php } ?>
 						</ul>
 					</nav>
 				</div>

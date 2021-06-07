@@ -250,10 +250,10 @@
 						Formulario de contacto:</p>-->
 
 
-						<form class="contacto" id="contacto" action="javascript:" method="post">
+						<form class="contacto" id="form" action="<?php echo get_template_directory_uri(); ?>/mail/proveedores.php" enctype="multipart/form-data" method="post">
 							<fieldset class="no-margin">
-								<label for="nombre">Nombre de la Empresa o Razón Social*</label>
-								<input type="text" name="nombre" id="nombre">
+								<label for="name">Nombre de la Empresa o Razón Social*</label>
+								<input type="text" name="name" id="name">
 							</fieldset>
 
 							<fieldset>
@@ -267,18 +267,18 @@
 							</fieldset>
 
 							<fieldset>
-								<label for="Ciudad">Ciudad*</label>
-								<input type="text" name="Ciudad" id="Ciudad">
+								<label for="ciudad">Ciudad*</label>
+								<input type="text" name="ciudad" id="ciudad">
 							</fieldset>
 
 							<fieldset>
-								<label for="País">País*</label>
-								<input type="text" name="País" id="País">
+								<label for="pais">País*</label>
+								<input type="text" name="pais" id="pais">
 							</fieldset>
 
 							<fieldset>
-								<label for="Página Web">Página Web*</label>
-								<input type="text" name="Página Web" id="Página Web">
+								<label for="pagina-web">Página Web*</label>
+								<input type="text" name="pagina-web" id="pagina-web">
 							</fieldset>
 
 							<fieldset>
@@ -297,8 +297,25 @@
 							</fieldset>
 
 							<fieldset>
+								<label for="anexo">Adjuntar un archivo</label>
+								<input type="file" name="anexo" id="anexo">
+							</fieldset>
+
+							<fieldset>
+								<?php 
+									$num1 = rand(0, 9);
+									$num2 = rand(0, 9);
+								?>
+								<label for="verificador">Resultado: <?php echo $num1 . ' + ' . $num2; ?></label>
+								<input type="text" name="verificador" id="verificador">
+							</fieldset>
+
+							<fieldset>
 								<p class="msg-form center off"></p>
-								<button class="enviar right">ENVIAR</button>
+								<button type="submit" class="enviar right">ENVIAR</button>
+                                <input type="hidden" name="para" value="<?php the_field('email-form'); ?>">
+					            <input type="hidden" name="nome_site" value="<?php bloginfo('name'); ?>">
+                                <input type="hidden" name="subject" value="<?php the_title(); ?>">
 							</fieldset>
 						</form>
 
@@ -324,4 +341,95 @@
 		}
 		
 	});
+</script>
+
+<script type="text/javascript">
+	$('#form').submit(function() {
+        form_error = false;
+        resp_verificador = <?php echo ($num1 + $num2); ?>;
+
+        var verificador = $('#verificador').val();
+        if(verificador != resp_verificador){
+            $('#verificador').parent().addClass('erro');
+            msg_verificador = false;
+            form_error = true;
+        }
+
+        var name = $('#name').val();
+        if(name == ''){
+            $('#name').parent().addClass('erro');
+            form_error = true;
+        }
+
+        var telefono = $('#telefono').val();
+        if(telefono == ''){
+            $('#telefono').parent().addClass('erro');
+            form_error = true;
+        }
+
+        var direccion = $('#direccion').val();
+        if(direccion == ''){
+            $('#direccion').parent().addClass('erro');
+            form_error = true;
+        }
+
+		var ciudad = $('#ciudad').val();
+        if(ciudad == ''){
+            $('#ciudad').parent().addClass('erro');
+            form_error = true;
+        }
+
+		var pais = $('#pais').val();
+        if(pais == ''){
+            $('#pais').parent().addClass('erro');
+            form_error = true;
+        }
+
+		var pagina_web = $('#pagina-web').val();
+        if(pagina_web == ''){
+            $('#pagina-web').parent().addClass('erro');
+            form_error = true;
+        }
+
+		var nombre_contacto = $('#nombre-contacto').val();
+        if(nombre_contacto == ''){
+            $('#nombre-contacto').parent().addClass('erro');
+            form_error = true;
+        }		
+
+        var email = $('#email').val();
+        if(email == ''){
+            $('#email').parent().addClass('erro');
+            form_error = true;
+        }
+
+        var mensaje = $('#mensaje').val();
+        if(mensaje == ''){
+            $('#mensaje').parent().addClass('erro');
+            form_error = true;
+        }
+
+        if(form_error){
+            if(msg_verificador){
+                $('.msg-form').html('Los campos obligatorios no pueden estar vacíos.');
+            }else{
+                $('.msg-form').html('Los campos obligatorios no pueden estar vacíos.<br>La respuesta total es incorrecta.');
+            }
+			return false;
+		}else{
+			return true;
+		}
+    });
+
+    $('input').change(function(){
+        if($(this).parent().hasClass('erro')){
+            $(this).parent().removeClass('erro');
+        }
+    });
+
+    $('textarea').change(function(){
+        if($(this).parent().hasClass('erro')){
+            $(this).parent().removeClass('erro');
+        }
+    });
 </script>

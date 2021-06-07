@@ -54,9 +54,13 @@
 										$nun_nav = $nun_nav+1; ?>
 
 										<li data-date="<?php echo $nun_nav . '/1/0001'; //echo get_the_date('d/m/Y'); ?>" class="cd-h-timeline__date <?php if($nun_nav == $count_post){ echo 'cd-h-timeline__date--selected'; } ?>">
-											<span></span>
+											<?php /*<span></span>*/?>
 
-											<?php if(!$GLOBALS['mobile']){ ?>
+											<div class="img-slide-funcionamiento">
+												<img src="<?php the_field('imagem-slide-funcionamiento'); ?>" alt="<?php the_field('titulo-funcionamiento'); ?>">
+											</div>
+
+											<?php /* if(!$GLOBALS['mobile']){ ?>
 												<div class="legenda">
 													<div class="titulo">
 														<?php 
@@ -66,7 +70,7 @@
 													</div>
 													<div><?php the_field('titulo-funcionamiento'); ?></div>
 												</div>
-											<?php } ?>
+											<?php } */ ?>
 										</li>
 
 									<?php endwhile;
@@ -86,7 +90,7 @@
 
 			<div class="cd-h-timeline__events">
 
-				<?php /* <div class="container">
+				<div class="container">
 					<div class="link-nav">
 						<a href="javascript:" class="link-timeline prev-timeline" <?php if($GLOBALS['mobile']){ echo 'style="display: none;"'; } ?>>
 							<i class="fas fa-chevron-left"></i>
@@ -95,7 +99,7 @@
 							<i class="fas fa-chevron-right"></i> 
 						</a>
 					</div>
-				</div> */ ?>  
+				</div>
 				
 
 					<ol>
