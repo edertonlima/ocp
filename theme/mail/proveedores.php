@@ -13,16 +13,16 @@
 		$mail->SMTPAuth = false;
 		$mail->SMTPAutoTLS = false; 
 		$mail->Port = 25; 
-		$mail->CharSet = 'UTF-8';
+		$mail->CharSet = 'UTF-8';  
 		
 		$mail->setFrom($_POST['para'],$_POST['nome_site']);
 		$mail->addAddress($_POST['para'],$_POST['nome_site']);
-		$mail->addReplyTo($_POST['para'],$_POST['nome_site']);
+		$mail->addReplyTo($_POST['email'],$_POST['name']);
 
 		//$mail->addAddress('edertton@gmail.com');
 		
 		//$mail->addCC('edertton@gmail.com');
-		$mail->addBCC('edertton@gmail.com');
+		//$mail->addBCC('edertton@gmail.com');
 
 		$body = '';
 		$body .= '<strong>' . $_POST['name'] . '</strong><br>';
@@ -30,7 +30,7 @@
 		$body .= $_POST['telefono'] . '<br>';
 		$body .= $_POST['direccion'] . ', ' . $_POST['ciudad'] . ', ' . $_POST['pais'] . '<br>';
 		$body .= $_POST['pagina-web'] . '<br>';
-		$body .= '<br><strong>Nombre del contacto para solicitudes de cotización</strong><br>' . $_POST['nombre-contacto'] . '<br>';
+		$body .= '<br><strong>Nombre del contacto para solicitudes de cotización</strong>: ' . $_POST['nombre-contacto'] . '<br>';
 		$body .= '<br>' . $_POST['mensaje'] . '<br>';
 
 		$mail->isHTML(true);

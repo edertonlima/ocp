@@ -13,16 +13,16 @@
 		$mail->SMTPAuth = false;
 		$mail->SMTPAutoTLS = false; 
 		$mail->Port = 25; 
-		$mail->CharSet = 'UTF-8';
+		$mail->CharSet = 'UTF-8';  
 		
 		$mail->setFrom($_POST['para'],$_POST['nome_site']);
 		$mail->addAddress($_POST['para'],$_POST['nome_site']);
-		$mail->addReplyTo($_POST['para'],$_POST['nome_site']);
+		$mail->addReplyTo($_POST['email'],$_POST['name']);
 
 		//$mail->addAddress('edertton@gmail.com');
 		
 		//$mail->addCC('edertton@gmail.com');
-		$mail->addBCC('edertton@gmail.com');
+		//$mail->addBCC('edertton@gmail.com');
 
 		$body = '';
 		$body .= '<strong>' . $_POST['name'] . '</strong><br>';

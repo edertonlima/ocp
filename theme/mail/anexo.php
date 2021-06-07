@@ -11,7 +11,7 @@
 		$_UP['erros'][4] = 'Não foi feito o upload do arquivo';
 	
 		if ($file['error'] != 0) {
-			$anexo['error'] = $_UP['erros'][$file['error']];
+			$anexo['error'] = $_UP['erros'][$file['error']]; 
 		}
 	
 		
