@@ -1,5 +1,0 @@
-http://200.41.114.26
-adminuser
-Amcnml-2019!
-
-/var/www/html/ocpecuador.com/wp-content/themes/myweb
