@@ -73,6 +73,17 @@
 				}
 			}
 		}
+
+		a {
+			font-size: $font-size;
+			line-height: $font-size+.5;
+			color: $verde-limao;
+			font-weight: $regular;
+
+			@include m980 {
+				color: #ffffff;
+			}
+		}
 	}
 
 	.nav-footer {
