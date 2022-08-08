@@ -1,25 +1,32 @@
 $hSlide: 740px;
 
+.owl-carousel {
+  position: relative;
+}
+
+.owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+}
+
+.owl-stage {
+  touch-action: manipulation;
+}
+
+.owl-item {
+  float: left;
+  user-select: none;
+  touch-action: pan-y;
+}
+
 .slide {
   width: 100%;
-
-  .owl-stage-outer {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .owl-stage {
-    touch-action: manipulation;
-  }
 
   .owl-item {
     //height: calc(100vh - 70px);
     //max-height: $hSlide;
     //min-height: 400px;
     height: $hSlide;
-    float: left;
-    user-select: none;
-    touch-action: pan-y;
 
     .item {
       width: 100%;
@@ -44,12 +51,6 @@ $hSlide: 740px;
         max-width: 490px;
       }
 
-      h3 {
-        font-weight: $semi-bold;
-        font-size: 3.875rem;
-        line-height: 4.5rem;
-      }
-
       p {
         margin: 30px 0;
         font-size: 1.125rem;
@@ -66,37 +67,79 @@ $hSlide: 740px;
       }
     }
   }
+}
 
-  .owl-dots {
-    position: absolute;
-    bottom: 42px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.owl-dots {
+  position: absolute;
+  bottom: 42px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.disabled {
+    display: none;
+  }
+
+  .owl-dot {
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin: 0 16px;
+    cursor: pointer;
+    @include animacao;
+
+    &.active {
+      background-color: #000000;
+    }
+  }
+}
+
+.owl-nav {
+  position: absolute;
+  right: 0px;
+  top: -50px;
+  height: 34px;
+
+  &.disabled {
+    display: none;
+  }
+
+  .owl-prev,
+  .owl-next {
+    width: 34px;
+    height: 34px;
+    background: none;
+    cursor: pointer;
+    @include animacao;
 
     &.disabled {
-      display: none;
+      opacity: 0;
     }
 
-    .owl-dot {
-      width: 24px;
-      height: 24px;
-      background-color: #ffffff;
-      border-radius: 50%;
-      margin: 0 16px;
-      cursor: pointer;
-      @include animacao;
-
-      &.active {
-        background-color: #000000;
-      }
+    &:hover:not(.disabled) {
+      opacity: 0.5;
     }
   }
 
+  .owl-prev {
+    margin-right: 10px;
+  }
+
+  svg {
+    path {
+      @include animacao;
+    }
+  }
+}
+
+.bg--cor1 {
   .owl-nav {
-    &.disabled {
-      display: none;
+    svg {
+      path {
+        stroke: #fff;
+      }
     }
   }
 }

@@ -1,10 +1,14 @@
-.white {
+.txt--white {
   color: #ffffff;
 }
-.cor-txt {
+.txt--cor-txt {
   color: $cor-txt;
 }
 
 .bg--white {
   background-color: #ffffff;
+}
+
+.bg--cor1 {
+  background-color: $cor1;
 }

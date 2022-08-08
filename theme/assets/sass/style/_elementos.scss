@@ -32,6 +32,12 @@ h3 {
     font-size: 2.25rem;
     line-height: 2.25rem;
   }
+
+  &.title-big {
+    font-weight: $semi-bold;
+    font-size: 3.875rem;
+    line-height: 4.5rem;
+  }
 }
 
 h4 {
@@ -72,6 +78,10 @@ p {
       text-decoration: underline;
     }
   }
+
+  &.margin {
+    margin: 30px 0;
+  }
 }
 
 a {
@@ -80,5 +90,16 @@ a {
 
   &:hover {
     text-decoration: none;
+  }
+
+  &.link {
+    font-weight: $semi-bold;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: $cor1;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
