@@ -1,0 +1,31 @@
+.button {
+  min-width: 200px;
+  height: 42px;
+  border-radius: 30px;
+  font-weight: $semi-bold;
+  font-size: 18px;
+  line-height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $cor-txt;
+  background-color: #ffffff;
+
+  &.margin-top {
+    margin-top: 30px;
+  }
+
+  &:hover {
+    color: #ffffff;
+    background-color: $cor-txt;
+  }
+
+  &.bg {
+    &--verde {
+      color: #ffffff;
+      background-color: $cor1;
+      &:hover {
+      }
+    }
+  }
+}

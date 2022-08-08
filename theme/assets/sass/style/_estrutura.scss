@@ -1,360 +1,361 @@
 html {
-	font-size: 100%; 
-	height: 100%;
-	width: 100%;
+  font-size: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-	min-height: 100vh;
-	//max-width: 100%;
-	position: relative;
-	background: #ffffff;
+  min-height: 100vh;
+  //max-width: 100%;
+  position: relative;
+  background: #ffffff;
 
-	@include m980 {
-		padding-top: 130px;
-		padding-top: 80px;
-		//max-width: 100%;
-		//overflow: hidden;
-	}
+  @include m980 {
+    padding-top: 130px;
+    padding-top: 80px;
+    //max-width: 100%;
+    //overflow: hidden;
+  }
 }
 
 body * {
-	font-family: $font-family;
-	color: $cor-txt;
-	line-height: $font-size+.25;
-	font-weight: $light;
-	font-size: $font-size; 
+  font-family: $font-family;
+  color: $cor-txt;
+  //line-height: $font-size + 0.25;
+  //font-weight: $light;
+  //font-size: $font-size;
 }
 
 .container {
-	max-width: $width; 
-	width: 100%;//$width; 
-	//width: 100%;
-	padding: 0 $padding-container;
-	margin: 0 auto;
-	position: relative;
-	@include box-sizing;
-	@include clear;
+  max-width: $width;
+  width: 100%;
+  padding: 0 $padding-container;
+  margin: 0 auto;
+  position: relative;
+  @include box-sizing;
+  @include clear;
 
-	@include m980 {
-		padding-right: 0;
-		padding-left: 0;
-		max-width: 100%;
-	}
+  @include m980 {
+    padding-right: 0;
+    padding-left: 0;
+    max-width: 100%;
+  }
 }
 
 .row {
-	display: block;
-	@include clear();
+  display: block;
+  @include clear();
 
-	&:not(.no-padding){
-		margin-right: ($padding-col)*(-1);
-		margin-left: ($padding-col)*(-1);
+  &:not(.no-padding) {
+    margin-right: ($padding-col) * (-1);
+    margin-left: ($padding-col) * (-1);
 
-		[class*="col-"] {
-			padding-right: $padding-col; 
-			padding-left: $padding-col;
-		}
-	}
+    [class*="col-"] {
+      padding-right: $padding-col;
+      padding-left: $padding-col;
+    }
+  }
 
-	&.no-padding {
-		margin: 0;
-	}
+  &.no-padding {
+    margin: 0;
+  }
 
-	[class*="col-"] {
-		float: left;
-		@include box-sizing();
+  [class*="col-"] {
+    float: left;
+    @include box-sizing();
 
-		img {
-			max-width: 100%;
-		}
-	}
+    img {
+      max-width: 100%;
+    }
+  }
 
-	@for $i from 1 through 12 {
-		.col-#{$i} {
-			width: $i*(100%/12);
-		}
-	}
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      width: $i * (100%/12);
+    }
+  }
 
-	@for $i from 1 through 12 {
-		.col-m-#{$i} {
-			margin-left: $i*(100%/12);
-		}
-	}
+  @for $i from 1 through 12 {
+    .col-m-#{$i} {
+      margin-left: $i * (100%/12);
+    }
+  }
 
-	.col-4:nth-child(3n+1) {
-		@include clear;
-	}
+  .col-4:nth-child(3n + 1) {
+    @include clear;
+  }
 
-	&.row-mini {
-		margin-right: -15px;
-		margin-left: -15px;
+  &.row-mini {
+    margin-right: -15px;
+    margin-left: -15px;
 
-		[class*="col-"] {
-			padding-right: 15px; 
-			padding-left: 15px;
-		}
-	}
+    [class*="col-"] {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
 
-	@include m980 {
-		&:not(.no-padding){
-			margin: 0;
+  @include m980 {
+    &:not(.no-padding) {
+      margin: 0;
 
-			[class*="col-"] {
-				width: 100%;
-				max-width: 100%;
-				padding-right: 0;
-				padding-left: 0;
-				margin-right: 0;
-				margin-left: 0;
-			}
-		}		
-	}
+      [class*="col-"] {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+  }
 }
 
 .box-content {
-	@include clear;
-	@include box-sizing();
-	width: 100%;
-	position: relative;
-	padding: 50px 0;
+  @include clear;
+  @include box-sizing();
+  width: 100%;
+  position: relative;
+  padding: 60px 0;
 
-	&.box-slide {
-		position: relative;
-		z-index: 0;
-		padding: 0;
-	}
+  &.box-slide {
+    position: relative;
+    z-index: 0;
+    padding: 0;
+  }
 
-	.content {
-		width: 100%;
-		padding: 0 40px;
-		display: block;
-		margin: 40px auto 0;
-		@include box-sizing;
+  .content {
+    width: 100%;
+    display: block;
+    @include box-sizing;
 
-		ul {
-			margin-top: 15px;
-			li {
-				font-size: 1.125rem;
-				line-height: 1.125rem;
-				font-style: italic;
-				color: darken($cor-txt, 20%);
-			}
-		}
+    ul,
+    ol {
+      margin-top: 20px;
+      padding-left: 20px;
 
-		p {
-			font-size: 1rem;
-			line-height: 1.5rem;
-			margin-top: 15px;
+      li {
+        font-size: $font-size;
+        line-height: 1.125rem;
+        font-weight: $medium;
+        padding-left: 10px;
+      }
+    }
 
-			&:first-child {
-				margin-top: 0;
-			}
-		}
-	}
+    ul {
+      li {
+        list-style: disc;
+      }
+    }
+  }
 
-	//@include m420 {
-		&.first-section {
-			padding-top: 0px;
-		}
-	//}
+  //@include m420 {
+  &.first-section {
+    padding-top: 0px;
+  }
+  //}
 
-	@include m980 {
-		&.hide-mobile {
-			display: none;
-		}
-	}
+  @include m980 {
+    &.hide-mobile {
+      display: none;
+    }
+  }
 }
 
 .vertical-center {
-	display: table;
-	height: 100%;
-	width: 100%;
+  display: table;
+  height: 100%;
+  width: 100%;
 
-	.content-vertical {
-		display: table-cell;
-		vertical-align: middle;
-	}
+  .content-vertical {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
 
 .conteudo-texto {
-	&.mini {
-		max-width: 650px;
-		margin: 0 auto;
-	}
-	ul, ol {
-		display: block;
-		padding: 15px 30px 25px;
+  &.mini {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  ul,
+  ol {
+    display: block;
+    padding: 15px 30px 25px;
 
-		li {
-			display: block;
-			padding-bottom: 5px;
-		}
-	}
+    li {
+      display: block;
+      padding-bottom: 5px;
+    }
+  }
 
-	ul {
-		li {
-			&:before {
-				content: '';
-				margin-right: 10px;
-				display: inline-block;
-				font-weight: bold;
-				border-radius: 50%;
-				background-color: #4a4a4a;
-				width: 7px;
-				height: 7px;
-				position: relative;
-				top: -1px;
-			}
-		}
+  ul {
+    li {
+      &:before {
+        content: "";
+        margin-right: 10px;
+        display: inline-block;
+        font-weight: bold;
+        border-radius: 50%;
+        background-color: #4a4a4a;
+        width: 7px;
+        height: 7px;
+        position: relative;
+        top: -1px;
+      }
+    }
 
-		&.acordion {
-			padding: 0;
+    &.acordion {
+      padding: 0;
 
-			@include m980 {
-				padding-right: 40px;
-				padding-left: 40px;
-				text-align: left!important;
-			}
+      @include m980 {
+        padding-right: 40px;
+        padding-left: 40px;
+        text-align: left !important;
+      }
 
-			li {
-				padding-bottom: 50px;
-				list-style: none;
-				font-weight: $bold;
-				position: relative;
-				font-size: 1rem;
-				line-height: 1.5rem;
+      li {
+        padding-bottom: 50px;
+        list-style: none;
+        font-weight: $bold;
+        position: relative;
+        font-size: 1rem;
+        line-height: 1.5rem;
 
-				&:before {
-					display: none;
-				}
+        &:before {
+          display: none;
+        }
 
-				&:last-child {
-					padding: 0;
-				}
+        &:last-child {
+          padding: 0;
+        }
 
-				i {
-					position: absolute;
-					top: 2px;
-					right: -20px;
-					font-size: 20px;
-					cursor: pointer;
-				}
+        i {
+          position: absolute;
+          top: 2px;
+          right: -20px;
+          font-size: 20px;
+          cursor: pointer;
+        }
 
-				a {
-					color: $cor3;
-					font-weight: $bold;
-					font-size: 1rem;
-					line-height: 1.5rem;
-				}
+        a {
+          color: $cor3;
+          font-weight: $bold;
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
 
-				.cont-acordion {
-					padding: 10px 20px 0 20px;
-					font-size: 1rem;
-					line-height: 1.5rem;
-					display: none;
-				}
-			}
-		}
-	}
+        .cont-acordion {
+          padding: 10px 20px 0 20px;
+          font-size: 1rem;
+          line-height: 1.5rem;
+          display: none;
+        }
+      }
+    }
+  }
 
+  ol {
+    padding-left: 46px;
 
-	ol {
-		padding-left: 46px;
+    li {
+      display: list-item;
+      text-align: -webkit-match-parent;
+      list-style-type: decimal;
 
-		li {
-			display: list-item;
-			text-align: -webkit-match-parent;
-			list-style-type: decimal;
+      &::marker {
+        font-weight: $bold;
+      }
+    }
+  }
 
-			&::marker {
-				font-weight: $bold;
-			}
-		}
-	}
+  p {
+    padding-bottom: 15px;
 
-	p {
-		padding-bottom: 15px;
+    &:last-child {
+      padding-bottom: 0;
+    }
 
-		&:last-child {
-			padding-bottom: 0;
-		}
+    @include m980 {
+      padding-right: 40px;
+      padding-left: 40px;
+      text-align: left !important;
+    }
+  }
 
-		@include m980 {
-			padding-right: 40px;
-			padding-left: 40px;
-			text-align: left!important;
-		}
-	}
+  img,
+  figure {
+    max-width: 100%;
+    height: auto;
+    width: auto;
 
-	img, figure {
-		max-width: 100%;
-		height: auto;
-		width: auto;
+    &.size-full {
+      margin-left: -10%;
+      width: 120%;
+      max-width: none;
 
-		&.size-full {
-			margin-left: -10%;
-			width: 120%;
-			max-width: none;
+      @include m980 {
+        margin-left: -12%;
+        width: 124%;
+      }
 
-			@include m980 {
-				margin-left: -12%;
-				width: 124%;
-			}
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
 
-			img {
-				width: 100%;
-				height: auto;
-			}
-		}
+    &.aligncenter:not(.size-full) {
+      margin: 0 auto;
+      display: block;
+    }
+  }
 
-		&.aligncenter:not(.size-full) {
-			margin: 0 auto;
-			display: block;
-		}
-	}
+  &.img-area-gestion {
+    padding: 0 100px;
+    text-align: center;
 
-	&.img-area-gestion {
-		padding: 0 100px;
-		text-align: center;
+    @include m980 {
+      padding: 0;
+    }
+  }
 
-		@include m980 {
-			padding: 0;
-		}
-	}
+  &.full {
+    img {
+      width: 100%;
+    }
+  }
 
-	&.full {
-		img {
-			width: 100%;
-		}
-	}
+  &.normal {
+    img {
+      width: auto;
+    }
 
-	&.normal {
-		img {
-			width: auto;
-		}
+    @include m980 {
+      padding: 0 50px;
+    }
+  }
 
-		@include m980 {
-			padding: 0 50px;
-		}
-	}
+  .item-list-prensa.video {
+    margin-top: 0;
+  }
 
-	.item-list-prensa.video {
-		margin-top: 0;
-	}
-
-	@include m980 {
-		.link-mais {
-			padding: 0 50px;
-		}
-	}
+  @include m980 {
+    .link-mais {
+      padding: 0 50px;
+    }
+  }
 }
 
-
 .flex {
-	display: flex;
+  display: flex;
 
-	@include m980 {
-		display: block;
-	}
+  @include m980 {
+    display: block;
+  }
+}
+
+// margin
+.no-padding-top {
+  padding-top: 0;
 }
