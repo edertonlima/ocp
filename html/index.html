@@ -565,9 +565,145 @@
       </div>
     </section>
 
+    <section class="box-content padding-reduced bg--grey">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <h2>Parceiros que ajudamos</h2>
+          </div>
+          <div class="col-6">
+            <div class="owl-carousel owl-theme parceiros">
+              <div class="item">
+                <a href="" title=""
+                  ><img src="../theme/assets/images/parceiro-1.svg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="" title=""
+                  ><img src="../theme/assets/images/parceiro-2.svg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="" title=""
+                  ><img src="../theme/assets/images/parceiro-3.svg" alt=""
+                /></a>
+              </div>
+              <div class="item">
+                <a href="" title=""
+                  ><img src="../theme/assets/images/parceiro-4.svg" alt=""
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="container">
-        <div class="row"></div>
+        <a href="" title="Nectalimentos"
+          ><img
+            src="../theme/assets/images/nectalimentos_logo_footer.svg"
+            alt="Nectalimentos"
+        /></a>
+        <div class="row">
+          <div class="col-6">
+            <nav class="nav--footer">
+              <ul>
+                <li>
+                  <a href="" title="A Necta">A Necta</a>
+                </li>
+                <li>
+                  <a href="" title="Cursos">Cursos</a>
+                </li>
+                <li>
+                  <a href="" title="Serviços">Serviços</a>
+                  <ul>
+                    <li>
+                      <a href="" title="Assessoria e Consultoria"
+                        >Assessoria e Consultoria</a
+                      >
+                    </li>
+                    <li>
+                      <a href="" title="Adequação de Produtos e Processos"
+                        >Adequação de Produtos e Processos</a
+                      >
+                    </li>
+                    <li><a href="" title="Rotulagem">Rotulagem</a></li>
+                    <li>
+                      <a href="" title="Suporte Técnico">Suporte Técnico</a>
+                    </li>
+                    <li>
+                      <a
+                        href=""
+                        title="Suporte para Organização de Eventos e Exposições"
+                        >Suporte para Organização de Eventos e Exposições</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-6">
+            <nav class="nav--footer">
+              <ul>
+                <li>
+                  <a href="" title="Blog">Blog</a>
+                </li>
+                <li>
+                  <a href="" title="Cases">Cases</a>
+                </li>
+                <li>
+                  <a href="" title="Contato">Contato</a>
+                  <ul>
+                    <li>
+                      <a href="" title="(48) 99112.9772">(48) 99112.9772</a>
+                    </li>
+                    <li>
+                      <a href="" title="nectalimentos@gmail.com"
+                        >nectalimentos@gmail.com</a
+                      >
+                    </li>
+                    <li>
+                      <a href="" title="Joaçaba SC - CEP 89600-000"
+                        >Joaçaba SC - CEP 89600-000</a
+                      >
+                    </li>
+                    <li class="social">
+                      <a href="" title="facebook"
+                        ><img
+                          src="../theme/assets/images/ico-facebook.svg"
+                          alt="facebook"
+                      /></a>
+                      <a href="" title="instagram"
+                        ><img
+                          src="../theme/assets/images/ico-instagram.svg"
+                          alt="instagram"
+                      /></a>
+                      <a href="" title="youtube"
+                        ><img
+                          src="../theme/assets/images/ico-youtube.svg"
+                          alt="youtube"
+                      /></a>
+                      <a href="" title="whatsapp"
+                        ><img
+                          src="../theme/assets/images/ico-whatsapp.svg"
+                          alt="whatsapp"
+                      /></a>
+                      <a href="" title="skype"
+                        ><img
+                          src="../theme/assets/images/ico-skype.svg"
+                          alt="skype"
+                      /></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <span class="copy">NectAlimentos® 2022</span>
       </div>
     </footer>
 
@@ -585,6 +721,15 @@
         },
       });
 
+      $(".parceiros").owlCarousel({
+        loop: false,
+        nav: false,
+        dots: false,
+        autoWidth: true,
+        margin: 30,
+        items: 4,
+      });
+
       $(".card--post").owlCarousel({
         loop: false,
         nav: true,
@@ -600,9 +745,9 @@
     </script>
 
     <!-- filter SVG -->
-    <svg xmlns="<http://www.w3.org/2000/svg>" version="1.1">
+    <svg xmlns="<http://www.w3.org/2000/svg>" version="1.1" id="svg-filter">
       <defs>
-        <filter id="sgv-filter--cor1">
+        <filter id="sgv-filter--white">
           <feColorMatrix
             color-interpolation-filters="sRGB"
             type="matrix"
@@ -614,7 +759,19 @@
             "
           />
         </filter>
-        ...
+
+        <filter id="sgv-filter--cor1">
+          <feColorMatrix
+            color-interpolation-filters="sRGB"
+            type="matrix"
+            values="
+            0 0 0 0 0
+            0 0.62 0 0 0
+            0 0 0.50 0 0
+            0 0 0 1 0
+            "
+          />
+        </filter>
       </defs>
     </svg>
   </body>

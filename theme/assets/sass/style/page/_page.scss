@@ -49,7 +49,7 @@
         background-color: $cor1;
 
         img {
-          filter: invert(100%) url(#sgv-filter--cor1);
+          filter: invert(100%) url(#sgv-filter--white);
         }
 
         h3 {
@@ -88,9 +88,7 @@
       clip-path: inset(-100vw -100vw -100vw 0);
       overflow: visible;
     }
-    .owl-item {
-      //width: 230px;
-    }
+
     .item {
       width: 230px;
       background-color: #ffffff;
@@ -143,6 +141,30 @@
 
     .link {
       margin: 10px 20px 0;
+    }
+  }
+}
+
+.parceiros {
+  width: 100%;
+  .owl-stage-outer {
+    clip-path: inset(-100vw -100vw -100vw 0);
+    overflow: visible;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+
+    a {
+      display: block;
+      height: 70px;
+
+      img {
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
     }
   }
 }

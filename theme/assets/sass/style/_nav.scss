@@ -302,155 +302,40 @@
       }
     }
   }
+}
 
-  &.nav-topo {
-    float: right;
+.nav--footer {
+  margin-top: 30px;
 
-    ul {
-      display: table-cell;
-      max-width: 660px;
+  li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
 
-      @include m980 {
-        &:not(.idiomas) {
-          display: none;
-        }
-      }
-    }
-
-    li {
-      border-left: 2px solid $cor1;
-      padding: 0 15px;
+    a {
+      font-weight: $medium;
+      font-size: 0.875rem;
+      line-height: 1.75rem;
+      color: $cor-txt;
+      display: inline-block;
 
       &:hover,
       &.ativo {
-        > a {
-          color: $cor2;
-
-          i {
-            color: $cor2;
-          }
-        }
-      }
-
-      a {
-        font-size: 0.75rem;
-        padding: 0px;
         color: $cor1;
-
-        i {
-          color: $cor1;
-        }
-      }
-
-      &.rede-social {
-        border: none;
-        padding: 0px;
-
-        a {
-          padding: 0px 10px 0;
-
-          i {
-            font-size: 1rem;
-          }
-        }
-
-        &.last-rede-social {
-          padding-right: 10px;
-        }
       }
     }
 
-    ul.idiomas {
-      top: -2px;
-      position: relative;
-
-      li {
-        display: block;
-        border: none;
-        line-height: 15px;
-        padding: 0;
-        margin-left: 10px;
-
-        &:hover,
-        &.ativo {
-          > a span {
-            color: $cor2;
-          }
-        }
-      }
-
-      a {
-        color: $cor-txt;
-        line-height: 0;
-        padding: 0px;
-        display: block;
-      }
-
-      img,
-      span {
-        //padding-top: 5px;
-      }
-
-      img {
-        padding-right: 3px;
-        vertical-align: middle;
-
-        @include m980 {
-          position: relative;
-          top: -1px;
-        }
-      }
-
-      span {
-        font-weight: $regular;
-        vertical-align: middle;
-        position: relative;
-        top: 1px;
-      }
-    }
-  }
-
-  &.nav-footer {
-    margin-top: 10px;
-
-    &.rede-social {
-      //margin-top: 60px;
+    ul {
+      padding-left: 30px;
     }
 
     li {
-      display: block;
-      text-align: left;
-      margin: 15px 0 0;
-      padding: 0;
-      line-height: normal;
-
       a {
-        padding: 0;
-        font-size: $font-size;
-        line-height: $font-size + 0.25;
-        font-weight: $regular;
-        text-transform: none;
-
-        i {
-          width: 30px;
-          color: $verde-limao;
-          padding-right: 5px;
-          text-align: center;
-          font-size: 1.225rem;
-          position: relative;
-          top: 3px;
-        }
-
-        &:hover,
-        &.ativo {
-          color: $verde-limao;
-        }
+        color: $cor-txt-light;
       }
     }
   }
 }
-
-// NAV FOOTER
 
 // MENU MOBILE
 .menu-mobile {

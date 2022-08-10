@@ -130,6 +130,10 @@ body * {
     padding: 0;
   }
 
+  &.padding-reduced {
+    padding: 35px 0;
+  }
+
   .content {
     width: 100%;
     display: block;

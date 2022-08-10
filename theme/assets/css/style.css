@@ -237,6 +237,9 @@ body * {
   z-index: 0;
   padding: 0;
 }
+.box-content.padding-reduced {
+  padding: 35px 0;
+}
 .box-content .content {
   width: 100%;
   display: block;
@@ -828,113 +831,30 @@ a.link:hover {
     font-size: 120%;
   }
 }
-.nav.nav-topo {
-  float: right;
+
+.nav--footer {
+  margin-top: 30px;
 }
-.nav.nav-topo ul {
-  display: table-cell;
-  max-width: 660px;
+.nav--footer li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
 }
-@media all and (max-width: 980px) {
-  .nav.nav-topo ul:not(.idiomas) {
-    display: none;
-  }
-}
-.nav.nav-topo li {
-  border-left: 2px solid #00a082;
-  padding: 0 15px;
-}
-.nav.nav-topo li:hover > a, .nav.nav-topo li.ativo > a {
-  color: #ed9118;
-}
-.nav.nav-topo li:hover > a i, .nav.nav-topo li.ativo > a i {
-  color: #ed9118;
-}
-.nav.nav-topo li a {
-  font-size: 0.75rem;
-  padding: 0px;
-  color: #00a082;
-}
-.nav.nav-topo li a i {
-  color: #00a082;
-}
-.nav.nav-topo li.rede-social {
-  border: none;
-  padding: 0px;
-}
-.nav.nav-topo li.rede-social a {
-  padding: 0px 10px 0;
-}
-.nav.nav-topo li.rede-social a i {
-  font-size: 1rem;
-}
-.nav.nav-topo li.rede-social.last-rede-social {
-  padding-right: 10px;
-}
-.nav.nav-topo ul.idiomas {
-  top: -2px;
-  position: relative;
-}
-.nav.nav-topo ul.idiomas li {
-  display: block;
-  border: none;
-  line-height: 15px;
-  padding: 0;
-  margin-left: 10px;
-}
-.nav.nav-topo ul.idiomas li:hover > a span, .nav.nav-topo ul.idiomas li.ativo > a span {
-  color: #ed9118;
-}
-.nav.nav-topo ul.idiomas a {
-  color: #000000;
-  line-height: 0;
-  padding: 0px;
-  display: block;
-}
-.nav.nav-topo ul.idiomas img {
-  padding-right: 3px;
-  vertical-align: middle;
-}
-@media all and (max-width: 980px) {
-  .nav.nav-topo ul.idiomas img {
-    position: relative;
-    top: -1px;
-  }
-}
-.nav.nav-topo ul.idiomas span {
-  font-weight: 400;
-  vertical-align: middle;
-  position: relative;
-  top: 1px;
-}
-.nav.nav-footer {
-  margin-top: 10px;
-}
-.nav.nav-footer li {
-  display: block;
-  text-align: left;
-  margin: 15px 0 0;
-  padding: 0;
-  line-height: normal;
-}
-.nav.nav-footer li a {
-  padding: 0;
+.nav--footer li a {
+  font-weight: 500;
   font-size: 0.875rem;
-  line-height: 1.125rem;
-  font-weight: 400;
-  text-transform: none;
+  line-height: 1.75rem;
+  color: #000000;
+  display: inline-block;
 }
-.nav.nav-footer li a i {
-  width: 30px;
-  color: #8cc63f;
-  padding-right: 5px;
-  text-align: center;
-  font-size: 1.225rem;
-  position: relative;
-  top: 3px;
+.nav--footer li a:hover, .nav--footer li a.ativo {
+  color: #00a082;
 }
-.nav.nav-footer li a:hover, .nav.nav-footer li a.ativo {
-  color: #8cc63f;
+.nav--footer li ul {
+  padding-left: 30px;
+}
+.nav--footer li li a {
+  color: #5d5e60;
 }
 
 .menu-mobile {
@@ -1297,6 +1217,33 @@ a.link:hover {
   color: #00a082;
 }
 
+.footer {
+  background-color: #ffffff;
+  background-image: url("/theme/assets/images/bg-footer.svg");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  padding: 30px 0 10px;
+}
+.footer .social a {
+  margin-left: 32px;
+  filter: invert(100%) url(#sgv-filter--cor1);
+}
+.footer .social a:first-child {
+  margin-left: 0;
+}
+.footer .copy {
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 1.75rem;
+  color: #5d5e60;
+  margin: 60px 0 0 85px;
+}
+
+#svg-filter {
+  opacity: 0;
+  height: 0;
+}
+
 .txt--white {
   color: #ffffff;
 }
@@ -1311,6 +1258,10 @@ a.link:hover {
 
 .bg--cor1 {
   background-color: #00a082;
+}
+
+.bg--grey {
+  background-color: #efefef;
 }
 
 /* PAGES */
@@ -1361,7 +1312,7 @@ a.link:hover {
   background-color: #00a082;
 }
 .card--icon-text a:hover img {
-  filter: invert(100%) url(#sgv-filter--cor1);
+  filter: invert(100%) url(#sgv-filter--white);
 }
 .card--icon-text a:hover h3 {
   color: #ffffff;
@@ -1445,6 +1396,27 @@ a.link:hover {
 }
 .card--post .link {
   margin: 10px 20px 0;
+}
+
+.parceiros {
+  width: 100%;
+}
+.parceiros .owl-stage-outer {
+  clip-path: inset(-100vw -100vw -100vw 0);
+  overflow: visible;
+}
+.parceiros .item {
+  display: flex;
+  align-items: center;
+}
+.parceiros .item a {
+  display: block;
+  height: 70px;
+}
+.parceiros .item a img {
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .ico-redes {
