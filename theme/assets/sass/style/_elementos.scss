@@ -8,6 +8,10 @@ em {
 }
 
 h1 {
+  font-size: 3.5rem;
+  line-height: 4.2rem;
+  font-weight: $semi-bold;
+  color: $cor-txt;
 }
 
 h2 {
@@ -62,8 +66,8 @@ p {
   font-size: $font-size;
   line-height: 1.125rem;
   font-weight: $medium;
+  padding-bottom: 15px;
   @include box-sizing;
-  //padding-bottom: 15px;
 
   &:last-child {
     padding-bottom: 0;
