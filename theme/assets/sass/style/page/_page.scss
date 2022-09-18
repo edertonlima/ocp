@@ -143,6 +143,28 @@
       margin: 10px 20px 0;
     }
   }
+
+  &--cursos {
+    .owl-item {
+      min-height: 339px;
+      .item {
+        min-height: 339px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .link {
+      font-weight: $regular;
+      font-size: .875rem;
+      line-height: 1.312rem;
+      color: $cor-txt-light;
+      margin-top: auto;
+
+      &:hover {
+        color: $cor1
+      }
+    }
+  }
 }
 
 .parceiros {

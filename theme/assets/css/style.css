@@ -1413,6 +1413,24 @@ a.link:hover {
 .card--post .link {
   margin: 10px 20px 0;
 }
+.card--cursos .owl-item {
+  min-height: 339px;
+}
+.card--cursos .owl-item .item {
+  min-height: 339px;
+  display: flex;
+  flex-direction: column;
+}
+.card--cursos .link {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.312rem;
+  color: #5d5e60;
+  margin-top: auto;
+}
+.card--cursos .link:hover {
+  color: #00a082;
+}
 
 .parceiros {
   width: 100%;
